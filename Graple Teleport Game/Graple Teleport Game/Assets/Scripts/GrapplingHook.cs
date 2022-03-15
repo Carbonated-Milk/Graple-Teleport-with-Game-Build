@@ -64,7 +64,7 @@ public class GrapplingHook : MonoBehaviour
         {
             Debug.DrawLine(transform.position, lockedPos, Color.cyan);
         }
-        Debug.Log(shootLength);
+        //Debug.Log(shootLength);
         //Debug.DrawLine(transform.position, transform.position + (Vector3)(shootLength * (mousePos.normalized - (Vector2)transform.position)));
     }
 

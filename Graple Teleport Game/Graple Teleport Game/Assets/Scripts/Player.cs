@@ -8,9 +8,12 @@ public class Player : MonoBehaviour
     public UnityEvent death;
     public Rigidbody2D rb;
 
-    public bool canJump;
+    [HideInInspector] public bool canJump;
+    [HideInInspector] public bool contained;
+    [HideInInspector] public GameObject containedObj;
     void Start()
     {
+        contained = false;
         respawnPoint = Vector3.zero;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -18,6 +21,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(contained)
+        {
+            transform.position = containedObj.transform.position;
+            return;
+        }
+
         if (Input.GetKey("a"))
         {
             rb.AddForce(Vector2.left * 200 * Time.deltaTime);
@@ -61,5 +70,23 @@ public class Player : MonoBehaviour
         transform.position = respawnPoint;
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
+    }
+
+    public void Contained(GameObject container)
+    {
+        containedObj = container;
+        contained = true;
+        GetComponent<Renderer>().enabled = false;
+        transform.position = container.transform.position;
+        rb.velocity = Vector3.zero;
+        //rb.isKinematic = true;
+        transform.parent = container.transform;
+    }
+    public void Released()
+    {
+        contained = false;
+        GetComponent<Renderer>().enabled = true;
+        //rb.isKinematic = false;
+        transform.parent = null;
     }
 }

@@ -7,8 +7,8 @@ public class Boinger : MonoBehaviour
 
     public void OnCollisionEnter2D (Collision2D bounce)
     {
+        Vector2 normal = -bounce.GetContact(0).normal;
         Rigidbody2D rb = bounce.gameObject.GetComponent<Rigidbody2D>();
-        Vector2 dirVec = (bounce.transform.position - transform.position).normalized;
-        rb.AddForce(dirVec * (700 + rb.velocity.sqrMagnitude));
+        rb.AddForce(normal * (700 + rb.velocity.sqrMagnitude));
     }
 }
