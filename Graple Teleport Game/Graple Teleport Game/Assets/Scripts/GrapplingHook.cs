@@ -15,6 +15,7 @@ public class GrapplingHook : MonoBehaviour
     float grapleRadius;
 
     public static bool grapleCaught;
+    public static bool canGraple = true;
 
     
     void Start()
@@ -25,10 +26,8 @@ public class GrapplingHook : MonoBehaviour
     }
     void Update()
     {
-        
-
-        mousePos = (Vector2)cam.ScreenToWorldPoint(Input.mousePosition);
-        if(Input.GetMouseButtonDown(0))
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        if(Input.GetMouseButtonDown(0) && canGraple)
         {
             StopAllCoroutines();
             StartCoroutine(ShootHook());
@@ -76,9 +75,10 @@ public class GrapplingHook : MonoBehaviour
 
         // Projection to make rope super tight and hold on to thing.
         //This code only works because grapleDirection is normalized.
-        rb.velocity = rb.velocity - grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
+        
         if(((Vector2)transform.position - lockedPos).sqrMagnitude > grapleRadius * grapleRadius)
         {
+            rb.velocity = rb.velocity - grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
             transform.position = lockedPos + ((Vector2)transform.position - lockedPos).normalized * grapleRadius;
         }
         

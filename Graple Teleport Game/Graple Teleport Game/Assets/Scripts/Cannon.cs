@@ -13,6 +13,7 @@ public class Cannon : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GrapplingHook.canGraple = false;
             collision.GetComponent<Player>().Contained(gameObject);
             active = true;
             contained = collision.gameObject;
@@ -30,5 +31,6 @@ public class Cannon : MonoBehaviour
 
         contained.GetComponent<Player>().Released();
         contained.GetComponent<Rigidbody2D>().velocity = transform.up * launchPower;
+        GrapplingHook.canGraple = true;
     }
 }
