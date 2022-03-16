@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     Vector3 respawnPoint;
     public UnityEvent death;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     [HideInInspector] public bool canJump;
     [HideInInspector] public bool contained;
