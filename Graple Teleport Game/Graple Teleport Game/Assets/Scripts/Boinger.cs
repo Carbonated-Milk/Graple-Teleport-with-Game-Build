@@ -14,7 +14,7 @@ public class Boinger : MonoBehaviour
         if (mathBounce)
         {
             Vector2 newVel = bounce.relativeVelocity - 2 * normal * Vector2.Dot(bounce.relativeVelocity, normal);
-            rb.velocity = newVel.normalized * bounce.relativeVelocity.magnitude * bouncePow;
+            rb.velocity = newVel.normalized * Mathf.Min(bounce.relativeVelocity.magnitude * bouncePow, 1000f);
         }
         else
         {
