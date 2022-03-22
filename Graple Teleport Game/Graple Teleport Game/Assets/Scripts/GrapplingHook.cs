@@ -45,11 +45,6 @@ public class GrapplingHook : MonoBehaviour
         if (Vector2.Dot(rb.velocity, (Vector2)grap.grip.position - (Vector2)transform.position) <= 0  && (Vector2)grap.grip.position != Vector2.zero && grap.active)
         {
             GrappleVelocity((Vector2)grap.grip.position - (Vector2)transform.position);
-            if(grap.gripRB != null)
-            {
-                Vector2 neces = -((Vector2)grap.grip.position - (Vector2)transform.position).normalized;
-                grap.gripRB.AddForceAtPosition(neces * Vector2.Dot(rb.velocity, neces), grap.grip.position);
-            }
         }
 
         #region Line Rendering
@@ -65,25 +60,33 @@ public class GrapplingHook : MonoBehaviour
         }
         if(grapleCaught)
         {
-            Debug.DrawLine(transform.position, (Vector2)grap.grip.position, Color.cyan);
+            //Debug.DrawLine(transform.position, (Vector2)grap.grip.position, Color.cyan);
         }
         #endregion
     }
 
     public void GrappleVelocity(Vector2 grapleVector)
     {
+        float speedConst = 7;
         Vector2 grapleDirection = grapleVector.normalized;
 
         // Projection to make rope super tight and hold on to thing.
         //This code only works because grapleDirection is normalized.
-        
-        if(((Vector2)transform.position - (Vector2)grap.grip.position).sqrMagnitude > grapleRadius * grapleRadius)
+
+        if (((Vector2)transform.position - (Vector2)grap.grip.position).sqrMagnitude > grapleRadius * grapleRadius)
         {
             rb.velocity -= grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
             transform.position = (Vector2)grap.grip.position + ((Vector2)transform.position - (Vector2)grap.grip.position).normalized * grapleRadius;
+
+            if (grap.gripRB != null)
+            {
+                grap.gripRB.AddForceAtPosition(100 * Physics.gravity * Time.deltaTime * -Vector2.Dot(Vector2.down, grapleDirection), grap.grip.position);
+
+                grap.gripRB.AddForceAtPosition(-grapleDirection * 10, grap.grip.position);
+            }
         }
         
-        Debug.DrawLine(transform.position, transform.position + (Vector3)(grapleDirection * rb.velocity.sqrMagnitude / grapleRadius), Color.red);
+        //Debug.DrawLine(transform.position, transform.position + (Vector3)(grapleDirection * rb.velocity.sqrMagnitude / grapleRadius), Color.red);
     }
 
     IEnumerator ShootHook()
