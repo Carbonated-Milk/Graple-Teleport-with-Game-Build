@@ -41,6 +41,11 @@ public class GrapplingHook : MonoBehaviour
             StartCoroutine(RetractHook());
         }
         
+        if(grap.grip == null)
+        {
+            grap.grip = new GameObject().transform;
+            TurnOffGrapple();
+        }
 
         if (Vector2.Dot(rb.velocity, (Vector2)grap.grip.position - (Vector2)transform.position) <= 0  && (Vector2)grap.grip.position != Vector2.zero && grap.active)
         {
@@ -93,7 +98,6 @@ public class GrapplingHook : MonoBehaviour
     {
         while (shootLength < ropeLength)
         {
-
             shootLength += 50 * Time.deltaTime;
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position, mousePos - (Vector2)(transform.position), shootLength);

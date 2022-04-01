@@ -7,7 +7,10 @@ public class Accelorator : MonoBehaviour
     public float acceleration;
     private List<Rigidbody2D> bodies;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        bodies = new List<Rigidbody2D>();
+    }
     void Update()
     {
         foreach(Rigidbody2D body in bodies)

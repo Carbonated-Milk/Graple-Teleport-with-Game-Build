@@ -49,6 +49,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void Start()
+    {
+        Play("Funky");
+    }
+
     private void Update()
     {
         
