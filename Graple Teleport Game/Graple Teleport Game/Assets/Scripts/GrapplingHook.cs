@@ -122,8 +122,7 @@ public class GrapplingHook : MonoBehaviour
     }
     IEnumerator RetractHook()
     {
-        grap.active = false;
-
+        grap.TurnOffGrap();
         grapleRadius = 0f;
         grapleCaught = false;
         while (shootLength > 0f)
@@ -143,7 +142,7 @@ public class GrapplingHook : MonoBehaviour
         grapleCaught = false;
         lockedPos = Vector2.zero;
 
-        grap.active = false;
+        grap.TurnOffGrap();
     }
 
     public void SetGrapleRadius()
@@ -159,4 +158,10 @@ public class GrapLocation
     public Transform grip;
 
     public Rigidbody2D gripRB;
+
+    public void TurnOffGrap()
+    {
+        active = false;
+        gripRB = null;
+    }
 }
