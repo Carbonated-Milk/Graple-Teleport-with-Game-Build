@@ -40,7 +40,7 @@ public class Shooter : MonoBehaviour
             if (Mathf.Abs(targetRot - transform.rotation.z) < .5)
             {
                 ShootBullet();
-                yield return new WaitForSeconds(.5f);
+                yield return new WaitForSeconds(1f);
             }
             yield return null;
         }

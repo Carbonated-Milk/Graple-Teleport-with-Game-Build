@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float trackSpeed;
+    public float correctSpeed;
     public bool seeking;
     Rigidbody2D rb;
     public Transform player;
@@ -19,7 +21,10 @@ public class Bullet : MonoBehaviour
         if(seeking)
         {
             Vector2 relPos = player.position - transform.position;
-            rb.AddForce(relPos.normalized * 500 * Time.deltaTime);
+            rb.AddForce(relPos.normalized * trackSpeed * 100 * Time.deltaTime);
+
+            Vector2 speedCorrect = rb.velocity - relPos.normalized * Vector2.Dot(rb.velocity, relPos.normalized);
+            rb.AddForce(-speedCorrect * correctSpeed * Time.deltaTime);
         }
     }
 

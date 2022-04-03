@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ccf4bfabaebc449b8116565ba609ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackSpeed: 3
+  correctSpeed: 80
   seeking: 1
   player: {fileID: 0}
 --- !u!212 &8344583580874297232
