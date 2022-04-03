@@ -7,6 +7,7 @@ public class Parallax : MonoBehaviour
     private float length, height, startposX, startposY;
     public GameObject cam;
     public float parallaxEffect;
+    [HideInInspector] public bool clone = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,20 @@ public class Parallax : MonoBehaviour
         startposY = transform.position.y;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
         height = GetComponent<SpriteRenderer>().bounds.size.y;
+        if (!clone)
+        {
+            GameObject[] clones = new GameObject[3];
+            clones[0] = Instantiate(gameObject);
+            clones[0].transform.position = transform.position + Vector3.up * height;
+            clones[1] = Instantiate(gameObject);
+            clones[1].transform.position = transform.position + Vector3.right * length;
+            clones[2] = Instantiate(gameObject);
+            clones[2].transform.position = transform.position + Vector3.right * length + Vector3.up * height;
+            foreach (GameObject clone in clones)
+            {
+                clone.GetComponent<Parallax>().clone = true;
+            }
+        }
     }
 
     // Update is called once per frame
