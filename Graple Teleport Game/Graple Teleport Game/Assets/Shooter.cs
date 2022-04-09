@@ -30,7 +30,7 @@ public class Shooter : MonoBehaviour
     {
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position, layerMask);
         //Debug.Log(hit.collider);
-        while (true)
+        while (Vector3.SqrMagnitude(transform.position - player.position) < 50 * 50)
         {
             //hit = Physics2D.Raycast(transform.position, player.position, layerMask);
             Vector2 dist = player.position - transform.position;
