@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RespawnPoint
   - Death
+  - Grabbable
   layers:
   - Default
   - TransparentFX

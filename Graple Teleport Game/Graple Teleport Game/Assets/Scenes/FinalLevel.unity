@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 33217731}
   - component: {fileID: 33217730}
   - component: {fileID: 33217729}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Sprite (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 92691719}
   - component: {fileID: 92691718}
   - component: {fileID: 92691717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 101772415}
   - component: {fileID: 101772414}
   - component: {fileID: 101772413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Sprite (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 142493633}
   - component: {fileID: 142493635}
   - component: {fileID: 142493634}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Sprite (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 196946983}
   - component: {fileID: 196946985}
   - component: {fileID: 196946984}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Sprite (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2810,7 +2810,7 @@ GameObject:
   - component: {fileID: 615405106}
   - component: {fileID: 615405105}
   - component: {fileID: 615405104}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Boinger (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8220,7 +8220,7 @@ GameObject:
   - component: {fileID: 818312753}
   - component: {fileID: 818312752}
   - component: {fileID: 818312751}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8423,7 +8423,7 @@ GameObject:
   - component: {fileID: 827061159}
   - component: {fileID: 827061158}
   - component: {fileID: 827061157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8562,7 +8562,7 @@ GameObject:
   - component: {fileID: 870701557}
   - component: {fileID: 870701556}
   - component: {fileID: 870701555}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Sprite (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16076,7 +16076,7 @@ GameObject:
   - component: {fileID: 1559551580}
   - component: {fileID: 1559551579}
   - component: {fileID: 1559551578}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16667,7 +16667,7 @@ GameObject:
   - component: {fileID: 1616118131}
   - component: {fileID: 1616118130}
   - component: {fileID: 1616118133}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Sprite (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17178,7 +17178,7 @@ GameObject:
   - component: {fileID: 1772693533}
   - component: {fileID: 1772693532}
   - component: {fileID: 1772693531}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23044,7 +23044,7 @@ GameObject:
   - component: {fileID: 2041754469}
   - component: {fileID: 2041754468}
   - component: {fileID: 2041754467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Sprite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

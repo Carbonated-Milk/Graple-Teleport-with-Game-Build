@@ -15,6 +15,8 @@ public class GrapplingHook : MonoBehaviour
     float shootLength;
     float grapleRadius;
 
+    public LayerMask ignoreMe;
+
     public static bool grapleCaught;
     public static bool canGraple = true;
 
@@ -72,7 +74,6 @@ public class GrapplingHook : MonoBehaviour
 
     public void GrappleVelocity(Vector2 grapleVector)
     {
-        float speedConst = 7;
         Vector2 grapleDirection = grapleVector.normalized;
 
         // Projection to make rope super tight and hold on to thing.
@@ -100,7 +101,7 @@ public class GrapplingHook : MonoBehaviour
         {
             shootLength += 50 * Time.deltaTime;
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, mousePos - (Vector2)(transform.position), shootLength);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, mousePos - (Vector2)(transform.position), shootLength, ignoreMe);
             if (hit.collider != null)
             {
                 lockedPos = hit.point;
