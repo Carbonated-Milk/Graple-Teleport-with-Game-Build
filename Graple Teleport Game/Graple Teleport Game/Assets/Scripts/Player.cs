@@ -79,14 +79,14 @@ public class Player : MonoBehaviour
         GetComponent<Renderer>().enabled = false;
         transform.position = container.transform.position;
         rb.velocity = Vector3.zero;
-        //rb.isKinematic = true;
+        rb.isKinematic = true;
         transform.parent = container.transform;
     }
     public void Released()
     {
         contained = false;
         GetComponent<Renderer>().enabled = true;
-        //rb.isKinematic = false;
+        rb.isKinematic = false;
         transform.parent = null;
     }
 }

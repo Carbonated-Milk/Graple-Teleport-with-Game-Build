@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,41 +6,36 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     public Vector2 sizeArray;
+
+    public bool scaling;
+    public float sizeAdjust;
     private float length, height, startposX, startposY;
     public Transform cam;
     public float parallaxEffect;
     [HideInInspector] public bool clone = false;
     public bool noTopRepeat;
-    // Start is called before the first frame update
+
+    [HideInInspector] public float initialScale;
     void Start()
     {
-        if(cam == null)
+        if (cam == null)
         {
             cam = FindObjectOfType<Camera>().transform;
         }
 
-
         startposX = transform.position.x;
         startposY = transform.position.y;
-        length = GetComponent<SpriteRenderer>().bounds.size.x;
-        height = GetComponent<SpriteRenderer>().bounds.size.y;
+        length = GetComponentInChildren<SpriteRenderer>().bounds.size.x;
+        height = GetComponentInChildren<SpriteRenderer>().bounds.size.y;
 
 
         if (!clone)
         {
-            GameObject[] clones = new GameObject[(int)sizeArray.x * (int)sizeArray.y];
-
-            for (int i = 0; i < sizeArray.x; i++)
-            {
-                for(int j = 0; j < sizeArray.y; j++)
-                {
-                    clones[i + j] = Instantiate(gameObject);
-                    clones[i + j].transform.position = transform.position + Vector3.right * length * i + Vector3.up * height * j;
-                    clones[i + j].GetComponent<Parallax>().clone = true;
-                }
-            }
-            Destroy(gameObject);
+            initialScale = transform.localScale.y;
+            Array();
         }
+
+
     }
 
     // Update is called once per frame
@@ -53,13 +49,75 @@ public class Parallax : MonoBehaviour
 
         transform.position = new Vector3(startposX + distx, startposY + disty, transform.position.z);
 
-        if (tempx > startposX + length * (int)sizeArray.x/2) startposX += (int)sizeArray.x * length;
+        if (tempx > startposX + length * (int)sizeArray.x / 2) startposX += (int)sizeArray.x * length;
         else if (tempx < startposX - length * (int)sizeArray.x / 2) startposX -= (int)sizeArray.x * length;
 
         if (!noTopRepeat)
         {
             if (tempy > startposY + height * (int)sizeArray.y / 2) startposY += (int)sizeArray.y * height;
             else if (tempy < startposY - height * (int)sizeArray.y / 2) startposY -= (int)sizeArray.y * height;
+        }
+
+        if (scaling)
+        {
+            SpeedScale(transform.GetChild(0));
+        }
+
+    }
+
+    private void SpeedScale(Transform image)
+    {
+        Vector3 camPos = cam.position;
+
+        float imageBigger = 1f + (cam.transform.GetComponent<Camera>().orthographicSize - 1f) * sizeAdjust;
+        imageBigger /= 20;
+
+        Vector3 pointDist = new Vector3(camPos.x - transform.position.x, camPos.y - transform.position.y, 0f);
+
+        float pointX = pointDist.x * imageBigger;
+        float pointY = pointDist.y * imageBigger;
+
+        image.transform.localScale = new Vector2(imageBigger, imageBigger) * initialScale;
+        image.transform.localPosition = (Vector2)cam.position - new Vector2(pointX + transform.position.x, pointY + transform.position.y);
+
+    }
+
+    void Array()
+    {
+        GameObject[] clones = new GameObject[(int)sizeArray.x * (int)sizeArray.y];
+
+        for (int i = 0; i < sizeArray.x; i++)
+        {
+            for (int j = 0; j < sizeArray.y; j++)
+            {
+                clones[i + j] = new GameObject();
+                clones[i + j].transform.position = transform.position + Vector3.right * length * i + Vector3.up * height * j;
+                CopyComponent(this, clones[i + j]);
+                clones[i + j].GetComponent<Parallax>().clone = true;
+
+                GameObject empty = new GameObject();
+                empty.transform.localScale = transform.localScale;
+                CopyComponent(GetComponent<SpriteRenderer>(), empty);
+                empty.transform.parent = clones[i + j].transform;
+                empty.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
+                empty.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
+                empty.transform.localPosition = Vector3.zero;
+                Destroy(GetComponent<SpriteRenderer>());
+
+            }
+        }
+        Destroy(gameObject);
+    }
+
+    void CopyComponent(Component original, GameObject destination)
+    {
+        System.Type type = original.GetType();
+        Component copy = destination.AddComponent(type);
+        // Copied fields can be restricted with BindingFlags
+        System.Reflection.FieldInfo[] fields = type.GetFields();
+        foreach (System.Reflection.FieldInfo field in fields)
+        {
+            field.SetValue(copy, field.GetValue(original));
         }
     }
 
