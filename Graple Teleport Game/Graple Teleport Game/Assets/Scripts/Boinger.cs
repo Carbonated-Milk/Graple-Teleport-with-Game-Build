@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Boinger : MonoBehaviour
 {
+    public float plinkoNum;
     public bool mathBounce;
     public float bouncePow;
+
+    public void Start()
+    {
+        if (plinkoNum == 0) plinkoNum = 7;
+    }
 
     public void OnCollisionEnter2D(Collision2D bounce)
     {
@@ -18,7 +24,7 @@ public class Boinger : MonoBehaviour
         }
         else
         {
-            rb.AddForce(normal * (700 + rb.velocity.sqrMagnitude));
+            rb.AddForce(normal * (plinkoNum * 100 + rb.velocity.sqrMagnitude));
         }
     }
 }
