@@ -69,7 +69,7 @@ public class Parallax : MonoBehaviour
     {
         Vector3 camPos = cam.position;
 
-        float imageBigger = 1f + (cam.transform.GetComponent<Camera>().orthographicSize - 1f) * sizeAdjust;
+        float imageBigger = cam.transform.GetComponent<Camera>().orthographicSize * sizeAdjust;
         imageBigger /= 20;
 
         Vector3 pointDist = new Vector3(camPos.x - transform.position.x, camPos.y - transform.position.y, 0f);

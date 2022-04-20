@@ -7,6 +7,9 @@ public class CameraMovement : MonoBehaviour
     private GameObject player;
     public float speedSizeBoost;
 
+    public float minSize;
+    public float maxSize;
+
     private Rigidbody2D playerRb;
     private Camera cam;
 
@@ -21,6 +24,6 @@ public class CameraMovement : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, player.transform.position - new Vector3(0, 0, 10), .08f);
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 1 + (speedSizeBoost * player.GetComponent<Rigidbody2D>().velocity.magnitude), .02f);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, Mathf.Clamp(speedSizeBoost * player.GetComponent<Rigidbody2D>().velocity.magnitude, minSize, maxSize), .02f);
     }
 }
