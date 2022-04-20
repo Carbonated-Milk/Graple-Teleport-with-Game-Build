@@ -5,6 +5,7 @@ using UnityEngine;
 public class Teleporter : MonoBehaviour
 {
     public bool straitTeleport;
+    public float fixedSpeed;
     public GameObject otherTele;
     protected Vector2 down;
     protected Vector2 right;
@@ -63,6 +64,7 @@ public class Teleporter : MonoBehaviour
             float newVelX = rb.velocity.x * Mathf.Cos(rotationDiff) - rb.velocity.y * Mathf.Sin(rotationDiff);
             float newVelY = rb.velocity.x * Mathf.Sin(rotationDiff) + rb.velocity.y * Mathf.Cos(rotationDiff);
             rb.velocity = new Vector2(newVelX, newVelY);
+            if(fixedSpeed != 0) { rb.velocity = rb.velocity.normalized * fixedSpeed; }
         }
         catch(MissingComponentException _)
         {
@@ -72,6 +74,7 @@ public class Teleporter : MonoBehaviour
 
     public void Teleport(GameObject teleported, bool side)
     {
+        FindObjectOfType<AudioManager>().Play("Teleport");
         if (teleported.CompareTag("Player"))
         {
             FindObjectOfType<GrapplingHook>().TurnOffGrapple();

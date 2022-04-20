@@ -2766,7 +2766,14 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: Boing
-      clip: {fileID: 8300000, guid: 9540ab683203c39448f57ac5f4c2291e, type: 3}
+      clip: {fileID: 8300000, guid: d95f5639253c7c24e9e0fe5548ddceb3, type: 3}
+      volume: 0.335
+      adjustedVolume: 0
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Teleport
+      clip: {fileID: 8300000, guid: 50c3a605c3f8a08448cbc087f1527d0e, type: 3}
       volume: 0.335
       adjustedVolume: 0
       pitch: 1
@@ -17597,6 +17604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5206109669882216064, guid: add713246dd5dec4f93b7c26d007e831,
         type: 3}
+      propertyPath: fixedSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206109669882216064, guid: add713246dd5dec4f93b7c26d007e831,
+        type: 3}
       propertyPath: straitTeleport
       value: 1
       objectReference: {fileID: 0}
@@ -23415,12 +23427,12 @@ PrefabInstance:
     - target: {fileID: 8368053619028254658, guid: eff4a6807c20f1547b3643c70bcf5b8e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -169.22823
+      value: -169.9
       objectReference: {fileID: 0}
     - target: {fileID: 8368053619028254658, guid: eff4a6807c20f1547b3643c70bcf5b8e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -57.46323
+      value: -58.5
       objectReference: {fileID: 0}
     - target: {fileID: 8368053619028254658, guid: eff4a6807c20f1547b3643c70bcf5b8e,
         type: 3}
@@ -23821,12 +23833,12 @@ PrefabInstance:
     - target: {fileID: 8368053619028254658, guid: eff4a6807c20f1547b3643c70bcf5b8e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -173.72823
+      value: -173.1
       objectReference: {fileID: 0}
     - target: {fileID: 8368053619028254658, guid: eff4a6807c20f1547b3643c70bcf5b8e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -44.46323
+      value: -45.7
       objectReference: {fileID: 0}
     - target: {fileID: 8368053619028254658, guid: eff4a6807c20f1547b3643c70bcf5b8e,
         type: 3}

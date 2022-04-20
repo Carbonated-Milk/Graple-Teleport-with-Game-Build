@@ -17,6 +17,7 @@ public class Boinger : MonoBehaviour
     {
         Vector2 normal = -bounce.GetContact(0).normal;
         Rigidbody2D rb = bounce.gameObject.GetComponent<Rigidbody2D>();
+        FindObjectOfType<AudioManager>().Play("Boing");
         if (mathBounce)
         {
             Vector2 newVel = bounce.relativeVelocity - 2 * normal * Vector2.Dot(bounce.relativeVelocity, normal);
