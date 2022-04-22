@@ -64,7 +64,7 @@ public class Teleporter : MonoBehaviour
             float newVelX = rb.velocity.x * Mathf.Cos(rotationDiff) - rb.velocity.y * Mathf.Sin(rotationDiff);
             float newVelY = rb.velocity.x * Mathf.Sin(rotationDiff) + rb.velocity.y * Mathf.Cos(rotationDiff);
             rb.velocity = new Vector2(newVelX, newVelY);
-            if(fixedSpeed != 0) { rb.velocity = rb.velocity.normalized * fixedSpeed; }
+            if (fixedSpeed != 0) { rb.velocity = rb.velocity.normalized * fixedSpeed; }
         }
         catch(MissingComponentException _)
         {
@@ -101,6 +101,7 @@ public class Teleporter : MonoBehaviour
             rb.velocity = new Vector2(vX, vY);
         }
         teleported.transform.position = otherTele.transform.position;
+        if (fixedSpeed != 0) { rb.velocity = rb.velocity.normalized * fixedSpeed; }
     }
 
     /*private void OnTriggerEnter2D(Collider2D collision)
