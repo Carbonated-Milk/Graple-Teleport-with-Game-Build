@@ -398,3 +398,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedSizeBoost: 1
+  minSize: 5
+  maxSize: 10
