@@ -14,6 +14,7 @@ public class Parallax : MonoBehaviour
     public float parallaxEffect;
     [HideInInspector] public bool clone = false;
     public bool noTopRepeat;
+    public bool localized;
 
     [HideInInspector] public float initialScale;
     void Start()
@@ -34,8 +35,6 @@ public class Parallax : MonoBehaviour
             initialScale = transform.localScale.y;
             Array();
         }
-
-
     }
 
     // Update is called once per frame
@@ -48,14 +47,16 @@ public class Parallax : MonoBehaviour
         float disty = (cam.position.y * parallaxEffect);
 
         transform.position = new Vector3(startposX + distx, startposY + disty, transform.position.z);
-
-        if (tempx > startposX + length * (int)sizeArray.x / 2) startposX += (int)sizeArray.x * length;
-        else if (tempx < startposX - length * (int)sizeArray.x / 2) startposX -= (int)sizeArray.x * length;
-
-        if (!noTopRepeat)
+        if (!localized)
         {
-            if (tempy > startposY + height * (int)sizeArray.y / 2) startposY += (int)sizeArray.y * height;
-            else if (tempy < startposY - height * (int)sizeArray.y / 2) startposY -= (int)sizeArray.y * height;
+            if (tempx > startposX + length * (int)sizeArray.x / 2) startposX += (int)sizeArray.x * length;
+            else if (tempx < startposX - length * (int)sizeArray.x / 2) startposX -= (int)sizeArray.x * length;
+
+            if (!noTopRepeat)
+            {
+                if (tempy > startposY + height * (int)sizeArray.y / 2) startposY += (int)sizeArray.y * height;
+                else if (tempy < startposY - height * (int)sizeArray.y / 2) startposY -= (int)sizeArray.y * height;
+            }
         }
 
         if (scaling)
@@ -84,6 +85,7 @@ public class Parallax : MonoBehaviour
 
     void Array()
     {
+        if (localized) { sizeArray = Vector2.one; }
         GameObject[] clones = new GameObject[(int)sizeArray.x * (int)sizeArray.y];
 
         for (int i = 0; i < sizeArray.x; i++)
@@ -99,10 +101,16 @@ public class Parallax : MonoBehaviour
                 empty.transform.localScale = transform.localScale;
                 CopyComponent(GetComponent<SpriteRenderer>(), empty);
                 empty.transform.parent = clones[i + j].transform;
+
                 empty.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
                 empty.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
+                empty.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
+                empty.GetComponent<SpriteRenderer>().maskInteraction = GetComponent<SpriteRenderer>().maskInteraction;
+
                 empty.transform.localPosition = Vector3.zero;
                 Destroy(GetComponent<SpriteRenderer>());
+
+                if (localized) { clones[i + j].transform.position -= parallaxEffect * (clones[i + j].transform.position - cam.position); Debug.Log(empty.gameObject); }
 
             }
         }

@@ -46,7 +46,7 @@ public class Teleporter : MonoBehaviour
             Teleport(other.gameObject, getRight(other.gameObject));
         }
     }
-
+    
     public void swap(GameObject obj)
     {
         try
