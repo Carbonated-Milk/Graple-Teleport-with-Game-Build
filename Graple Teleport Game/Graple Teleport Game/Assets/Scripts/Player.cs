@@ -41,6 +41,13 @@ public class Player : MonoBehaviour
             rb.AddForce(new Vector2(0f, 200f));
             canJump = false;
         }
+
+        if (Input.GetKeyDown("tab"))
+        {
+            GameManager.menuManager.transform.Find("Game Options").gameObject.SetActive(true);
+            GameManager.menuManager.transform.Find("PlayerUI").gameObject.SetActive(false);
+            Time.timeScale = 0;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2420846b2f5fb9f4da82b78b99dc93fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ropeLength: 5
+  ropeLength: 8
   lineRen: {fileID: 4054328716435429238}
   ignoreMe:
     serializedVersion: 2

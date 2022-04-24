@@ -67,7 +67,7 @@ public class MenuManager : MonoBehaviour
         switch (l.levelIndex)
         {
             case 0:
-                transform.Find("Main Menu").gameObject.SetActive(true);
+                transform.Find("StartMenu").gameObject.SetActive(true);
                 break;
             default:
                 transform.Find("PlayerUI").gameObject.SetActive(true);
