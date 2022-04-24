@@ -74,7 +74,7 @@ public class Teleporter : MonoBehaviour
 
     public void Teleport(GameObject teleported, bool side)
     {
-        FindObjectOfType<AudioManager>().Play("Teleport");
+        GameManager.audioManager.Play("Teleport");
         if (teleported.CompareTag("Player"))
         {
             FindObjectOfType<GrapplingHook>().TurnOffGrapple();

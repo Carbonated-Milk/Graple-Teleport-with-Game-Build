@@ -70,7 +70,6 @@ public class MenuManager : MonoBehaviour
                 transform.Find("Main Menu").gameObject.SetActive(true);
                 break;
             default:
-                CurserLock();
                 transform.Find("PlayerUI").gameObject.SetActive(true);
                 break;
         }
@@ -89,17 +88,6 @@ public class MenuManager : MonoBehaviour
     public void SetTimeScale(float newTime)
     {
         Time.timeScale = newTime;
-    }
-
-    public void CurserLock()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-    public void CurserUnlock()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
 
     public void CloseAllPanels()

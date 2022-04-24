@@ -29,7 +29,7 @@ public class Cannon : MonoBehaviour
             yield return null;
         }
 
-        FindObjectOfType<AudioManager>().Play("CannonShoot");
+        GameManager.audioManager.Play("CannonShoot");
         contained.GetComponent<Player>().Released();
         contained.GetComponent<Rigidbody2D>().velocity = transform.up * launchPower;
         GrapplingHook.canGraple = true;

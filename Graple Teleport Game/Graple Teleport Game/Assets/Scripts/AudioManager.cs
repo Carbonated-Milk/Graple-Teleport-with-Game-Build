@@ -17,9 +17,9 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if(audioManager == null)
+        if(GameManager.audioManager == null)
         {
-            audioManager = this;
+            GameManager.audioManager = this;
         }
         else
         {
@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
 
     public void Start()
     {
-        Play("Funky");
+        //Play("Funky");
     }
 
     private void Update()

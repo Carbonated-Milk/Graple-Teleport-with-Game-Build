@@ -110,7 +110,7 @@ public class Parallax : MonoBehaviour
                 empty.transform.localPosition = Vector3.zero;
                 Destroy(GetComponent<SpriteRenderer>());
 
-                if (localized) { clones[i + j].transform.position -= parallaxEffect * (clones[i + j].transform.position - cam.position); Debug.Log(empty.gameObject); }
+                if (localized) { clones[i + j].transform.position -= parallaxEffect * (clones[i + j].transform.position - cam.position); }
 
             }
         }
