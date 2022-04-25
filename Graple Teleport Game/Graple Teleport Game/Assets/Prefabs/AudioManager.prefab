@@ -48,7 +48,14 @@ MonoBehaviour:
     sounds:
     - name: Funky
       clip: {fileID: 8300000, guid: e5e8641d1a9201746a471b6a7046ce2c, type: 3}
-      volume: 0.3
+      volume: 0.33
+      adjustedVolume: 0
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: Cloud
+      clip: {fileID: 8300000, guid: 5511915f2a6d4f640b8a253857860902, type: 3}
+      volume: 0.33
       adjustedVolume: 0
       pitch: 1
       loop: 1

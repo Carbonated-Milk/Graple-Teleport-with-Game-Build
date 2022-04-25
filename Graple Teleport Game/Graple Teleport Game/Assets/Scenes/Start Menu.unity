@@ -8584,7 +8584,7 @@ MonoBehaviour:
     isLevel: 0
   - levelName: Cloud
     levelIndex: 1
-    startingThemeName: Sky
+    startingThemeName: Cloud
     isLevel: 1
   - levelName: OuterCore
     levelIndex: 2
