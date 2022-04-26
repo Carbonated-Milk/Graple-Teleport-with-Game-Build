@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LarryControl : MonoBehaviour
+public class BeziarMovement : MonoBehaviour
 {
     public float timeTake;
     private float moveStop;
 
     private Vector2[] weightedPositions;
-    public float distRadius;
 
     public float newPower;
 
     private float time;
 
-    public GameObject bounds;
+    public Transform bounds;
 
     // Start is called before the first frame update
     void Start()
@@ -49,29 +48,22 @@ public class LarryControl : MonoBehaviour
     {
         //picks 4 new points and resets the bezier curve
         time = 0;
-        teleportParticals.Play();
+        //teleportParticals.Play();
         for (int i = 0; i < weightedPositions.Length; i++)
         {
             weightedPositions[i] = RandomSpace();
         }
         transform.position = newPosition();
-        teleportParticals.Play();
+        //teleportParticals.Play();
     }
 
     public Vector2 RandomSpace()
     {
-        //picks random position in a spherical shell around player
-        float arround = Random.Range(0, 2 * Mathf.PI);
-        float up = Random.Range(0, Mathf.PI);
-        return new Vector2(Mathf.Sin(arround) * Mathf.Sin(up), Mathf.Sin(up), Mathf.Cos(arround) * Mathf.Sin(up)) * distRadius * Random.Range(.5f, 1.5f) + player.transform.position;
-    }
+        //picks random position in a box
+        float xPos = Random.Range(-.5f, .5f);
+        float yPos = Random.Range(-.5f, .5f);
 
-    public Vector2 RandomSpace()
-    {
-        //picks random position in a spherical shell around player
-        float arround = Random.Range(0, 2 * Mathf.PI);
-        float up = Random.Range(0, Mathf.PI);
-        return new Vector2(Mathf.Sin(arround) * Mathf.Sin(up), Mathf.Sin(up), Mathf.Cos(arround) * Mathf.Sin(up)) * distRadius * Random.Range(.5f, 1.5f) + player.transform.position;
+        return new Vector2(bounds.localScale.x * xPos, bounds.localScale.y * yPos) + (Vector2)bounds.position;
     }
 
     public Vector2 newPosition()
@@ -93,6 +85,6 @@ public class LarryControl : MonoBehaviour
         velPos += weightedPositions[1] * (9 * Mathf.Pow(time, 2f) - 12 * time + 3);
         velPos += weightedPositions[2] * (-9 * Mathf.Pow(time, 2f) + 6 * time);
         velPos += weightedPositions[3] * 3 * Mathf.Pow(time, 2f);
-        return velPos / (distRadius * newPower) + weightedPositions[3];
+        return velPos * newPower + weightedPositions[3];
     }
 }
