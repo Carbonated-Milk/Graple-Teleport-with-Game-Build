@@ -45,7 +45,7 @@ public class MenuManager : MonoBehaviour
         Levels l = null;
         if(sceneNum == -1)
         {
-            l = l = Array.Find(levels, levels => levels.levelIndex == SceneManager.GetActiveScene().buildIndex + 1);
+            l = Array.Find(levels, levels => levels.levelIndex == SceneManager.GetActiveScene().buildIndex + 1);
         }
         else
         {
