@@ -34645,7 +34645,7 @@ GameObject:
   - component: {fileID: 1987304143}
   - component: {fileID: 1987304144}
   m_Layer: 6
-  m_Name: Jerry
+  m_Name: Jefferson
   m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37113,11 +37113,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4054328716435429237, guid: 46df9275f7ecf7446aaaa1ad0155036a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4054328716435429240, guid: 46df9275f7ecf7446aaaa1ad0155036a,
         type: 3}
       propertyPath: m_Icon
@@ -37133,16 +37128,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054328717571368819, guid: 46df9275f7ecf7446aaaa1ad0155036a,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054328717571368819, guid: 46df9275f7ecf7446aaaa1ad0155036a,
-        type: 3}
-      propertyPath: scaleSpeed
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46df9275f7ecf7446aaaa1ad0155036a, type: 3}

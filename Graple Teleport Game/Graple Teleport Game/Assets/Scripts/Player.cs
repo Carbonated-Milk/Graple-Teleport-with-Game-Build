@@ -64,11 +64,14 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector2.right * 200 * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown("space") && canJump)
+        if (Input.GetKeyDown("space"))
         {
-            rb.AddForce(new Vector2(0f, 200f));
-            canJump = false;
-            if(Time.timeScale == 0.8f)
+            if(canJump)
+            {
+                rb.AddForce(new Vector2(0f, 200f));
+                canJump = false;
+            }
+            if(currentHealth <= 0)
             {
                 Respawn();
             }
@@ -103,6 +106,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        canJump = true;
+    }
+
     private void OnCollisionExit2D(Collision2D collider)
     {
         canJump = false;
@@ -110,10 +118,10 @@ public class Player : MonoBehaviour
 
     internal void Respawn()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         currentHealth = health;
-        
-        
+
+        Debug.Log("respsen");
         transform.position = respawnPoint;
         currentHealth = health;
         GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("PlayerUI").gameObject);
@@ -121,12 +129,14 @@ public class Player : MonoBehaviour
     }
 
     public void OhNo()
-    {   
+    {
+        currentHealth = 0;
         death.Invoke();
         GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("You Died").gameObject);
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
-        Time.timeScale = 0.8f;
+        canJump = false;
+        //Time.timeScale = 0.8f;
     }
 
     public void Contained(GameObject container)
