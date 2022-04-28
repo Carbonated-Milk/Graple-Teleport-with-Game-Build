@@ -36,7 +36,7 @@ public class MultiShoot : MonoBehaviour
 
             if(hit.collider.CompareTag("Player"))
             {
-                hit.collider.GetComponent<Player>().OhNo();
+                hit.collider.GetComponent<Player>().Hurt(1f);
             }
         }
     }

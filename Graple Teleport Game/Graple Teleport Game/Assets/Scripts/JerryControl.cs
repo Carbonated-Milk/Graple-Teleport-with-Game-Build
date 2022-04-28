@@ -84,6 +84,12 @@ public class JerryControl : MonoBehaviour
                 move.horizontalSpeed *= 1.5f;
                 break;
             case 3:
+                NewBoingers(1);
+                StartCoroutine(Lazers(20, -300));
+                move.bobSpeed *= 1.5f;
+                move.horizontalSpeed *= 1.5f;
+                break;
+            case 4:
                 Destroy(gameObject);
                 break;
 
@@ -91,6 +97,7 @@ public class JerryControl : MonoBehaviour
 
         phase += 1;
     }
+
 
     public IEnumerator Lazers(int num, float spinSpeed)
     {
@@ -116,7 +123,7 @@ public class JerryControl : MonoBehaviour
 
                 if (hit.collider.CompareTag("Player"))
                 {
-                    hit.collider.GetComponent<Player>().OhNo();
+                    hit.collider.GetComponent<Player>().Hurt(1f);
                 }
 
             }

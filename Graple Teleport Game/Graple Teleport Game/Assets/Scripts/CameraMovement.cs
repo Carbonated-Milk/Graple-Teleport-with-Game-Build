@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    public float moveSpeed;
+    public float scaleSpeed;
+
     private GameObject player;
     public float speedSizeBoost;
 
@@ -23,7 +26,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, player.transform.position - new Vector3(0, 0, 10), .08f);
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, Mathf.Clamp(speedSizeBoost * player.GetComponent<Rigidbody2D>().velocity.magnitude, minSize, maxSize), .02f);
+        transform.position = Vector3.Lerp(transform.position, player.transform.position - new Vector3(0, 0, 10), moveSpeed/100);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, Mathf.Clamp(speedSizeBoost * player.GetComponent<Rigidbody2D>().velocity.magnitude, minSize, maxSize), scaleSpeed/100);
     }
 }

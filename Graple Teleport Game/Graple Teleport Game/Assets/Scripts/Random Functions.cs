@@ -9,7 +9,6 @@ public class RandomFunctions : MonoBehaviour
         FindObjectOfType<AudioManager>().Play(AudioName);
 
         float shootAngleRad = shootAngle;
-        Debug.Log(shootAngle / Mathf.PI + "pi");
         if (shootAngle < Mathf.PI / 2 && shootAngle > -Mathf.PI / 2) { shootAngleRad -= Random.Range(5, 50f) * Mathf.Deg2Rad; }
         else { shootAngleRad += Random.Range(5, 50f) * Mathf.Deg2Rad; }
                 //if(shootAngle < Mathf.PI / 2) { shootAngleRad += Random.Range(10, 30) * Mathf.Deg2Rad; }

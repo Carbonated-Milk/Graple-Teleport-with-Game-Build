@@ -100,7 +100,8 @@ public class MenuManager : MonoBehaviour
 
     public void Respawn()
     {
-        //GameManager.lives.Respawn();
+        GameManager.player.Respawn();
+        GameManager.player.Respawn();
     }
 }
 

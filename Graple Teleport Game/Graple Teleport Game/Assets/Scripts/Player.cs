@@ -1,26 +1,54 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
+    public float health;
+    private float currentHealth;
     Vector3 respawnPoint;
     public UnityEvent death;
     private Rigidbody2D rb;
+    private Transform healthBar;
 
     [HideInInspector] public bool canJump;
     [HideInInspector] public bool contained;
     [HideInInspector] public GameObject containedObj;
+
+    private void Awake()
+    {
+        if (GameManager.player == null)
+        {
+            GameManager.player = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
     void Start()
     {
+        currentHealth = health;
         contained = false;
         respawnPoint = Vector3.zero;
         rb = GetComponent<Rigidbody2D>();
+        healthBar = GameManager.menuManager.transform.Find("PlayerUI/Health Bar Holder/HealthBar").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(currentHealth/health > 0)
+        {
+            healthBar.localScale = new Vector3(currentHealth / health * 0.99f, .9f, 1);
+        }
+        else
+        {
+            OhNo();
+        }
+
         if(contained)
         {
             transform.position = containedObj.transform.position;
@@ -40,6 +68,10 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(new Vector2(0f, 200f));
             canJump = false;
+            if(Time.timeScale == 0.8f)
+            {
+                Respawn();
+            }
         }
 
         if (Input.GetKeyDown("tab"))
@@ -48,6 +80,11 @@ public class Player : MonoBehaviour
             GameManager.menuManager.transform.Find("PlayerUI").gameObject.SetActive(false);
             Time.timeScale = 0;
         }
+    }
+
+    public void Hurt(float damage)
+    {
+        currentHealth -= damage;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -71,12 +108,25 @@ public class Player : MonoBehaviour
         canJump = false;
     }
 
-    public void OhNo()
+    internal void Respawn()
     {
-        death.Invoke();
+        Time.timeScale = 1;
+        currentHealth = health;
+        
+        
         transform.position = respawnPoint;
+        currentHealth = health;
+        GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("PlayerUI").gameObject);
+        
+    }
+
+    public void OhNo()
+    {   
+        death.Invoke();
+        GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("You Died").gameObject);
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
+        Time.timeScale = 0.8f;
     }
 
     public void Contained(GameObject container)
