@@ -51,9 +51,11 @@ public class JerryControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.CompareTag("Player"))
         {
             SwitchFaze();
+            collision.GetComponent<Rigidbody2D>().velocity = (collision.transform.position - transform.position).normalized * 10;
         }
     }
 

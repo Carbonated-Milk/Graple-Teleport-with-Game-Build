@@ -121,7 +121,6 @@ public class Player : MonoBehaviour
         //Time.timeScale = 1;
         currentHealth = health;
 
-        Debug.Log("respsen");
         transform.position = respawnPoint;
         currentHealth = health;
         GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("PlayerUI").gameObject);
