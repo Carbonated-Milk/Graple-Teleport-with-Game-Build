@@ -89,19 +89,19 @@ public class JerryControl : MonoBehaviour
                 move.horizontalSpeed *= 1.5f;
                 break;
             case 3:
-                NewBoingers(1);
-                StartCoroutine(Lazers(20, -300));
-                move.bobSpeed *= 1.5f;
-                move.horizontalSpeed *= 1.5f;
-                break;
-            case 4:
-                CameraMovement.targetBounds = null;
-                Destroy(gameObject);
+                Defeated();
                 break;
 
         }
 
         phase += 1;
+    }
+
+    public void Defeated()
+    {
+        GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("Level Complete").gameObject);
+        CameraMovement.targetBounds = null;
+        Destroy(gameObject);
     }
 
 
