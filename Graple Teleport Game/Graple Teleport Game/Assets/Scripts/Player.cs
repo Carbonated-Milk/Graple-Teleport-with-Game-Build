@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
+    public float cayoteTime;
     public float health;
     private float currentHealth;
     Vector3 respawnPoint;
@@ -106,12 +107,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         canJump = true;
     }
 
     private void OnCollisionExit2D(Collision2D collider)
+    {
+        Invoke("CayoteTime", cayoteTime);
+    }
+
+    public void CayoteTime()
     {
         canJump = false;
     }
@@ -124,11 +130,12 @@ public class Player : MonoBehaviour
         transform.position = respawnPoint;
         currentHealth = health;
         GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("PlayerUI").gameObject);
-        
+        GameManager.isDead = false;
     }
 
     public void OhNo()
     {
+        GameManager.isDead = true;
         currentHealth = 0;
         death.Invoke();
         GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("You Died").gameObject);

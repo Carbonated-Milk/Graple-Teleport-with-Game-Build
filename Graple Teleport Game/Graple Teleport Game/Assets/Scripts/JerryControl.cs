@@ -18,6 +18,8 @@ public class JerryControl : MonoBehaviour
     public GameObject linePrefab;
     private GameObject[] lineRens;
 
+    public Transform cameraBounds;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -52,7 +54,7 @@ public class JerryControl : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !GameManager.isDead)
         {
             SwitchFaze();
             collision.GetComponent<Rigidbody2D>().velocity = (collision.transform.position - transform.position).normalized * 10;
@@ -69,6 +71,7 @@ public class JerryControl : MonoBehaviour
         switch (phase)
         {
             case 0:
+                CameraMovement.targetBounds = cameraBounds;
                 NewBoingers(2);
                 StartCoroutine(Lazers(1, 5));
                 move.enabled = true;
@@ -92,6 +95,7 @@ public class JerryControl : MonoBehaviour
                 move.horizontalSpeed *= 1.5f;
                 break;
             case 4:
+                CameraMovement.targetBounds = null;
                 Destroy(gameObject);
                 break;
 

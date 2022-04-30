@@ -8,7 +8,7 @@ public static class GameManager
 
     public static Player player;
 
-    //public static Shoot shoot;
+    public static bool isDead;
 
     public static AudioManager audioManager;
 
