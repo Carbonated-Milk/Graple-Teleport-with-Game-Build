@@ -41,4 +41,11 @@ public class RandomFunctions : MonoBehaviour
         Vector3 distError = new Vector3(Mathf.Sin(random), 0f, Mathf.Cos(random)) * Random.Range(0f, 1f) * shootError;
         return distError;
     }
+
+    public static IEnumerator Invincibility(float time, bool isVincible)
+    {
+        isVincible = false;
+        yield return new WaitForSeconds(time);
+        isVincible = true;
+    }
 }

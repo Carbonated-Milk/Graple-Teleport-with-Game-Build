@@ -19,6 +19,7 @@ public class JerryControl : MonoBehaviour
     private GameObject[] lineRens;
 
     public Transform cameraBounds;
+    private bool isVincible;
 
     void Start()
     {
@@ -54,7 +55,7 @@ public class JerryControl : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.CompareTag("Player") && !GameManager.isDead)
+        if (collision.CompareTag("Player") && !GameManager.isDead && isVincible)
         {
             SwitchFaze();
             collision.GetComponent<Rigidbody2D>().velocity = (collision.transform.position - transform.position).normalized * 10;
@@ -67,6 +68,8 @@ public class JerryControl : MonoBehaviour
         BobMovement move = GetComponent<BobMovement>();
         Clear(boingers);
         Clear(lineRens);
+
+        RandomFunctions.Invincibility(3, isVincible);
 
         switch (phase)
         {
