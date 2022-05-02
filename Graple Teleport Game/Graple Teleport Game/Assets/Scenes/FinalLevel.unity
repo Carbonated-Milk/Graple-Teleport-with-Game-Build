@@ -4146,7 +4146,7 @@ Transform:
   m_LocalScale: {x: 84.401764, y: 94.78128, z: 55.831657}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &356414962
 LightingSettings:
@@ -23598,7 +23598,7 @@ Transform:
   - {fileID: 952654229}
   - {fileID: 531577256}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1395019077
 PrefabInstance:
