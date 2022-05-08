@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        GameManager.isDead = false;
         currentHealth = health;
         contained = false;
         respawnPoint = Vector3.zero;

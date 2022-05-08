@@ -27,6 +27,8 @@ public class JerryControl : MonoBehaviour
         StartCoroutine(Shoot());
 
         lineRens = new GameObject[0];
+
+        isVincible = true;
     }
 
     // Update is called once per frame
@@ -54,7 +56,6 @@ public class JerryControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.CompareTag("Player") && !GameManager.isDead && isVincible)
         {
             SwitchFaze();
@@ -78,6 +79,8 @@ public class JerryControl : MonoBehaviour
                 NewBoingers(2);
                 StartCoroutine(Lazers(1, 5));
                 move.enabled = true;
+                FindObjectOfType<AudioManager>().StopAllSongs();
+                FindObjectOfType<AudioManager>().Play("JerryTheme");
                 break;
             case 1:
                 NewBoingers(3);
@@ -92,6 +95,8 @@ public class JerryControl : MonoBehaviour
                 move.horizontalSpeed *= 1.5f;
                 break;
             case 3:
+                FindObjectOfType<AudioManager>().StopAllSongs();
+                FindObjectOfType<AudioManager>().Play("JerryWin");
                 Defeated();
                 break;
 
