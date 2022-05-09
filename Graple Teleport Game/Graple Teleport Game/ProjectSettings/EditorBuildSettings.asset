@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Clouds.unity
     guid: e55b22ec0bd0f4546883e03bc667885e
   - enabled: 1
+    path: Assets/Scenes/Clouds - Copy.unity
+    guid: f1cbb8de08657ba45b2218f976e47a08
+  - enabled: 1
     path: Assets/Scenes/FinalLevel.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

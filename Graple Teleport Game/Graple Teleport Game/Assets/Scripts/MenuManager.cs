@@ -32,6 +32,8 @@ public class MenuManager : MonoBehaviour
         {
             panels[i] = transform.GetChild(i).gameObject;
         }
+
+        LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OpenPanel(GameObject open)

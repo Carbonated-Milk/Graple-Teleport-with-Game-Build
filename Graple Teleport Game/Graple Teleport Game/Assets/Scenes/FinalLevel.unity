@@ -7738,10 +7738,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8809330011039310318, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8809330011138513413, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809330011138513413, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809330011138513413, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809330011138513435, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8809330011657335512, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
         type: 3}
@@ -7761,7 +7781,7 @@ PrefabInstance:
     - target: {fileID: 8844616254810114926, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ab85ef6f71d9614cbad8a0e20d8cada, type: 3}
@@ -37399,66 +37419,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 596464478d7ac304dad0462ea8937268, type: 3}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: de014729501f90d4ba928badf1c2e2fd, type: 3}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[2].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[2].name
-      value: JerryTheme
-      objectReference: {fileID: 0}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a7bcc4c0de72d344497d40f4e9a18895, type: 3}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[3].loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[3].name
-      value: JerryWin
-      objectReference: {fileID: 0}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[2].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[3].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[2].volume
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 5898119017919579519, guid: bd4659e3c2eed5946976007788d245d5,
-        type: 3}
-      propertyPath: soundHolders.Array.data[0].sounds.Array.data[3].volume
-      value: 0.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4659e3c2eed5946976007788d245d5, type: 3}
