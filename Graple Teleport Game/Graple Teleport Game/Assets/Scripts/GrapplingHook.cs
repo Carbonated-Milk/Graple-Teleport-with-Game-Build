@@ -10,7 +10,7 @@ public class GrapplingHook : MonoBehaviour
 
     Rigidbody2D rb;
     Vector2 mousePos;
-    GrapLocation grap;
+    public GrapLocation grap;
     Vector2 lockedPos;
     float shootLength;
     float grapleRadius;

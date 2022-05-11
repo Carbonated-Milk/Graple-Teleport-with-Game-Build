@@ -33,7 +33,10 @@ public class MenuManager : MonoBehaviour
             panels[i] = transform.GetChild(i).gameObject;
         }
 
-        LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //plays song for testing
+        Levels l = Array.Find(levels, levels => levels.levelIndex == SceneManager.GetActiveScene().buildIndex);
+        GameManager.audioManager.Play(l.startingThemeName);
+
     }
 
     public void OpenPanel(GameObject open)

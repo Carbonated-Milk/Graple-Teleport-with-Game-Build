@@ -77,7 +77,7 @@ public class Teleporter : MonoBehaviour
         GameManager.audioManager.Play("Teleport");
         if (teleported.CompareTag("Player"))
         {
-            FindObjectOfType<GrapplingHook>().TurnOffGrapple();
+            RandomFunctions.TurnOffGrapple();
         }
         Rigidbody2D rb = teleported.GetComponent<Rigidbody2D>();
         float teleRot = otherTele.transform.rotation.eulerAngles.z - transform.rotation.eulerAngles.z;

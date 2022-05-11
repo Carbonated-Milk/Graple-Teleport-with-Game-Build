@@ -48,4 +48,17 @@ public class RandomFunctions : MonoBehaviour
         yield return new WaitForSeconds(time);
         isVincible = true;
     }
+
+    public static void TurnOffGrapple()
+    {
+        FindObjectOfType<GrapplingHook>().TurnOffGrapple();
+    }
+    public static void TurnOffGrapple(Transform obj)
+    {
+        if(FindObjectOfType<GrapplingHook>().grap.grip == obj)
+        {
+            FindObjectOfType<GrapplingHook>().TurnOffGrapple();
+        }
+        
+    }
 }

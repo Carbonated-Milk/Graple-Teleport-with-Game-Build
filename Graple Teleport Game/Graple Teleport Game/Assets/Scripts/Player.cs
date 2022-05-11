@@ -65,6 +65,10 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(Vector2.right * 200 * Time.deltaTime);
         }
+        if (Input.GetKey("r"))
+        {
+            Respawn();
+        }
 
         if (Input.GetKeyDown("space"))
         {
@@ -132,6 +136,9 @@ public class Player : MonoBehaviour
         currentHealth = health;
         GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("PlayerUI").gameObject);
         GameManager.isDead = false;
+
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
     }
 
     public void OhNo()
