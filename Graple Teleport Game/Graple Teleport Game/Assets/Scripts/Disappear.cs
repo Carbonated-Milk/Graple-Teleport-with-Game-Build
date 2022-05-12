@@ -13,26 +13,29 @@ public class Disappear : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
+    void OnCollisionEnter2D(Collision2D other)
+    {
         StartCoroutine(disappear());
     }
 
-        IEnumerator disappear()
+    IEnumerator disappear()
     {
-        if (!activeCoroutine) 
+        if (!activeCoroutine)
         {
             yield return new WaitForSeconds(disappearTime);
             collider.enabled = false;
             renderer.enabled = false;
+            RandomFunctions.TurnOffGrapple(transform);
+
             yield return new WaitForSeconds(reappearTime);
             collider.enabled = true;
             renderer.enabled = true;

@@ -55,7 +55,7 @@ public class RandomFunctions : MonoBehaviour
     }
     public static void TurnOffGrapple(Transform obj)
     {
-        if(FindObjectOfType<GrapplingHook>().grap.grip == obj)
+        if(FindObjectOfType<GrapplingHook>().grap.grip.parent == obj)
         {
             FindObjectOfType<GrapplingHook>().TurnOffGrapple();
         }

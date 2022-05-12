@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
         GameManager.isDead = false;
         currentHealth = health;
         contained = false;
-        respawnPoint = Vector3.zero;
+        respawnPoint = transform.position;
         rb = GetComponent<Rigidbody2D>();
         healthBar = GameManager.menuManager.transform.Find("PlayerUI/Health Bar Holder/HealthBar").transform;
     }
