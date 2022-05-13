@@ -3629,7 +3629,7 @@ MonoBehaviour:
     isLevel: 1
   - levelName: sTANcOULDS
     levelIndex: 2
-    startingThemeName: Cloud
+    startingThemeName: Awesomeness
     isLevel: 1
   - levelName: OuterCore
     levelIndex: 3

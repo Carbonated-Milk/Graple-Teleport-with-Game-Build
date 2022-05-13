@@ -60,6 +60,13 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       source: {fileID: 0}
+    - name: Awesomeness
+      clip: {fileID: 8300000, guid: 25d8674292d0a2548baacb12a89e05c1, type: 3}
+      volume: 0.33
+      adjustedVolume: 0
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
     - name: JerryTheme
       clip: {fileID: 8300000, guid: de014729501f90d4ba928badf1c2e2fd, type: 3}
       volume: 0.33
