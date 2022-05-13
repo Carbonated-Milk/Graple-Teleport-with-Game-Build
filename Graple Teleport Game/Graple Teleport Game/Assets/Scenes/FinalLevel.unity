@@ -2491,7 +2491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &167312503
 Transform:
   m_ObjectHideFlags: 0
@@ -4061,7 +4061,8 @@ MonoBehaviour:
   clone: 0
   noTopRepeat: 0
   localized: 1
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!114 &355960293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4082,7 +4083,8 @@ MonoBehaviour:
   clone: 0
   noTopRepeat: 0
   localized: 1
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &355960294
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5642,7 +5644,8 @@ MonoBehaviour:
   clone: 0
   noTopRepeat: 0
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &432680162
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9751,7 +9754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &762728462
 Transform:
   m_ObjectHideFlags: 0
@@ -14410,7 +14413,8 @@ MonoBehaviour:
   clone: 0
   noTopRepeat: 0
   localized: 1
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &1058789150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14496,7 +14500,8 @@ MonoBehaviour:
   clone: 0
   noTopRepeat: 0
   localized: 1
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!4 &1058981123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2086620003141223796, guid: 52a44df4cddeb4f4daa6448293c329c0,
@@ -24288,7 +24293,8 @@ MonoBehaviour:
   clone: 0
   noTopRepeat: 0
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &1494513090
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26547,7 +26553,8 @@ MonoBehaviour:
   clone: 0
   noTopRepeat: 0
   localized: 1
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!114 &1620235816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26568,7 +26575,8 @@ MonoBehaviour:
   clone: 0
   noTopRepeat: 0
   localized: 1
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &1620235817
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36120,7 +36128,8 @@ MonoBehaviour:
   clone: 0
   noTopRepeat: 0
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &2078943618
 SpriteRenderer:
   m_ObjectHideFlags: 0

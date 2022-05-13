@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +15,9 @@ public class Parallax : MonoBehaviour
     [HideInInspector] public bool clone = false;
     public bool noTopRepeat;
     public bool localized;
+    public bool screenRepeat;
 
-    [HideInInspector] public float initialScale;
+    [HideInInspector] public Vector2 initialScale;
     void Start()
     {
         if (cam == null)
@@ -26,13 +27,22 @@ public class Parallax : MonoBehaviour
 
         startposX = transform.position.x;
         startposY = transform.position.y;
-        length = GetComponentInChildren<SpriteRenderer>().bounds.size.x;
-        height = GetComponentInChildren<SpriteRenderer>().bounds.size.y;
+        if(screenRepeat)
+        {
+            length = cam.GetComponent<Camera>().orthographicSize * 10 * Screen.width / Screen.height;
+            height = cam.GetComponent<Camera>().orthographicSize * 10;
+        }
+        else
+        {
+
+            length = GetComponentInChildren<SpriteRenderer>().bounds.size.x;
+            height = GetComponentInChildren<SpriteRenderer>().bounds.size.y;
+        }
 
 
         if (!clone)
         {
-            initialScale = transform.localScale.y;
+            initialScale = transform.localScale;
             Array();
         }
     }
@@ -78,7 +88,7 @@ public class Parallax : MonoBehaviour
         float pointX = pointDist.x * imageBigger;
         float pointY = pointDist.y * imageBigger;
 
-        image.transform.localScale = new Vector2(imageBigger, imageBigger) * initialScale;
+        image.transform.localScale = imageBigger * initialScale;
         image.transform.localPosition = (Vector2)cam.position - new Vector2(pointX + transform.position.x, pointY + transform.position.y);
 
     }
