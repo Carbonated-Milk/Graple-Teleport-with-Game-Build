@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,5 +28,23 @@ public class Boinger : MonoBehaviour
         {
             rb.AddForce(normal * (plinkoNum * 100 + rb.velocity.sqrMagnitude));
         }
+        StartCoroutine(Vibrate());
+    }
+
+    public IEnumerator Vibrate()
+    {
+        float ellapsedTime = 0;
+        Vector3 originalScale = transform.localScale;
+        while (true)
+        {
+            transform.localScale = originalScale + Vector3.one * Mathf.Sin(20 * ellapsedTime)/(1 + 7 * ellapsedTime) / 2;
+            if(ellapsedTime > 3)
+            {
+                break;
+            }
+            yield return null;
+            ellapsedTime += Time.deltaTime;
+        }
+        transform.localScale = originalScale;
     }
 }
