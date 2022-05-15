@@ -61,4 +61,14 @@ public class RandomFunctions : MonoBehaviour
         }
         
     }
+    public static IEnumerator FadeTo(Transform rendererTransform, float aValue, float aTime)
+    {
+        float alpha = rendererTransform.GetComponent<Renderer>().material.color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        {
+            Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
+            rendererTransform.GetComponent<Renderer>().material.color = newColor;
+            yield return null;
+        }
+    }
 }

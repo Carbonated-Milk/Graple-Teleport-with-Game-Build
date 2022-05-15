@@ -21,6 +21,7 @@ namespace TMPro.Examples
         private Color32 m_lightColor;
         private int frames = 0;
 
+        public Vector3 rotateAxis;
         public enum MotionType { Rotation, BackAndForth, Translation };
         public MotionType Motion;
 
@@ -40,7 +41,7 @@ namespace TMPro.Examples
         {
             if (Motion == MotionType.Rotation)
             {
-                m_transform.Rotate(0, SpinSpeed * Time.deltaTime, 0);
+                m_transform.Rotate(rotateAxis * SpinSpeed * Time.deltaTime);
             }
             else if (Motion == MotionType.BackAndForth)
             {

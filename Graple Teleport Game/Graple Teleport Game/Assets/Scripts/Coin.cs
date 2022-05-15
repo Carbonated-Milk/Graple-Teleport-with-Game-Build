@@ -15,18 +15,19 @@ public class Coin : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = position + Vector3.up * Mathf.Sin(Time.time) / 2;
-        transform.localScale = scale - Vector3.right * (1 + Mathf.Sin(Time.time)/2) / 8;
+        transform.parent.transform.position = position + Vector3.up * Mathf.Sin(Time.time) / 2;
+        //transform.localScale = scale - Vector3.right * (1 + Mathf.Sin(Time.time)/2) / 8;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!collected)
         {
+            StartCoroutine(RandomFunctions.FadeTo(transform.parent.GetChild(0).transform, 0f, 1f));
             GameManager.audioManager.Play("Coin");
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<ParticleSystem>().Play();
             GameManager.AddCoin();
-            Destroy(this.gameObject, 3);
+            Destroy(transform.parent.gameObject, 3);
             collected = true;
         }
     }
