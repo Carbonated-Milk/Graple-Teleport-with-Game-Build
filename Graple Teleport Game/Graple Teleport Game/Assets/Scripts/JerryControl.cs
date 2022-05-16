@@ -24,7 +24,6 @@ public class JerryControl : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(Shoot());
 
         lineRens = new GameObject[0];
 
@@ -76,6 +75,7 @@ public class JerryControl : MonoBehaviour
         {
             case 0:
                 CameraMovement.targetBounds = cameraBounds;
+                StartCoroutine(Shoot());
                 NewBoingers(2);
                 StartCoroutine(Lazers(1, 5));
                 move.enabled = true;
@@ -90,6 +90,7 @@ public class JerryControl : MonoBehaviour
                 break;
             case 2:
                 NewBoingers(5);
+                StartCoroutine(Shoot());
                 StartCoroutine(Lazers(5, -30));
                 move.bobSpeed *= 1.5f;
                 move.horizontalSpeed *= 1.5f;
@@ -119,7 +120,8 @@ public class JerryControl : MonoBehaviour
 
         for (int i = 0; i < num; i++)
         {
-            lineRens[i] = Instantiate(linePrefab) as GameObject;
+            lineRens[i] = Instantiate(linePrefab);
+            lineRens[i].SetActive(true);
             lineRens[i].transform.position = transform.position;
             lineRens[i].transform.Rotate(i * 360 / num * Vector3.forward);
         }

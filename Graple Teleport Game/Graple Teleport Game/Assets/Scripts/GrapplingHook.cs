@@ -71,7 +71,7 @@ public class GrapplingHook : MonoBehaviour
         
         if(suction && grap.active)
         {
-            SuctionVel();
+            SuctionVel((Vector2)grap.grip.position - (Vector2)transform.position);
         }
 
         #region Line Rendering
@@ -92,9 +92,17 @@ public class GrapplingHook : MonoBehaviour
         #endregion
     }
 
-    private void SuctionVel()
+    private void SuctionVel(Vector2 grapleVector)
     {
+        Vector2 grapleDirection = grapleVector.normalized;
         rb.velocity += (Vector2)(grap.grip.position - transform.position)/16 * Time.deltaTime * 100;
+
+        if (grap.gripRB != null)
+        {
+            grap.gripRB.AddForceAtPosition(100 * Physics.gravity * Time.deltaTime * -Vector2.Dot(Vector2.down, grapleDirection), grap.grip.position);
+
+            grap.gripRB.AddForceAtPosition(-(Vector2)(grap.grip.position - transform.position) / 16 * Time.deltaTime * 100 * 10, grap.grip.position);
+        }
     }
 
     public void GrappleVelocity(Vector2 grapleVector)
