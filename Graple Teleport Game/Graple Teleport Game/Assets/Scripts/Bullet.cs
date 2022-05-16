@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
     {
         if(collision.collider.GetComponent<Player>())
         {
-            collision.collider.GetComponent<Player>().OhNo();
+            collision.collider.GetComponent<Player>().Hurt(20);
         }
         Destroy(gameObject);
     }

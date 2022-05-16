@@ -15,7 +15,7 @@ public class Coin : MonoBehaviour
     }
     private void Update()
     {
-        transform.parent.transform.position = position + Vector3.up * Mathf.Sin(Time.time) / 2;
+        transform.parent.transform.position = position + Vector3.up * Mathf.Sin(Time.time) / 4;
         //transform.localScale = scale - Vector3.right * (1 + Mathf.Sin(Time.time)/2) / 8;
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -26,7 +26,7 @@ public class Coin : MonoBehaviour
             GameManager.audioManager.Play("Coin");
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<ParticleSystem>().Play();
-            GameManager.AddCoin();
+            GameManager.coinManager.AddCoin();
             Destroy(transform.parent.gameObject, 3);
             collected = true;
         }

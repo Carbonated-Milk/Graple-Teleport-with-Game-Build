@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 754611016791093221}
   - component: {fileID: 1714586834480648197}
   m_Layer: 5
-  m_Name: Coin Counter
+  m_Name: Coin Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -947,6 +947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4748560602537375464}
   - component: {fileID: 4043764857813033383}
+  - component: {fileID: 8180129366255295873}
   - component: {fileID: 5946801927314388118}
   m_Layer: 5
   m_Name: CoinText
@@ -982,6 +983,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6659712516389896322}
   m_CullTransparentMesh: 1
+--- !u!114 &8180129366255295873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6659712516389896322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa94b2be9c608346af6f4902e8d5f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5946801927314388118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,8 +1024,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4280220671
+  m_fontColor: {r: 1, g: 0.9843138, b: 0.11764707, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

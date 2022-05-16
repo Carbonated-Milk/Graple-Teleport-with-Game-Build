@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GrapplingHook : MonoBehaviour
 {
+    public bool suction;
     private Camera cam;
     public float ropeLength;
     public LineRenderer lineRen;
@@ -20,7 +22,7 @@ public class GrapplingHook : MonoBehaviour
     public static bool grapleCaught;
     public static bool canGraple = true;
 
-    
+
     void Start()
     {
         grap = new GrapLocation();
@@ -28,30 +30,48 @@ public class GrapplingHook : MonoBehaviour
         Physics2D.queriesStartInColliders = false;
         rb = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
     }
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        if(Input.GetMouseButtonDown(0) && canGraple)
+        if (Input.GetMouseButtonDown(0) && canGraple)
         {
             StopAllCoroutines();
             StartCoroutine(ShootHook());
         }
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && grap.active)
         {
             StopAllCoroutines();
             StartCoroutine(RetractHook());
         }
-        
-        if(grap.grip == null)
+
+        if (Input.GetKey("1"))
+        {
+
+            lineRen.endColor = lineRen.endColor = Color.white;
+            suction = false;
+        }
+        if (Input.GetKey("2"))
+        {
+            lineRen.endColor = lineRen.endColor = Color.blue;
+            suction = true;
+        }
+
+        if (grap.grip == null)
         {
             grap.grip = new GameObject().transform;
             TurnOffGrapple();
         }
 
-        if (Vector2.Dot(rb.velocity, (Vector2)grap.grip.position - (Vector2)transform.position) <= 0  && (Vector2)grap.grip.position != Vector2.zero && grap.active)
+        if (Vector2.Dot(rb.velocity, (Vector2)grap.grip.position - (Vector2)transform.position) <= 0 && (Vector2)grap.grip.position != Vector2.zero && grap.active && !suction)
         {
             GrappleVelocity((Vector2)grap.grip.position - (Vector2)transform.position);
+        }
+        
+        if(suction && grap.active)
+        {
+            SuctionVel();
         }
 
         #region Line Rendering
@@ -65,11 +85,16 @@ public class GrapplingHook : MonoBehaviour
             lineRen.SetPosition(0, transform.position);
             lineRen.SetPosition(1, (transform.position + (Vector3)(shootLength * (mousePos - (Vector2)transform.position).normalized)));
         }
-        if(grapleCaught)
+        if (grapleCaught)
         {
             //Debug.DrawLine(transform.position, (Vector2)grap.grip.position, Color.cyan);
         }
         #endregion
+    }
+
+    private void SuctionVel()
+    {
+        rb.velocity += (Vector2)(grap.grip.position - transform.position)/16 * Time.deltaTime * 100;
     }
 
     public void GrappleVelocity(Vector2 grapleVector)
@@ -91,7 +116,7 @@ public class GrapplingHook : MonoBehaviour
                 grap.gripRB.AddForceAtPosition(-grapleDirection * 10, grap.grip.position);
             }
         }
-        
+
         //Debug.DrawLine(transform.position, transform.position + (Vector3)(grapleDirection * rb.velocity.sqrMagnitude / grapleRadius), Color.red);
     }
 
@@ -111,25 +136,29 @@ public class GrapplingHook : MonoBehaviour
                 grap.active = true;
                 //(Vector2)grap.grip.position
 
-                if(hit.collider.GetComponent<Rigidbody2D>())
+                if (hit.collider.GetComponent<Rigidbody2D>())
                 {
                     grap.gripRB = hit.collider.GetComponent<Rigidbody2D>();
                 }
                 SetGrapleRadius();
             }
-            
+
             yield return null;
         }
-        if(!grapleCaught)
+        if (!grapleCaught)
         {
             StartCoroutine(RetractHook());
-        } 
+        }
     }
     IEnumerator RetractHook()
     {
+        if(grapleCaught)
+        {
+            shootLength = (transform.position - grap.grip.position).magnitude;
+            grapleCaught = false;
+        }
         grap.TurnOffGrap();
         grapleRadius = 0f;
-        grapleCaught = false;
         while (shootLength > 0f)
         {
             lockedPos = Vector2.zero;
