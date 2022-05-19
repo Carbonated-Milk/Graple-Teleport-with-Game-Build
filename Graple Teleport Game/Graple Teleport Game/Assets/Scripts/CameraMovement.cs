@@ -51,13 +51,17 @@ public class CameraMovement : MonoBehaviour
 
     public void RotateCamera(float newAngle)
     {
+        StopAllCoroutines();
         StartCoroutine(RotateCameraEnum(newAngle));
     }
     public IEnumerator RotateCameraEnum(float newAngle)
     {
-        while (transform.rotation.z != newAngle)
+        Debug.Log(newAngle);
+        float changeTime = Time.time;
+        while (Time.time - changeTime < 2)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.forward * (newAngle) * Mathf.Rad2Deg), 90 * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.forward * (newAngle) * Mathf.Rad2Deg), 0.05f);
+            
             yield return null;
         }
     }

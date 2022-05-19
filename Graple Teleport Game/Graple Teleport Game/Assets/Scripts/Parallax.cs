@@ -102,7 +102,7 @@ public class Parallax : MonoBehaviour
 
         for (int i = 0; i < sizeArray.x; i++)
         {
-            for (int j = 0; j < sizeArray.y; j++)
+            /*for (int j = 0; j < sizeArray.y; j++)
             {
                 clones[i + j] = new GameObject();
                 clones[i + j].transform.position = transform.position + Vector3.right * length * i + Vector3.up * height * j;
@@ -123,21 +123,36 @@ public class Parallax : MonoBehaviour
                 Destroy(GetComponent<SpriteRenderer>());
 
                 if (localized) { clones[i + j].transform.position -= parallaxEffect * clones[i + j].transform.position; }
+            }*/
+            for (int j = 0; j < sizeArray.y; j++)
+            {
+                clones[i + j] = new GameObject();
+                clones[i + j].transform.position = transform.position + Vector3.right * length * i + Vector3.up * height * j;
+                CopyComponent(this, clones[i + j]);
+                clones[i + j].GetComponent<Parallax>().clone = true;
+
+                GameObject copy = Instantiate(gameObject);
+                copy.transform.parent = clones[i + j].transform;
+                Destroy(copy.GetComponent<Parallax>());
+
+                copy.transform.localPosition = Vector3.zero;
+
+                if (localized) { clones[i + j].transform.position -= parallaxEffect * clones[i + j].transform.position; }
+            }
+            Destroy(gameObject);
+        }
+
+        void CopyComponent(Component original, GameObject destination)
+        {
+            System.Type type = original.GetType();
+            Component copy = destination.AddComponent(type);
+            // Copied fields can be restricted with BindingFlags
+            System.Reflection.FieldInfo[] fields = type.GetFields();
+            foreach (System.Reflection.FieldInfo field in fields)
+            {
+                field.SetValue(copy, field.GetValue(original));
             }
         }
-        Destroy(gameObject);
-    }
 
-    void CopyComponent(Component original, GameObject destination)
-    {
-        System.Type type = original.GetType();
-        Component copy = destination.AddComponent(type);
-        // Copied fields can be restricted with BindingFlags
-        System.Reflection.FieldInfo[] fields = type.GetFields();
-        foreach (System.Reflection.FieldInfo field in fields)
-        {
-            field.SetValue(copy, field.GetValue(original));
-        }
     }
-
 }

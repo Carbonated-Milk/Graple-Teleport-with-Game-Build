@@ -175,20 +175,35 @@ public class Player : MonoBehaviour
         transform.parent = null;
     }
 
-    public void ChangeDown(Vector2 downVector)
+    public bool ChangeDown(Vector2 downVector)
     {
+        if(downDir == downVector.normalized)
+        {
+            return true;
+        }
         downVector = downVector.normalized;
         downDir = downVector;
         rightDir = new Vector2(-downVector.y, downVector.x);
         Physics2D.gravity = downVector * 9.81f;
-        transform.parent.GetChild(0).GetComponent<CameraMovement>().RotateCamera(Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
+
+        float neg = 1;
+        if(downVector.x < 0) { neg *= -1; }
+        transform.parent.GetChild(0).GetComponent<CameraMovement>().RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
+        return false;
     }
-    public void ChangeDown(Vector2 downVector, float newGravity)
+    public bool ChangeDown(Vector2 downVector, float newGravity)
     {
+        if (downDir == downVector.normalized)
+        {
+            return true;
+        }
         downVector = downVector.normalized;
         downDir = downVector;
         rightDir = new Vector2(-downVector.y, downVector.x);
         Physics2D.gravity = downVector * newGravity;
-        transform.parent.GetChild(0).GetComponent<CameraMovement>().RotateCamera(Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
+        float neg = 1;
+        if (downVector.x < 0) { neg *= -1; }
+        transform.parent.GetChild(0).GetComponent<CameraMovement>().RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
+        return false;
     }
 }
