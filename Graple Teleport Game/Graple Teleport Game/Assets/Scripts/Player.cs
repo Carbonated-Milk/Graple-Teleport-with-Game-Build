@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Transform healthBar;
 
+    private Vector2 rightDir;
+    private Vector2 downDir;
+
     [HideInInspector] public bool canJump;
     [HideInInspector] public bool contained;
     [HideInInspector] public GameObject containedObj;
@@ -31,6 +34,7 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        ChangeDown(Vector2.down);
         GameManager.isDead = false;
         currentHealth = health;
         contained = false;
@@ -59,11 +63,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey("a"))
         {
-            rb.AddForce(Vector2.left * 200 * Time.deltaTime);
+            rb.AddForce(-rightDir * 200 * Time.deltaTime);
         }
         if (Input.GetKey("d"))
         {
-            rb.AddForce(Vector2.right * 200 * Time.deltaTime);
+            rb.AddForce(rightDir * 200 * Time.deltaTime);
         }
         if (Input.GetKey("r"))
         {
@@ -74,7 +78,7 @@ public class Player : MonoBehaviour
         {
             if(canJump)
             {
-                rb.AddForce(new Vector2(0f, 200f));
+                rb.AddForce(-downDir * 200f);
                 canJump = false;
             }
             if(currentHealth <= 0)
@@ -169,5 +173,22 @@ public class Player : MonoBehaviour
         GetComponent<Renderer>().enabled = true;
         rb.isKinematic = false;
         transform.parent = null;
+    }
+
+    public void ChangeDown(Vector2 downVector)
+    {
+        downVector = downVector.normalized;
+        downDir = downVector;
+        rightDir = new Vector2(-downVector.y, downVector.x);
+        Physics2D.gravity = downVector * 9.81f;
+        transform.parent.GetChild(0).GetComponent<CameraMovement>().RotateCamera(Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
+    }
+    public void ChangeDown(Vector2 downVector, float newGravity)
+    {
+        downVector = downVector.normalized;
+        downDir = downVector;
+        rightDir = new Vector2(-downVector.y, downVector.x);
+        Physics2D.gravity = downVector * newGravity;
+        transform.parent.GetChild(0).GetComponent<CameraMovement>().RotateCamera(Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
     }
 }

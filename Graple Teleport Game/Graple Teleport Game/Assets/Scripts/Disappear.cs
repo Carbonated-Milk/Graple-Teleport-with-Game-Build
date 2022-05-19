@@ -8,12 +8,13 @@ public class Disappear : MonoBehaviour
     public float reappearTime;
     private bool activeCoroutine = false;
 
-    public BoxCollider2D collider;
-    public SpriteRenderer renderer;
+    private BoxCollider2D collider;
+    private SpriteRenderer renderer;
     // Start is called before the first frame update
     void Start()
     {
-
+        collider = GetComponent<BoxCollider2D>();
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame

@@ -1,4 +1,4 @@
- using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +10,8 @@ public class Parallax : MonoBehaviour
     public bool scaling;
     public float sizeAdjust;
     private float length, height, startposX, startposY;
-    public Transform cam;
+    private Transform cam;
+    private Camera camera;
     public float parallaxEffect;
     [HideInInspector] public bool clone = false;
     public bool noTopRepeat;
@@ -20,21 +21,20 @@ public class Parallax : MonoBehaviour
     [HideInInspector] public Vector2 initialScale;
     void Start()
     {
-        if (cam == null)
-        {
-            cam = FindObjectOfType<Camera>().transform;
-        }
+
+        cam = FindObjectOfType<Camera>().transform;
+        camera = cam.transform.GetComponent<Camera>();
+
 
         startposX = transform.position.x;
         startposY = transform.position.y;
-        if(screenRepeat)
+        if (screenRepeat)
         {
             length = cam.GetComponent<Camera>().orthographicSize * 10 * Screen.width / Screen.height;
             height = cam.GetComponent<Camera>().orthographicSize * 10;
         }
         else
         {
-
             length = GetComponentInChildren<SpriteRenderer>().bounds.size.x;
             height = GetComponentInChildren<SpriteRenderer>().bounds.size.y;
         }
@@ -43,7 +43,9 @@ public class Parallax : MonoBehaviour
         if (!clone)
         {
             initialScale = transform.localScale;
+
             Array();
+
         }
     }
 
@@ -80,7 +82,7 @@ public class Parallax : MonoBehaviour
     {
         Vector3 camPos = cam.position;
 
-        float imageBigger = cam.transform.GetComponent<Camera>().orthographicSize * sizeAdjust;
+        float imageBigger = camera.orthographicSize * sizeAdjust;
         imageBigger /= 20;
 
         Vector3 pointDist = new Vector3(camPos.x - transform.position.x, camPos.y - transform.position.y, 0f);
@@ -121,7 +123,6 @@ public class Parallax : MonoBehaviour
                 Destroy(GetComponent<SpriteRenderer>());
 
                 if (localized) { clones[i + j].transform.position -= parallaxEffect * clones[i + j].transform.position; }
-
             }
         }
         Destroy(gameObject);

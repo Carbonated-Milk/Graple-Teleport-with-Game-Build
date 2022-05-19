@@ -48,4 +48,17 @@ public class CameraMovement : MonoBehaviour
         transform.position = Vector3.Lerp((Vector2)transform.position, (Vector2)targetBounds.position, moveSpeed / 100);
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetBounds.localScale.x/2 * Screen.height / Screen.width, moveSpeed / 100);
     }
+
+    public void RotateCamera(float newAngle)
+    {
+        StartCoroutine(RotateCameraEnum(newAngle));
+    }
+    public IEnumerator RotateCameraEnum(float newAngle)
+    {
+        while (transform.rotation.z != newAngle)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.forward * (newAngle) * Mathf.Rad2Deg), 90 * Time.deltaTime);
+            yield return null;
+        }
+    }
 }
