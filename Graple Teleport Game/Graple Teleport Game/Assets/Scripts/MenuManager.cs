@@ -16,7 +16,7 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         //doesn't destroy menu manager
-        if(GameManager.menuManager == null)
+        if (GameManager.menuManager == null)
         {
             GameManager.menuManager = this;
         }
@@ -28,16 +28,20 @@ public class MenuManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         panels = new GameObject[transform.childCount - 2];
-        for(int i = 0; i < transform.childCount - 2; i++)
+        for (int i = 0; i < transform.childCount - 2; i++)
         {
             panels[i] = transform.GetChild(i).gameObject;
         }
 
-        
+        foreach (Levels level in levels)
+        {
+            level.FindIndex();
+        }
 
     }
 
-    private void Start() {
+    private void Start()
+    {
         //plays song for testing
         Levels l = Array.Find(levels, levels => levels.levelIndex == SceneManager.GetActiveScene().buildIndex);
         GameManager.audioManager.Play(l.startingThemeName);
@@ -49,16 +53,16 @@ public class MenuManager : MonoBehaviour
         open.SetActive(true);
     }
 
-    public void LoadScene(int sceneNum)
+    public void LoadScene(string sceneName)
     {
         Levels l = null;
-        if(sceneNum == -1)
+        if (sceneName == "MainMenu")
         {
             l = Array.Find(levels, levels => levels.levelIndex == SceneManager.GetActiveScene().buildIndex + 1);
         }
         else
         {
-            l = Array.Find(levels, levels => levels.levelIndex == sceneNum);
+            l = Array.Find(levels, levels => levels.levelName == sceneName);
         }
         StartCoroutine(LevelTransitioner(l));
     }
@@ -83,7 +87,7 @@ public class MenuManager : MonoBehaviour
                 break;
         }
 
-        if(GameManager.player != null)
+        if (GameManager.player != null)
         {
             //GameManager.player.playerControls.Player.Disable();
             //GameManager.shoot.playerControls.Player.Disable();
@@ -118,7 +122,26 @@ public class MenuManager : MonoBehaviour
 public class Levels
 {
     public string levelName;
-    public int levelIndex; 
+    [HideInInspector]public int levelIndex;
     public string startingThemeName;
     public bool isLevel;
+
+    public void FindIndex()
+    {
+        //Debug.Log(levelName);
+        //levelIndex = SceneManager.GetSceneByName(levelName).buildIndex;
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            string path = SceneUtility.GetScenePathByBuildIndex(i);
+            int slash = path.LastIndexOf('/');
+            string name = path.Substring(slash + 1);
+            int dot = name.LastIndexOf('.');
+            string theName =  name.Substring(0, dot);
+            if (theName == levelName)
+            {
+                levelIndex = i;
+                break;
+            }
+        }
+    }
 }

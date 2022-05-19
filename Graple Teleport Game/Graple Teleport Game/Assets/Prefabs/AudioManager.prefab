@@ -81,6 +81,13 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
+    - name: Space
+      clip: {fileID: 8300000, guid: 2bfa280ec2b0eef41baa53d31c3b5c67, type: 3}
+      volume: 0.33
+      adjustedVolume: 0
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
   - name: Sound Effects
     sounds:
     - name: CannonShoot
@@ -106,6 +113,13 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: Coin
       clip: {fileID: 8300000, guid: 9276b13d69833954baad0de2b5d4d43c, type: 3}
+      volume: 0.335
+      adjustedVolume: 0
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: GravitySwap
+      clip: {fileID: 8300000, guid: e9b4c53bfb4d3cc4587b3847dac53772, type: 3}
       volume: 0.335
       adjustedVolume: 0
       pitch: 1

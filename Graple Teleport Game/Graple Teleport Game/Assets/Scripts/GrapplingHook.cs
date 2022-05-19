@@ -25,6 +25,9 @@ public class GrapplingHook : MonoBehaviour
 
     void Start()
     {
+        lineRen.endColor = lineRen.endColor = Color.white;
+        suction = false;
+
         grap = new GrapLocation();
         grap.grip = new GameObject().transform;
         Physics2D.queriesStartInColliders = false;

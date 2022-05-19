@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     private Vector2 rightDir;
     private Vector2 downDir;
+    private CameraMovement cam;
 
     [HideInInspector] public bool canJump;
     [HideInInspector] public bool contained;
@@ -34,19 +35,21 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        ChangeDown(Vector2.down);
+
         GameManager.isDead = false;
         currentHealth = health;
         contained = false;
         respawnPoint = transform.position;
         rb = GetComponent<Rigidbody2D>();
         healthBar = GameManager.menuManager.transform.Find("PlayerUI/Health Bar Holder/HealthBar").transform;
+        cam = transform.parent.GetChild(0).GetComponent<CameraMovement>();
+        ChangeDown(Vector2.down);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currentHealth/health > 0)
+        if (currentHealth / health > 0)
         {
             healthBar.localScale = new Vector3(currentHealth / health * 0.99f, .9f, 1);
         }
@@ -55,7 +58,7 @@ public class Player : MonoBehaviour
             OhNo();
         }
 
-        if(contained)
+        if (contained)
         {
             transform.position = containedObj.transform.position;
             return;
@@ -76,12 +79,12 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            if(canJump)
+            if (canJump)
             {
                 rb.AddForce(-downDir * 200f);
                 canJump = false;
             }
-            if(currentHealth <= 0)
+            if (currentHealth <= 0)
             {
                 Respawn();
             }
@@ -102,7 +105,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("RespawnPoint"))
+        if (collision.CompareTag("RespawnPoint"))
         {
             respawnPoint = collision.transform.position;
         }
@@ -110,7 +113,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collider)
     {
         canJump = true;
-        if(collider.transform.CompareTag("Death"))
+        if (collider.transform.CompareTag("Death"))
         {
             OhNo();
         }
@@ -135,6 +138,7 @@ public class Player : MonoBehaviour
     {
         //Time.timeScale = 1;
         currentHealth = health;
+        Released();
 
         transform.position = respawnPoint;
         currentHealth = health;
@@ -166,18 +170,21 @@ public class Player : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         transform.parent = container.transform;
+        GrapplingHook.canGraple = false;
     }
     public void Released()
     {
         contained = false;
         GetComponent<Renderer>().enabled = true;
+        GetComponent<CircleCollider2D>().enabled = true;
         rb.isKinematic = false;
         transform.parent = null;
+        GrapplingHook.canGraple = true;
     }
 
     public bool ChangeDown(Vector2 downVector)
     {
-        if(downDir == downVector.normalized)
+        if (downDir == downVector.normalized)
         {
             return true;
         }
@@ -187,8 +194,8 @@ public class Player : MonoBehaviour
         Physics2D.gravity = downVector * 9.81f;
 
         float neg = 1;
-        if(downVector.x < 0) { neg *= -1; }
-        transform.parent.GetChild(0).GetComponent<CameraMovement>().RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
+        if (downVector.x < 0) { neg *= -1; }
+        cam.RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
         return false;
     }
     public bool ChangeDown(Vector2 downVector, float newGravity)
@@ -203,7 +210,7 @@ public class Player : MonoBehaviour
         Physics2D.gravity = downVector * newGravity;
         float neg = 1;
         if (downVector.x < 0) { neg *= -1; }
-        transform.parent.GetChild(0).GetComponent<CameraMovement>().RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
+        cam.RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
         return false;
     }
 }

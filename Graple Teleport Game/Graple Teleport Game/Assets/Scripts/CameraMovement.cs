@@ -56,7 +56,6 @@ public class CameraMovement : MonoBehaviour
     }
     public IEnumerator RotateCameraEnum(float newAngle)
     {
-        Debug.Log(newAngle);
         float changeTime = Time.time;
         while (Time.time - changeTime < 2)
         {

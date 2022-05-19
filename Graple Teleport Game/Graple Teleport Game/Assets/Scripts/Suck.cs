@@ -41,6 +41,13 @@ public class Suck : MonoBehaviour
                     suckObjects.Remove(pranked);
                     if (kcuS == null)
                     {
+                        if (pranked.CompareTag("Carrier"))
+                        {
+                            FindObjectOfType<Player>().OhNo();
+                            FindObjectOfType<Player>().Released();
+                            Destroy(pranked);
+                        }
+
                         if (pranked.CompareTag("Player"))
                         {
                             pranked.GetComponent<Player>().OhNo();

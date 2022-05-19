@@ -7,6 +7,8 @@ TagManager:
   - RespawnPoint
   - Death
   - Grabbable
+  - HealthBar
+  - Carrier
   layers:
   - Default
   - TransparentFX
