@@ -10,8 +10,7 @@ public class Rocket : MonoBehaviour
     private Rigidbody2D rb;
     public float acceleration;
     public Vector2 minMaxSpeed;
-    // Start is called before the first frame update
-
+    private GameObject cargo;
     private float originalSpeed;
     void Start()
     {
@@ -20,33 +19,17 @@ public class Rocket : MonoBehaviour
             minMaxSpeed = Vector2.one * speed;
         }
         originalSpeed = speed;
+
+        rb = GetComponent<Rigidbody2D>();
+        cargo = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
+        if(cargo != null)
         {
-            StartCoroutine(Launch(collision.gameObject));
-        }
-    }
-
-    public IEnumerator Launch(GameObject player)
-    {
-        transform.tag = "Carrier";
-        player.GetComponent<CircleCollider2D>().enabled = false;
-        player.GetComponent<Player>().Contained(gameObject);
-        float t = Time.time;
-        while (Time.time - t < flightTime)
-        {
-            player.transform.position = transform.position;
-            rb.velocity = transform.up * speed;
-            yield return null; if (Input.GetKey("a"))
+            if (Input.GetKey("a"))
             {
                 transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime * speed / originalSpeed);
             }
@@ -64,15 +47,46 @@ public class Rocket : MonoBehaviour
             }
             if (Input.GetKeyDown("space"))
             {
-                break;
+                Explode(FindObjectOfType<Player>().gameObject);
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(Launch(collision.gameObject));
+            cargo = collision.gameObject;
+        }
+    }
+
+    public IEnumerator Launch(GameObject player)
+    {
+        transform.tag = "Carrier";
+        player.GetComponent<CircleCollider2D>().enabled = false;
+        player.GetComponent<Player>().Contained(gameObject);
+        float t = Time.time;
+        while (Time.time - t < flightTime)
+        {
+            player.transform.position = transform.position;
+            rb.velocity = transform.up * speed;
+            yield return null; 
             speed = Mathf.Clamp(speed, minMaxSpeed.x, minMaxSpeed.y);
             yield return null;
 
         }
-        player.GetComponent<CircleCollider2D>().enabled = true;
-        player.GetComponent<Player>().Released();
-        player.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+        Explode(player);
+    }
+
+    public void Explode(GameObject player)
+    {
+        if(player != null)
+        {
+            player.GetComponent<Player>().Released();
+            player.GetComponent<CircleCollider2D>().enabled = true;
+            player.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+        }
         Destroy(gameObject);
     }
 }

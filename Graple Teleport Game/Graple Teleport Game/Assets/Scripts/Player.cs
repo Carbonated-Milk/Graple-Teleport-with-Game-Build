@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (currentHealth / health > 0)
         {
             healthBar.localScale = new Vector3(currentHealth / health * 0.99f, .9f, 1);
@@ -96,6 +97,8 @@ public class Player : MonoBehaviour
             GameManager.menuManager.transform.Find("PlayerUI").gameObject.SetActive(false);
             Time.timeScale = 0;
         }
+
+        if((Vector2)Physics.gravity != Physics2D.gravity) { Physics.gravity = (Vector3)Physics2D.gravity; }
     }
 
     public void Hurt(float damage)
@@ -209,7 +212,7 @@ public class Player : MonoBehaviour
         downDir = downVector;
         rightDir = new Vector2(-downVector.y, downVector.x);
         Physics2D.gravity = downVector * newGravity * 9.81f;
-        Physics.gravity = downVector * newGravity * 9.81f;
+
         float neg = 1;
         if (downVector.x < 0) { neg *= -1; }
         cam.RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));

@@ -28,16 +28,16 @@ public class Shooter : MonoBehaviour
 
     public IEnumerator ShootPlayer()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position, layerMask);
-        //Debug.Log(hit.collider);
         while (Vector3.SqrMagnitude(transform.position - player.position) < 50 * 50)
         {
             //hit = Physics2D.Raycast(transform.position, player.position, layerMask);
             Vector2 dist = player.position - transform.position;
-            float targetRot = Mathf.Atan2(dist.y, dist.x);
-            transform.rotation = Quaternion.Euler(Vector3.forward * (Mathf.Lerp(transform.rotation.z, targetRot, .1f) * Mathf.Rad2Deg));
-            //Debug.Log(targetRot);
-            if (Mathf.Abs(targetRot - transform.rotation.z) < .5)
+            int neg = 1;
+            if (Physics2D.gravity.x < 0) { neg *= -1; }
+            float targetRot = neg * Vector2.Angle(dist, Vector2.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.forward * targetRot), 30f);
+
+            if (Mathf.Abs(transform.rotation.z - transform.rotation.z) < .5)
             {
                 ShootBullet();
                 yield return new WaitForSeconds(1f);
