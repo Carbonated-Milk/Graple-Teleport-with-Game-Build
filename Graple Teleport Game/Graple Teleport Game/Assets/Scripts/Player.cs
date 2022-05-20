@@ -209,6 +209,7 @@ public class Player : MonoBehaviour
         downDir = downVector;
         rightDir = new Vector2(-downVector.y, downVector.x);
         Physics2D.gravity = downVector * newGravity * 9.81f;
+        Physics.gravity = downVector * newGravity * 9.81f;
         float neg = 1;
         if (downVector.x < 0) { neg *= -1; }
         cam.RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
