@@ -9,43 +9,42 @@ public class Shooter : MonoBehaviour
     public float rotateSpeed;
     public LayerMask layerMask;
     public GameObject bullet;
-    void Start()
-    {
-        player = FindObjectOfType<Player>().transform;
-        StartCoroutine(ShootPlayer());
-    }
 
-    public IEnumerator FindPlayer()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position, layerMask);
-        while (hit.collider.CompareTag("Player"))
+        if(collision.CompareTag("Player"))
         {
-            hit = Physics2D.Raycast(transform.position, player.position);
-            yield return new WaitForSeconds(.1f);
+            player = collision.gameObject.transform;
+            StartCoroutine(ShootPlayer());
         }
-        StartCoroutine(ShootPlayer());
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            player = null;
+            StopAllCoroutines();
+        }
+    }
     public IEnumerator ShootPlayer()
     {
-        while (Vector3.SqrMagnitude(transform.position - player.position) < 50 * 50)
+        while (true)
         {
             //hit = Physics2D.Raycast(transform.position, player.position, layerMask);
             Vector2 dist = player.position - transform.position;
             int neg = 1;
-            if (Physics2D.gravity.x < 0) { neg *= -1; }
+            if (dist.x > 0) { neg *= -1; }
             float targetRot = neg * Vector2.Angle(dist, Vector2.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.forward * targetRot), 30f);
-
-            if (Mathf.Abs(transform.rotation.z - transform.rotation.z) < .5)
+            float specialNum = neg * Vector2.Angle(dist, Vector2.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.forward * specialNum), 60 * Time.deltaTime);
+            if (Mathf.Abs(Vector2.Angle(dist, transform.up)) < .5)
             {
                 ShootBullet();
                 yield return new WaitForSeconds(1f);
             }
             yield return null;
         }
-        
-        StartCoroutine(FindPlayer());
     }
 
     public void ShootBullet()

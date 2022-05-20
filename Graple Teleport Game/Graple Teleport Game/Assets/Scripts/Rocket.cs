@@ -47,7 +47,7 @@ public class Rocket : MonoBehaviour
             }
             if (Input.GetKeyDown("space"))
             {
-                Explode(FindObjectOfType<Player>().gameObject);
+                Explode();
             }
         }
     }
@@ -57,7 +57,11 @@ public class Rocket : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(Launch(collision.gameObject));
-            cargo = collision.gameObject;
+            cargo = FindObjectOfType<Player>().gameObject;
+        }
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            Explode();
         }
     }
 
@@ -76,16 +80,16 @@ public class Rocket : MonoBehaviour
             yield return null;
 
         }
-        Explode(player);
+        Explode();
     }
 
-    public void Explode(GameObject player)
+    public void Explode()
     {
-        if(player != null)
+        if(cargo != null)
         {
-            player.GetComponent<Player>().Released();
-            player.GetComponent<CircleCollider2D>().enabled = true;
-            player.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+            cargo.GetComponent<Player>().Released();
+            cargo.GetComponent<CircleCollider2D>().enabled = true;
+            cargo.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
         }
         Destroy(gameObject);
     }

@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Transform healthBar;
 
+    public LayerMask jumpTypes;
+
     private Vector2 rightDir;
     private Vector2 downDir;
     private CameraMovement cam;
@@ -115,16 +117,15 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        canJump = true;
+        GroundCheck();
         if (collider.transform.CompareTag("Death"))
         {
             OhNo();
         }
     }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
-        canJump = true;
+        GroundCheck();
     }
 
     private void OnCollisionExit2D(Collision2D collider)
@@ -135,6 +136,13 @@ public class Player : MonoBehaviour
     public void CayoteTime()
     {
         canJump = false;
+    }
+    private void GroundCheck()
+    {
+        if (Physics2D.Raycast(transform.position, downDir, 2f, jumpTypes))
+        {
+            canJump = true;
+        }
     }
 
     internal void Respawn()

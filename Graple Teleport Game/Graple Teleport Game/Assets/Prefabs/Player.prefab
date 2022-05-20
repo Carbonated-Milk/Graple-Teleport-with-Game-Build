@@ -148,6 +148,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  jumpTypes:
+    serializedVersion: 2
+    m_Bits: 4294967295
   canJump: 0
   contained: 0
   containedObj: {fileID: 0}
