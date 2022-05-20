@@ -4,19 +4,8 @@ using UnityEngine;
 
 public class Downerizer : MonoBehaviour
 {
+    public bool changeStrength;
     public float newGravity;
-    private SpriteRenderer arrow;
-
-    private void Start()
-    {
-        arrow = transform.GetChild(0).GetComponent<SpriteRenderer>();
-    }
-
-    private void Update()
-    {
-        float num = Mathf.Sin(4 * Time.time) / 6 + .9f;
-        arrow.color = new Vector4(num, num, 1, 1);
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
@@ -27,7 +16,7 @@ public class Downerizer : MonoBehaviour
             }
             
             bool same;
-            if(newGravity != 0)
+            if(changeStrength)
             {
                 same = collision.GetComponent<Player>().ChangeDown(new Vector2(transform.right.y, -transform.right.x), newGravity);
             }

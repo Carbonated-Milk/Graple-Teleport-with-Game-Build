@@ -51,7 +51,10 @@ public class GrapplingHook : MonoBehaviour
 
         if (Input.GetKey("1"))
         {
-
+            if(grapleCaught)
+            {
+                grapleRadius = (transform.position - grap.grip.position).magnitude;
+            }
             lineRen.endColor = lineRen.endColor = Color.white;
             suction = false;
         }
@@ -163,13 +166,15 @@ public class GrapplingHook : MonoBehaviour
     }
     IEnumerator RetractHook()
     {
-        if(grapleCaught)
+        grapleRadius = 0f;
+        TurnOffGrapple();
+        if (grapleCaught)
         {
+            //Debug.Log(grap.grip.position);
             shootLength = (transform.position - grap.grip.position).magnitude;
+            //Debug.Log(shootLength);
             grapleCaught = false;
         }
-        grap.TurnOffGrap();
-        grapleRadius = 0f;
         while (shootLength > 0f)
         {
             lockedPos = Vector2.zero;
@@ -177,6 +182,7 @@ public class GrapplingHook : MonoBehaviour
             yield return null;
         }
         shootLength = 0;
+
     }
 
     public void TurnOffGrapple()

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113036542390010165}
   - component: {fileID: 2113036542390010166}
-  - component: {fileID: 8167102111454568470}
+  - component: {fileID: 437181387392760961}
   m_Layer: 0
   m_Name: Yellow Arrow
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2113036542390010164}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: -0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 2113036543006124596}
   m_RootOrder: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8f2310164b0328245a688f1584477cd6, type: 3}
-  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8167102111454568470
+--- !u!114 &437181387392760961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,9 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0016577bb45f2d47881862174e05ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1: {x: 0, y: 1, z: 1, w: 1}
-  color2: {x: 0, y: 0.6, z: 0.6, w: 1}
-  fadeSpeed: 2
+  color1: {x: 1, y: 1, z: 1, w: 1}
+  color2: {x: 0.6, y: 0.6, z: 0.6, w: 1}
+  fadeSpeed: 4
 --- !u!1 &2113036543006124586
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,10 +108,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2113036543006124596}
   - component: {fileID: 2113036543006124587}
-  - component: {fileID: 2113036543006124597}
+  - component: {fileID: 7043473254346258003}
   - component: {fileID: 2113036543006124598}
   m_Layer: 0
-  m_Name: Downerizer
+  m_Name: Accelerizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2113036543006124597
+--- !u!114 &7043473254346258003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,10 +193,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2113036543006124586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e4482fac0feee45ab9ed16213f1013, type: 3}
+  m_Script: {fileID: 11500000, guid: da52fb4cc7f84054fb6de958becb14a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGravity: 0
+  speedUp: 5
+  insta: 1
 --- !u!61 &2113036543006124598
 BoxCollider2D:
   m_ObjectHideFlags: 0

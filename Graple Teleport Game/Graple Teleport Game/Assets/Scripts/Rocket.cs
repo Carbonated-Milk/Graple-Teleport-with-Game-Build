@@ -62,6 +62,10 @@ public class Rocket : MonoBehaviour
             {
                 speed -= acceleration * Time.deltaTime;
             }
+            if (Input.GetKeyDown("space"))
+            {
+                break;
+            }
             speed = Mathf.Clamp(speed, minMaxSpeed.x, minMaxSpeed.y);
             yield return null;
 

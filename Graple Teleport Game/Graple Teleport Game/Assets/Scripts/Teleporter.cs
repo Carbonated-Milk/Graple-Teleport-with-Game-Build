@@ -47,7 +47,7 @@ public class Teleporter : MonoBehaviour
         }
     }
     
-    public void swap(GameObject obj)
+    /*public void swap(GameObject obj)
     {
         try
         {
@@ -70,7 +70,7 @@ public class Teleporter : MonoBehaviour
         {
             
         }
-    }
+    }*/
 
     public void Teleport(GameObject teleported, bool side)
     {

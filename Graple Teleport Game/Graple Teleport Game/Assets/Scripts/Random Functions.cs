@@ -35,6 +35,11 @@ public class RandomFunctions : MonoBehaviour
         return null;
     }
 
+    internal static Vector2 RandomVector()
+    {
+        return new Vector2(Mathf.Sin(Random.Range(0f, 2 * Mathf.PI)), Mathf.Sin(Random.Range(0f, 2 * Mathf.PI)));
+    }
+
     public static Vector3 FindDistError(float shootError)
     {
         float random = Random.Range(0f, 360f) * Mathf.Deg2Rad;
