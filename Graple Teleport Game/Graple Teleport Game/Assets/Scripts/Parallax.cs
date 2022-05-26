@@ -12,7 +12,7 @@ public class Parallax : MonoBehaviour
     private float length, height, startposX, startposY;
     private Transform cam;
     private Camera camera;
-    public float parallaxEffect;
+    public float parallaxEffect, parralaxY;
     [HideInInspector] public bool clone = false;
     public bool noTopRepeat;
     public bool localized;
@@ -28,6 +28,9 @@ public class Parallax : MonoBehaviour
 
         startposX = transform.position.x;
         startposY = transform.position.y;
+
+        if(parralaxY == 0) { parralaxY = parallaxEffect; }
+
         if (screenRepeat)
         {
             length = cam.GetComponent<Camera>().orthographicSize * 10 * Screen.width / Screen.height;
@@ -53,10 +56,10 @@ public class Parallax : MonoBehaviour
     void Update()
     {
         float tempx = (cam.position.x * (1 - parallaxEffect));
-        float tempy = (cam.position.y * (1 - parallaxEffect));
+        float tempy = (cam.position.y * (1 - parralaxY));
 
         float distx = (cam.position.x * parallaxEffect);
-        float disty = (cam.position.y * parallaxEffect);
+        float disty = (cam.position.y * parralaxY);
 
         transform.position = new Vector3(startposX + distx, startposY + disty, transform.position.z);
         if (!localized)

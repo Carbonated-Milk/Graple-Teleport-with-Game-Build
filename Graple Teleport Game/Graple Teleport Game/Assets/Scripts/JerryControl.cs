@@ -10,6 +10,9 @@ public class JerryControl : MonoBehaviour
     public GameObject boinger;
     public GameObject[] boingers;
 
+    public Material normal;
+    public Material rainbow;
+
     private int phase;
 
     private Transform player;
@@ -69,7 +72,9 @@ public class JerryControl : MonoBehaviour
         Clear(boingers);
         Clear(lineRens);
 
-        RandomFunctions.Invincibility(3, isVincible);
+        GetComponent<SpriteRenderer>().material = rainbow;
+        isVincible = false;
+        Invoke("IsVincible", 3f);
 
         switch (phase)
         {
@@ -111,6 +116,12 @@ public class JerryControl : MonoBehaviour
         GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("Level Complete").gameObject);
         CameraMovement.targetBounds = null;
         Destroy(gameObject);
+    }
+
+    public void IsVincible()
+    {
+        isVincible = true;
+        GetComponent<SpriteRenderer>().material = normal;
     }
 
 

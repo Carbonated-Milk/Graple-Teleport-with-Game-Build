@@ -22,6 +22,8 @@ public class GrapplingHook : MonoBehaviour
     public static bool grapleCaught;
     public static bool canGraple = true;
 
+    private bool swingType = false;
+
 
     void Start()
     {
@@ -49,19 +51,23 @@ public class GrapplingHook : MonoBehaviour
             StartCoroutine(RetractHook());
         }
 
-        if (Input.GetKey("1"))
+        if (Input.GetKeyDown("q"))
         {
-            if(grapleCaught)
+            if(swingType)
             {
-                grapleRadius = (transform.position - grap.grip.position).magnitude;
+                if (grapleCaught)
+                {
+                    grapleRadius = (transform.position - grap.grip.position).magnitude;
+                }
+                lineRen.endColor = lineRen.endColor = Color.white;
+                suction = false;
             }
-            lineRen.endColor = lineRen.endColor = Color.white;
-            suction = false;
-        }
-        if (Input.GetKey("2"))
-        {
-            lineRen.endColor = lineRen.endColor = Color.blue;
-            suction = true;
+            else
+            {
+                lineRen.endColor = lineRen.endColor = Color.blue;
+                suction = true;
+            }
+            swingType = !swingType;
         }
 
         if (grap.grip == null)

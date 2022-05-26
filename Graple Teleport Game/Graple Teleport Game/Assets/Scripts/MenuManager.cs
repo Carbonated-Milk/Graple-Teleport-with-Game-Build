@@ -56,7 +56,7 @@ public class MenuManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         Levels l = null;
-        if (sceneName == "MainMenu")
+        if (sceneName == "Next")
         {
             l = Array.Find(levels, levels => levels.levelIndex == SceneManager.GetActiveScene().buildIndex + 1);
         }

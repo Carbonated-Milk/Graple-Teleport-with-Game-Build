@@ -10,11 +10,13 @@ public class Disappear : MonoBehaviour
 
     private BoxCollider2D collider;
     private SpriteRenderer renderer;
+    private Material material;
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<BoxCollider2D>();
         renderer = GetComponent<SpriteRenderer>();
+        material = renderer.material;
     }
 
     // Update is called once per frame
@@ -34,12 +36,29 @@ public class Disappear : MonoBehaviour
         {
             yield return new WaitForSeconds(disappearTime);
             collider.enabled = false;
-            renderer.enabled = false;
             RandomFunctions.TurnOffGrapple(transform);
+            StartCoroutine(Smaller());
 
             yield return new WaitForSeconds(reappearTime);
+            StartCoroutine(Bigger());
             collider.enabled = true;
-            renderer.enabled = true;
+        }
+    }
+
+    IEnumerator Smaller()
+    {
+        while(material.GetFloat("_Fade") > 0)
+        {
+            material.SetFloat("_Fade", material.GetFloat("_Fade") - 3 * Time.deltaTime);
+                yield return null;
+        }
+    }
+    IEnumerator Bigger()
+    {
+        while (material.GetFloat("_Fade") < 1)
+        {
+            material.SetFloat("_Fade", material.GetFloat("_Fade") + 3 * Time.deltaTime);
+            yield return null;
         }
     }
 }

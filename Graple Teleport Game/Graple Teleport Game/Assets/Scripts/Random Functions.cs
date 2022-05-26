@@ -47,13 +47,6 @@ public class RandomFunctions : MonoBehaviour
         return distError;
     }
 
-    public static IEnumerator Invincibility(float time, bool isVincible)
-    {
-        isVincible = false;
-        yield return new WaitForSeconds(time);
-        isVincible = true;
-    }
-
     public static void TurnOffGrapple()
     {
         FindObjectOfType<GrapplingHook>().TurnOffGrapple();

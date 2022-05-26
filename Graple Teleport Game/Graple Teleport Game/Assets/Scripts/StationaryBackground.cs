@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StationaryBackground : MonoBehaviour
 {
+    public Vector2 offset;
     private Transform cam;
     private Camera camera;
     private float ogOrthographic;
@@ -20,7 +21,8 @@ public class StationaryBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(cam.position.x, cam.position.y, transform.position.z);
-        transform.localScale = ogScale * camera.orthographicSize / ogOrthographic;
+        float sizeScale = camera.orthographicSize / ogOrthographic;
+        transform.position = new Vector3(cam.position.x, cam.position.y, transform.position.z) + (Vector3)offset * sizeScale;
+        transform.localScale = ogScale * sizeScale;
     }
 }

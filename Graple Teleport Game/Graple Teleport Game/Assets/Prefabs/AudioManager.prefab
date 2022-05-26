@@ -74,15 +74,22 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       source: {fileID: 0}
-    - name: JerryWin
-      clip: {fileID: 8300000, guid: a7bcc4c0de72d344497d40f4e9a18895, type: 3}
+    - name: Space
+      clip: {fileID: 8300000, guid: 2bfa280ec2b0eef41baa53d31c3b5c67, type: 3}
       volume: 0.33
       adjustedVolume: 0
       pitch: 1
-      loop: 0
+      loop: 1
       source: {fileID: 0}
-    - name: Space
-      clip: {fileID: 8300000, guid: 2bfa280ec2b0eef41baa53d31c3b5c67, type: 3}
+    - name: Title
+      clip: {fileID: 8300000, guid: b4e34e37ad0c0bb499232fb8cfeebbe2, type: 3}
+      volume: 0.33
+      adjustedVolume: 0
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: Factory
+      clip: {fileID: 8300000, guid: 1fe37d7eb4a889548ba5a39d1d3fed34, type: 3}
       volume: 0.33
       adjustedVolume: 0
       pitch: 1
@@ -121,6 +128,15 @@ MonoBehaviour:
     - name: GravitySwap
       clip: {fileID: 8300000, guid: e9b4c53bfb4d3cc4587b3847dac53772, type: 3}
       volume: 0.335
+      adjustedVolume: 0
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+  - name: Jingles
+    sounds:
+    - name: JerryWin
+      clip: {fileID: 8300000, guid: a7bcc4c0de72d344497d40f4e9a18895, type: 3}
+      volume: 0.33
       adjustedVolume: 0
       pitch: 1
       loop: 0

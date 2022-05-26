@@ -9,8 +9,8 @@ Shader "Unlit/Respawn"
 	}
 		SubShader
 	{
-		Tags { "RenderType" = "Transparent"
-				"Queue" = "Transparent" }
+		Tags { "RenderType" = "Opaque"
+				"Queue" = "Geometry" }
 
 
 		Pass
