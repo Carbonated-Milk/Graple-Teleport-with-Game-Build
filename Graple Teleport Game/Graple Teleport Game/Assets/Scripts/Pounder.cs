@@ -9,11 +9,13 @@ public class Pounder : MonoBehaviour
     private Vector3 smashPos;
     private bool up = true;
     public float speed;
+    private ParticleSystem particals;
     void Start()
     {
         originalPos = transform.position;
         smashPos = Physics2D.Raycast(transform.position, -transform.up).point;
         StartCoroutine(Running());
+        particals = GetComponent<ParticleSystem>();
         Physics2D.queriesStartInColliders = false;
     }
 
@@ -35,18 +37,21 @@ public class Pounder : MonoBehaviour
 
     public IEnumerator Pound()
     {
+        transform.GetChild(0).tag = "Death";
         while(transform.position != smashPos)
         {
             transform.position = Vector2.MoveTowards(transform.position, smashPos, speed);
             yield return null;
         }
         up = false;
+        particals.Play();
     }
     public IEnumerator Release()
     {
-        while(transform.position != originalPos)
+        transform.GetChild(0).tag = "Untagged";
+        while (transform.position != originalPos)
         {
-            transform.position = Vector2.MoveTowards(transform.position, originalPos, speed);
+            transform.position = Vector2.MoveTowards(transform.position, originalPos, speed/2);
             yield return null;
         }
         up = true;

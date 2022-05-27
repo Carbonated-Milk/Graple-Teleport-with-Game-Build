@@ -135,21 +135,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2599796675720646964, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
-        type: 3}
-      propertyPath: rows
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2599796675720646964, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
-        type: 3}
-      propertyPath: spacing.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2599796675720646964, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
-        type: 3}
-      propertyPath: spacing.y
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 3660132581466694820, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
         type: 3}
       propertyPath: m_IsActive
@@ -249,6 +234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103507935810679384, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
+        type: 3}
+      propertyPath: m_Name
+      value: Level Select Text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ab85ef6f71d9614cbad8a0e20d8cada, type: 3}

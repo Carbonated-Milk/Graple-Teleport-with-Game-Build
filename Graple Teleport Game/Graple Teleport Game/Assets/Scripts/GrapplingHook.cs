@@ -35,7 +35,7 @@ public class GrapplingHook : MonoBehaviour
         Physics2D.queriesStartInColliders = false;
         rb = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-
+        StartCoroutine(RetractHook());
     }
     void Update()
     {
@@ -172,8 +172,7 @@ public class GrapplingHook : MonoBehaviour
     }
     IEnumerator RetractHook()
     {
-        grapleRadius = 0f;
-        TurnOffGrapple();
+        grap.active = false;
         if (grapleCaught)
         {
             //Debug.Log(grap.grip.position);
@@ -187,6 +186,9 @@ public class GrapplingHook : MonoBehaviour
             shootLength -= 50 * Time.deltaTime;
             yield return null;
         }
+        TurnOffGrapple();
+        grapleRadius = 0f;
+
         shootLength = 0;
 
     }

@@ -95,6 +95,13 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       source: {fileID: 0}
+    - name: Cave Theme
+      clip: {fileID: 8300000, guid: e560ef00d96c8b04aa128ee8b8a627d0, type: 3}
+      volume: 0.33
+      adjustedVolume: 0
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
   - name: Sound Effects
     sounds:
     - name: CannonShoot

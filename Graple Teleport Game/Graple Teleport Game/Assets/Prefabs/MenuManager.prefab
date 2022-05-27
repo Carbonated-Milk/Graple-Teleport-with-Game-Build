@@ -286,7 +286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &294309551001374024
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1807,7 +1807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1519252773782690319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4323,7 +4323,7 @@ MonoBehaviour:
     isLevel: 1
   - levelName: Sand Land
     levelIndex: 3
-    startingThemeName: Factory
+    startingThemeName: Cave Theme
     isLevel: 1
   topDoor: {fileID: 8844616253040512115}
 --- !u!1 &8809330011176037929
@@ -5712,8 +5712,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defualtButton: {fileID: 3660132581466694820}
-  rows: 3
-  spacing: {x: 1, y: 1}
+  rows: 2
+  spacing: {x: 200, y: 50}
 --- !u!1 &8809330011545230780
 GameObject:
   m_ObjectHideFlags: 0
@@ -8560,7 +8560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8809330012442291618
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10433,7 +10433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8844616253702338720
 RectTransform:
   m_ObjectHideFlags: 0
