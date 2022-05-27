@@ -12,11 +12,12 @@ public class Pounder : MonoBehaviour
     private ParticleSystem particals;
     void Start()
     {
+        Physics2D.queriesStartInColliders = false;
+
         originalPos = transform.position;
         smashPos = Physics2D.Raycast(transform.position, -transform.up).point;
         StartCoroutine(Running());
         particals = GetComponent<ParticleSystem>();
-        Physics2D.queriesStartInColliders = false;
     }
 
     public IEnumerator Running()
