@@ -16,7 +16,7 @@ Shader "Unlit/Respawn"
 		Pass
 		{
 			ZWrite Off
-			Blend One One
+			Blend One OneMinusSrcAlpha
 
 			CGPROGRAM
 			#pragma vertex vert
