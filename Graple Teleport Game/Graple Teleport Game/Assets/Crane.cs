@@ -8,8 +8,8 @@ public class Crane : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        leg1 = transform.GetChild(0).transform;
-        leg2 = transform.GetChild(1).transform;
+        //leg1 = transform.GetChild(0).transform;
+        //leg2 = transform.GetChild(1).transform;
     }
 
     // Update is called once per frame
