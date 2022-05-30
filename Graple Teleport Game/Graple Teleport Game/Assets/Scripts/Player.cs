@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public float cayoteTime;
@@ -15,13 +16,66 @@ public class Player : MonoBehaviour
 
     public LayerMask jumpTypes;
 
-    private Vector2 rightDir;
-    private Vector2 downDir;
+    public Vector2 moverDir;
+    public bool jumped;
+    private bool action;
+    public Vector2 mousePos;
+
+    [HideInInspector] private Vector2 rightDir;
+    [HideInInspector] private Vector2 downDir;
     private CameraMovement cam;
+
+    private Camera camera;
 
     [HideInInspector] public bool canJump;
     [HideInInspector] public bool contained;
     [HideInInspector] public GameObject containedObj;
+
+    public GameObject playerUI;
+    public GameObject playerDie;
+
+
+    public IAction actionObj;
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+
+        moverDir = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            jumped = true;
+        }
+        else
+        {
+            jumped = false;
+        }
+    }
+    public void OnAction(InputAction.CallbackContext context)
+    {
+
+        if (actionObj != null)
+        {
+            switch (context.phase)
+            {
+                case InputActionPhase.Performed:
+                    actionObj.Begin();
+                    break;
+                case InputActionPhase.Canceled:
+                    actionObj.Finish();
+                    break;
+            }
+        }
+    }
+
+    public void MousePosition(InputAction.CallbackContext context)
+    {
+        mousePos = camera.ScreenToWorldPoint(context.ReadValue<Vector2>());
+        Debug.Log(mousePos + "workeing");
+    }
 
     private void Awake()
     {
@@ -37,21 +91,35 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-
         GameManager.isDead = false;
         currentHealth = health;
         contained = false;
         respawnPoint = transform.position;
         rb = GetComponent<Rigidbody2D>();
-        healthBar = GameManager.menuManager.transform.Find("PlayerUI/Health Bar Holder/HealthBar").transform;
+        //healthBar = GameManager.menuManager.transform.Find("PlayerUI/Health Bar Holder/HealthBar").transform;
+        healthBar = transform.parent.transform.Find("PlayerUI/Health Bar Holder/HealthBar").transform;
         cam = transform.parent.GetChild(0).GetComponent<CameraMovement>();
+        camera = cam.GetComponent<Camera>();
         ChangeDown(Vector2.down);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        mousePos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        if(action != ToBool(Mouse.current.leftButton.ReadValue()))
+        {
+            action = !action;
+            if(action)
+            {
+                actionObj.Begin();
+            }
+            else
+            {
+                actionObj.Finish();
+            }
+        }
+
         if (currentHealth / health > 0)
         {
             healthBar.localScale = new Vector3(currentHealth / health * 0.99f, .9f, 1);
@@ -67,25 +135,21 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey("a"))
-        {
-            rb.AddForce(-rightDir * 200 * Time.deltaTime);
-        }
-        if (Input.GetKey("d"))
-        {
-            rb.AddForce(rightDir * 200 * Time.deltaTime);
-        }
+        rb.AddForce(rightDir * 200 * Time.deltaTime * moverDir.x);
+
+
         if (Input.GetKey("r"))
         {
             Respawn();
         }
 
-        if (Input.GetKeyDown("space"))
+        if (jumped)
         {
             if (canJump)
             {
                 rb.AddForce(-downDir * 200f);
                 canJump = false;
+                jumped = false;
             }
             if (currentHealth <= 0)
             {
@@ -96,11 +160,12 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("tab"))
         {
             GameManager.menuManager.transform.Find("Game Options").gameObject.SetActive(true);
-            GameManager.menuManager.transform.Find("PlayerUI").gameObject.SetActive(false);
+            //GameManager.menuManager.transform.Find("PlayerUI").gameObject.SetActive(false); 
+            playerUI.SetActive(false);
             Time.timeScale = 0;
         }
 
-        if((Vector2)Physics.gravity != Physics2D.gravity) { Physics.gravity = (Vector3)Physics2D.gravity; }
+        if ((Vector2)Physics.gravity != Physics2D.gravity) { Physics.gravity = (Vector3)Physics2D.gravity; }
     }
 
     public void Hurt(float damage)
@@ -145,7 +210,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    internal void Respawn()
+    public void Respawn()
     {
         //Time.timeScale = 1;
         currentHealth = health;
@@ -153,7 +218,10 @@ public class Player : MonoBehaviour
 
         transform.position = respawnPoint;
         currentHealth = health;
-        GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("PlayerUI").gameObject);
+        //GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("PlayerUI").gameObject);
+        GameManager.menuManager.CloseAllPanels();
+        playerDie.SetActive(false);
+        playerUI.SetActive(true);
         GameManager.isDead = false;
 
         rb.velocity = Vector2.zero;
@@ -165,7 +233,10 @@ public class Player : MonoBehaviour
         GameManager.isDead = true;
         currentHealth = 0;
         death.Invoke();
-        GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("You Died").gameObject);
+        //GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("You Died").gameObject);
+        GameManager.menuManager.CloseAllPanels();
+        playerUI.SetActive(false);
+        playerDie.SetActive(true);
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         canJump = false;
@@ -226,4 +297,27 @@ public class Player : MonoBehaviour
         cam.RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
         return false;
     }
+
+    public bool ToBool(float notBool)
+    {
+        if (notBool == 0)
+        {
+            return false;
+        }
+        else return true;
+    }
+
+    public void ReturntoMenu()
+    {
+        GameManager.menuManager.SetTimeScale(1);
+        GameManager.menuManager.LoadScene("Main Menu");
+    }
+
+}
+
+
+public interface IAction
+{
+    public void Begin();
+    public void Finish();
 }

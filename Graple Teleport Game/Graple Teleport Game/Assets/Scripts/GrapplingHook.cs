@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrapplingHook : MonoBehaviour
+public class GrapplingHook : MonoBehaviour, IAction
 {
     public bool suction;
-    private Camera cam;
+    private Player player;
     public float ropeLength;
     public LineRenderer lineRen;
 
@@ -33,13 +33,30 @@ public class GrapplingHook : MonoBehaviour
 
         Physics2D.queriesStartInColliders = false;
         rb = GetComponent<Rigidbody2D>();
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        player = FindObjectOfType<Player>();
+        player.actionObj = this;
+        StartCoroutine(RetractHook());
+    }
+
+    public void Begin()
+    {
+        if(canGraple)
+        {
+            StopAllCoroutines();
+            StartCoroutine(ShootHook());
+        }
+    }
+
+    public void Finish()
+    {
+        StopAllCoroutines();
+        grap.active = true;
         StartCoroutine(RetractHook());
     }
     void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetMouseButtonDown(0) && canGraple)
+        mousePos = player.mousePos;
+        /*if (Input.GetMouseButtonDown(0) && canGraple)
         {
             StopAllCoroutines();
             StartCoroutine(ShootHook());
@@ -49,7 +66,7 @@ public class GrapplingHook : MonoBehaviour
             StopAllCoroutines();
             grap.active = true;
             StartCoroutine(RetractHook());
-        }
+        }*/
 
         if (Input.GetKeyDown("q"))
         {

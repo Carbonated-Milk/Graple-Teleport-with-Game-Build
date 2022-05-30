@@ -110,12 +110,6 @@ public class MenuManager : MonoBehaviour
             panel.SetActive(false);
         }
     }
-
-    public void Respawn()
-    {
-        GameManager.player.Respawn();
-        GameManager.player.Respawn();
-    }
 }
 
 [System.Serializable]

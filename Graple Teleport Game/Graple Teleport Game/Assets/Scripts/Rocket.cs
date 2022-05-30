@@ -12,6 +12,7 @@ public class Rocket : MonoBehaviour
     public Vector2 minMaxSpeed;
     private GameObject cargo;
     private float originalSpeed;
+    private Player player;
     void Start()
     {
         if(minMaxSpeed == Vector2.zero)
@@ -29,23 +30,9 @@ public class Rocket : MonoBehaviour
     {
         if(cargo != null)
         {
-            if (Input.GetKey("a"))
-            {
-                transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime * speed / originalSpeed);
-            }
-            if (Input.GetKey("d"))
-            {
-                transform.Rotate(Vector3.forward * -rotateSpeed * Time.deltaTime * speed / originalSpeed);
-            }
-            if (Input.GetKey("w"))
-            {
-                speed += acceleration * Time.deltaTime;
-            }
-            if (Input.GetKey("s"))
-            {
-                speed -= acceleration * Time.deltaTime;
-            }
-            if (Input.GetKeyDown("space"))
+            transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime * speed / originalSpeed * -player.moverDir.x);
+            speed += acceleration * Time.deltaTime * player.moverDir.y;
+            if(player.jumped)
             {
                 Explode();
             }
@@ -56,8 +43,9 @@ public class Rocket : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(Launch(collision.gameObject));
             cargo = FindObjectOfType<Player>().gameObject;
+            player = collision.gameObject.GetComponent<Player>(); 
+            StartCoroutine(Launch(collision.gameObject));
         }
         if (collision.gameObject.CompareTag("Death"))
         {

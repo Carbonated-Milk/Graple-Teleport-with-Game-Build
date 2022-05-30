@@ -4254,6 +4254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8809330011138513413}
   - component: {fileID: 8809330011138513412}
+  - component: {fileID: 5987905500035000721}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -4326,6 +4327,14 @@ MonoBehaviour:
     startingThemeName: Cave Theme
     isLevel: 1
   topDoor: {fileID: 8844616253040512115}
+--- !u!81 &5987905500035000721
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809330011138513435}
+  m_Enabled: 1
 --- !u!1 &8809330011176037929
 GameObject:
   m_ObjectHideFlags: 0

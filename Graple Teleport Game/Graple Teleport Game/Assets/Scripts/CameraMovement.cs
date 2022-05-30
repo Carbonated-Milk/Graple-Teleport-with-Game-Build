@@ -7,7 +7,7 @@ public class CameraMovement : MonoBehaviour
     public float moveSpeed;
     public float scaleSpeed;
 
-    private GameObject player;
+    public GameObject player;
     public float speedSizeBoost;
 
     public float minSize;
@@ -19,7 +19,6 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         playerRb = player.GetComponent<Rigidbody2D>();
         cam = GetComponent<Camera>();
     }
