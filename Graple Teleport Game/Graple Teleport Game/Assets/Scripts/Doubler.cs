@@ -10,7 +10,8 @@ public class Doubler : MonoBehaviour
         if (other.GetComponent<Rigidbody2D>())
         {
             GameObject clone = Instantiate(other.gameObject);
-            clone.transform.position = Vector2.zero;
+            clone.transform.position = transform.position;
+            Destroy(gameObject);
         }
     }
 }

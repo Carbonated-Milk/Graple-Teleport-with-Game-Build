@@ -11,7 +11,6 @@ public class Crane : MonoBehaviour
     {
         leg1 = transform.GetChild(0).transform;
         leg2 = transform.GetChild(1).transform;
-        StartCoroutine(Transport());
     }
 
     // Update is called once per frame
@@ -22,18 +21,20 @@ public class Crane : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (true)
+        if (collision.CompareTag("Player"))
         {
-
+            Transport(collision.GetComponent<Player>());
         }
     }
 
-    private IEnumerator Transport()
+    private IEnumerator Transport(Player player)
     {
+        player.Contained(transform.gameObject);
         yield return StartCoroutine(Grab());
 
         yield return new WaitForSeconds(3);
 
+        player.Released();
         yield return StartCoroutine(Release());
     }
 

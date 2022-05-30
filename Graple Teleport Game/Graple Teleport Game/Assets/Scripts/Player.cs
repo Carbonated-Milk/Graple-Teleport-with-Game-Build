@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             return;
         }
     }

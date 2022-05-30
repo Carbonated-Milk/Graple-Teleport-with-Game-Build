@@ -13,13 +13,11 @@ public class GrapplingHook : MonoBehaviour
     Rigidbody2D rb;
     Vector2 mousePos;
     public GrapLocation grap;
-    Vector2 lockedPos;
     float shootLength;
     float grapleRadius;
 
     public LayerMask ignoreMe;
 
-    public static bool grapleCaught;
     public static bool canGraple = true;
 
     private bool swingType = false;
@@ -31,7 +29,8 @@ public class GrapplingHook : MonoBehaviour
         suction = false;
 
         grap = new GrapLocation();
-        grap.grip = new GameObject().transform;
+        grap.SetUpGrap();
+
         Physics2D.queriesStartInColliders = false;
         rb = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -48,6 +47,7 @@ public class GrapplingHook : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && grap.active)
         {
             StopAllCoroutines();
+            grap.active = true;
             StartCoroutine(RetractHook());
         }
 
@@ -55,7 +55,7 @@ public class GrapplingHook : MonoBehaviour
         {
             if(swingType)
             {
-                if (grapleCaught)
+                if (grap.active)
                 {
                     grapleRadius = (transform.position - grap.grip.position).magnitude;
                 }
@@ -76,7 +76,7 @@ public class GrapplingHook : MonoBehaviour
             TurnOffGrapple();
         }
 
-        if (Vector2.Dot(rb.velocity, (Vector2)grap.grip.position - (Vector2)transform.position) <= 0 && (Vector2)grap.grip.position != Vector2.zero && grap.active && !suction)
+        if (!((Vector2.Dot(rb.velocity, (Vector2)grap.grip.position - (Vector2)transform.position) > 0 || (Vector2)grap.grip.position == Vector2.zero || !grap.active || suction) && (!grap.active || ((Vector2)transform.position - (Vector2)grap.grip.position).sqrMagnitude <= grapleRadius * grapleRadius || suction)))
         {
             GrappleVelocity((Vector2)grap.grip.position - (Vector2)transform.position);
         }
@@ -86,8 +86,11 @@ public class GrapplingHook : MonoBehaviour
             SuctionVel((Vector2)grap.grip.position - (Vector2)transform.position);
         }
 
+        grap.position = grap.grip.position;
+        grap.time = Time.time;
+
         #region Line Rendering
-        if (grapleCaught)
+        if (grap.active)
         {
             lineRen.SetPosition(0, transform.position);
             lineRen.SetPosition(1, (Vector2)grap.grip.position);
@@ -97,23 +100,19 @@ public class GrapplingHook : MonoBehaviour
             lineRen.SetPosition(0, transform.position);
             lineRen.SetPosition(1, (transform.position + (Vector3)(shootLength * (mousePos - (Vector2)transform.position).normalized)));
         }
-        if (grapleCaught)
-        {
-            //Debug.DrawLine(transform.position, (Vector2)grap.grip.position, Color.cyan);
-        }
         #endregion
     }
 
     private void SuctionVel(Vector2 grapleVector)
     {
         Vector2 grapleDirection = grapleVector.normalized;
-        rb.velocity += (Vector2)(grap.grip.position - transform.position)/16 * Time.deltaTime * 100;
+        rb.velocity += (Vector2)(grap.grip.position - transform.position) / 16 * Time.deltaTime * 100;
 
         if (grap.gripRB != null)
         {
             grap.gripRB.AddForceAtPosition(100 * Physics.gravity * Time.deltaTime * -Vector2.Dot(Vector2.down, grapleDirection), grap.grip.position);
 
-            grap.gripRB.AddForceAtPosition(-(Vector2)(grap.grip.position - transform.position) / 16 * Time.deltaTime * 100 * 10, grap.grip.position);
+            grap.gripRB.AddForceAtPosition(-(Vector2)(grap.grip.position - transform.position) / 16 * 100, grap.grip.position);
         }
     }
 
@@ -127,17 +126,20 @@ public class GrapplingHook : MonoBehaviour
         if (((Vector2)transform.position - (Vector2)grap.grip.position).sqrMagnitude > grapleRadius * grapleRadius)
         {
             rb.velocity -= grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
+            Vector2 newVel = grapleDirection * Vector2.Dot(grap.ChangeCheck(), grapleDirection) + rb.velocity - grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
+            rb.velocity = newVel;
+
             transform.position = (Vector2)grap.grip.position + ((Vector2)transform.position - (Vector2)grap.grip.position).normalized * grapleRadius;
+
 
             if (grap.gripRB != null)
             {
-                grap.gripRB.AddForceAtPosition(100 * Physics.gravity * Time.deltaTime * -Vector2.Dot(Vector2.down, grapleDirection), grap.grip.position);
+                grap.gripRB.AddForceAtPosition(-(grapleDirection * Vector2.Dot(grap.ChangeCheck(), grapleDirection) + rb.velocity)/Time.deltaTime, grap.grip.position);
 
                 grap.gripRB.AddForceAtPosition(-grapleDirection * 10, grap.grip.position);
             }
         }
 
-        //Debug.DrawLine(transform.position, transform.position + (Vector3)(grapleDirection * rb.velocity.sqrMagnitude / grapleRadius), Color.red);
     }
 
     IEnumerator ShootHook()
@@ -149,9 +151,8 @@ public class GrapplingHook : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, mousePos - (Vector2)(transform.position), shootLength, ignoreMe);
             if (hit.collider != null)
             {
-                lockedPos = hit.point;
-                grapleCaught = true;
                 grap.grip.position = hit.point;
+                grap.position = grap.grip.position;
                 grap.grip.parent = hit.collider.transform;
                 grap.active = true;
                 //(Vector2)grap.grip.position
@@ -165,24 +166,21 @@ public class GrapplingHook : MonoBehaviour
 
             yield return null;
         }
-        if (!grapleCaught)
+        if (!grap.active)
         {
             StartCoroutine(RetractHook());
         }
     }
     IEnumerator RetractHook()
     {
-        grap.active = false;
-        if (grapleCaught)
+        if (grap.active)
         {
-            //Debug.Log(grap.grip.position);
-            shootLength = (transform.position - grap.grip.position).magnitude;
-            //Debug.Log(shootLength);
-            grapleCaught = false;
+            shootLength = ((Vector2)transform.position - (Vector2)grap.grip.position).magnitude;
+            grap.active = false;
         }
         while (shootLength > 0f)
         {
-            lockedPos = Vector2.zero;
+            grap.grip.position = Vector2.zero;
             shootLength -= 50 * Time.deltaTime;
             yield return null;
         }
@@ -198,15 +196,14 @@ public class GrapplingHook : MonoBehaviour
         StopAllCoroutines();
         shootLength = 0;
         grapleRadius = 0f;
-        grapleCaught = false;
-        lockedPos = Vector2.zero;
+        grap.grip.position = Vector2.zero;
 
         grap.TurnOffGrap();
     }
 
     public void SetGrapleRadius()
     {
-        grapleRadius = (lockedPos - (Vector2)transform.position).magnitude;
+        grapleRadius = ((Vector2)grap.grip.position - (Vector2)transform.position).magnitude;
     }
 }
 
@@ -218,9 +215,26 @@ public class GrapLocation
 
     public Rigidbody2D gripRB;
 
+
+    public Vector3 position;
+    public float time;
     public void TurnOffGrap()
     {
         active = false;
         gripRB = null;
+    }
+
+    public Vector2 ChangeCheck()
+    {
+        Vector2 newVel = (grip.position - position) / (Time.time - time);
+        position = grip.position;
+        time = Time.time;
+        return newVel;
+    }
+
+    internal void SetUpGrap()
+    {
+        grip = new GameObject().transform;
+        position = grip.position;
     }
 }
