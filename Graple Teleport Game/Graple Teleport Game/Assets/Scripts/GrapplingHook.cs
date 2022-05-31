@@ -50,23 +50,21 @@ public class GrapplingHook : MonoBehaviour, IAction
     public void Finish()
     {
         StopAllCoroutines();
-        grap.active = true;
-        StartCoroutine(RetractHook());
+        if(shootLength > 0)
+        {
+            StartCoroutine(RetractHook());
+        }
     }
     void Update()
     {
-        mousePos = player.mousePos;
-        /*if (Input.GetMouseButtonDown(0) && canGraple)
+        if(player.mousePos == Vector2.zero)
         {
-            StopAllCoroutines();
-            StartCoroutine(ShootHook());
+            mousePos = player.moverDir + (Vector2)transform.position;
         }
-        if (Input.GetMouseButtonUp(0) && grap.active)
+        else
         {
-            StopAllCoroutines();
-            grap.active = true;
-            StartCoroutine(RetractHook());
-        }*/
+            mousePos = player.mousePos;
+        }
 
         if (Input.GetKeyDown("q"))
         {
@@ -87,6 +85,7 @@ public class GrapplingHook : MonoBehaviour, IAction
             swingType = !swingType;
         }
 
+        if(grap == null) { grap = new GrapLocation(); grap.SetUpGrap(); }
         if (grap.grip == null)
         {
             grap.grip = new GameObject().transform;

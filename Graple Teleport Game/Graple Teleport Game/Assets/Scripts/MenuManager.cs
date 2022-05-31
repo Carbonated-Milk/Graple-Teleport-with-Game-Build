@@ -25,7 +25,7 @@ public class MenuManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         panels = new GameObject[transform.childCount - 2];
         for (int i = 0; i < transform.childCount - 2; i++)

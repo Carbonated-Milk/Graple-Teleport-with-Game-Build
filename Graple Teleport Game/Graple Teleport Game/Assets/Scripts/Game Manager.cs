@@ -7,6 +7,7 @@ public static class GameManager
     public static MenuManager menuManager;
 
     public static Player player;
+    public static int playerCount = 0;
 
     public static bool isDead;
 

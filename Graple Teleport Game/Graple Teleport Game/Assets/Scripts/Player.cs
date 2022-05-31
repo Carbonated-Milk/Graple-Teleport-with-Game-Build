@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     }
     public void OnAction(InputAction.CallbackContext context)
     {
-
+        
         if (actionObj != null)
         {
             switch (context.phase)
@@ -106,8 +106,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        if(action != ToBool(Mouse.current.leftButton.ReadValue()))
+        //mousePos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        /*if(action != ToBool(Mouse.current.leftButton.ReadValue()))
         {
             action = !action;
             if(action)
@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
             {
                 actionObj.Finish();
             }
-        }
+        }*/
 
         if (currentHealth / health > 0)
         {
@@ -298,14 +298,7 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    public bool ToBool(float notBool)
-    {
-        if (notBool == 0)
-        {
-            return false;
-        }
-        else return true;
-    }
+    
 
     public void ReturntoMenu()
     {
