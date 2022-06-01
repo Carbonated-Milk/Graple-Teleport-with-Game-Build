@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        if (GameManager.player == null)
+        /*if (GameManager.player == null)
         {
             GameManager.player = this;
         }
@@ -87,7 +87,8 @@ public class Player : MonoBehaviour
         {
             //Destroy(gameObject);
             return;
-        }
+        }*/
+        
     }
     void Start()
     {

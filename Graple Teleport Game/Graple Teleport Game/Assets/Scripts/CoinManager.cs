@@ -10,7 +10,7 @@ public class CoinManager : MonoBehaviour
     public static float coinCount = 0;
     void Awake()
     {
-        if (GameManager.coinManager == null)
+        /*if (GameManager.coinManager == null)
         {
             GameManager.coinManager = this;
         }
@@ -18,7 +18,8 @@ public class CoinManager : MonoBehaviour
         {
             Destroy(gameObject);
             return;
-        }
+        }*/
+        GameManager.coinManagers.Add(this);
         text = GetComponent<TMP_Text>();
     }
 

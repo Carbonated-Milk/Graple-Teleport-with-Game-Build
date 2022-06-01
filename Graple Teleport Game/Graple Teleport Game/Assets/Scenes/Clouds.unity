@@ -929,12 +929,13 @@ MonoBehaviour:
   sizeArray: {x: 3, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &360425620
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1379,12 +1380,13 @@ MonoBehaviour:
   sizeArray: {x: 5, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.99
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &473439670
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1848,12 +1850,13 @@ MonoBehaviour:
   sizeArray: {x: 5, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.5
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &583920569
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1952,12 +1955,13 @@ MonoBehaviour:
   sizeArray: {x: 5, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.8
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &641299648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2765,12 +2769,13 @@ MonoBehaviour:
   sizeArray: {x: 5, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.9
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &1106334239
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3394,12 +3399,13 @@ MonoBehaviour:
   sizeArray: {x: 5, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.9
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &1369351551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3472,6 +3478,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8809330011039310318, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8809330011138513413, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
         type: 3}
       propertyPath: m_RootOrder
@@ -3532,6 +3543,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8809330011657335512, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8809330012401447439, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
         type: 3}
       propertyPath: m_IsActive
@@ -3577,12 +3593,13 @@ MonoBehaviour:
   sizeArray: {x: 5, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.85
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &1427754964
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4081,12 +4098,13 @@ MonoBehaviour:
   sizeArray: {x: 5, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.95
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &1779401720
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4171,12 +4189,13 @@ MonoBehaviour:
   sizeArray: {x: 5, y: 1}
   scaling: 0
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.95
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &1796746251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4275,12 +4294,13 @@ MonoBehaviour:
   sizeArray: {x: 5, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.7
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &1816251494
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4391,12 +4411,13 @@ MonoBehaviour:
   sizeArray: {x: 5, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.75
+  parralaxY: 0
   clone: 0
   noTopRepeat: 1
   localized: 0
-  initialScale: 0
+  screenRepeat: 0
+  initialScale: {x: 0, y: 0}
 --- !u!212 &1858969710
 SpriteRenderer:
   m_ObjectHideFlags: 0

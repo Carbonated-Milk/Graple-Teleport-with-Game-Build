@@ -16,5 +16,5 @@ public static class GameManager
 
     //public static Lives lives;
 
-    public static CoinManager coinManager;
+    public static ArrayList coinManagers = new ArrayList();
 }

@@ -26,7 +26,7 @@ public class Coin : MonoBehaviour
             GameManager.audioManager.Play("Coin");
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<ParticleSystem>().Play();
-            GameManager.coinManager.AddCoin();
+            foreach(CoinManager cMan in GameManager.coinManagers) { cMan.AddCoin(); }
             Destroy(transform.parent.gameObject, 3);
             collected = true;
         }

@@ -13,22 +13,24 @@ public class MenuManager : MonoBehaviour
     private GameObject[] panels;
 
     private float waitTime = 1.5f;
+
     void Awake()
     {
+        
         //doesn't destroy menu manager
         if (GameManager.menuManager == null)
         {
-            GameManager.menuManager = this;
+            GameManager.menuManager = this; 
         }
         else
         {
             Destroy(gameObject);
             return;
         }
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 
-        panels = new GameObject[transform.childCount - 2];
-        for (int i = 0; i < transform.childCount - 2; i++)
+        panels = new GameObject[transform.childCount - 3];
+        for (int i = 0; i < transform.childCount - 3; i++)
         {
             panels[i] = transform.GetChild(i).gameObject;
         }
@@ -38,11 +40,6 @@ public class MenuManager : MonoBehaviour
             level.FindIndex();
         }
 
-    }
-
-    private void Start()
-    {
-        //plays song for testing
         Levels l = Array.Find(levels, levels => levels.levelIndex == SceneManager.GetActiveScene().buildIndex);
         GameManager.audioManager.Play(l.startingThemeName);
     }
@@ -55,6 +52,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+
         Levels l = null;
         if (sceneName == "Next")
         {
@@ -64,7 +62,7 @@ public class MenuManager : MonoBehaviour
         {
             l = Array.Find(levels, levels => levels.levelName == sceneName);
         }
-        StartCoroutine(LevelTransitioner(l));
+         StartCoroutine(LevelTransitioner(l)); 
     }
 
     public IEnumerator LevelTransitioner(Levels l)
@@ -73,6 +71,7 @@ public class MenuManager : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
 
+        GameManager.playerCount = 0;
         SceneManager.LoadScene(l.levelIndex);
 
         CloseAllPanels();
@@ -93,10 +92,11 @@ public class MenuManager : MonoBehaviour
             //GameManager.shoot.playerControls.Player.Disable();
         }
 
+
+
+        topDoor.SetTrigger("Open"); 
         GameManager.audioManager.StopAllSongs();
         GameManager.audioManager.Play(l.startingThemeName);
-
-        topDoor.SetTrigger("Open");
     }
     public void SetTimeScale(float newTime)
     {

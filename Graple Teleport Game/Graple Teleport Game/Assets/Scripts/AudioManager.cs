@@ -49,19 +49,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Start()
-    {
-        //Play("Funky");
-    }
-
-    private void Update()
-    {
-        
-        /*if (GameManager.gameOver)
-        {
-            Stop("Theme");
-        }*/
-    }
     public Sound Play(string name)
     {
         Sound s = sounds.Find(sound => sound.name == name);

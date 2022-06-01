@@ -790,8 +790,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -895,8 +895,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -2005,7 +2005,7 @@ PrefabInstance:
     - target: {fileID: 7701518791034534594, guid: 2f6aa9dea5e9e3a429192e28e7d4d3c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7701518791034534594, guid: 2f6aa9dea5e9e3a429192e28e7d4d3c6,
         type: 3}
@@ -2658,8 +2658,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.7
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -3778,8 +3778,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.85
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -5786,8 +5786,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.95
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -6295,8 +6295,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -6829,8 +6829,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -7419,8 +7419,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -10370,7 +10370,7 @@ PrefabInstance:
     - target: {fileID: 7701518791034534594, guid: 2f6aa9dea5e9e3a429192e28e7d4d3c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7701518791034534594, guid: 2f6aa9dea5e9e3a429192e28e7d4d3c6,
         type: 3}
@@ -10560,8 +10560,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -11322,8 +11322,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -13166,8 +13166,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -14248,8 +14248,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -14602,8 +14602,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -15691,8 +15691,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -16800,8 +16800,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -16911,8 +16911,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -17276,8 +17276,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -17450,8 +17450,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -17972,8 +17972,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -18930,8 +18930,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -19428,8 +19428,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -19877,8 +19877,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -20956,8 +20956,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.85
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -23139,8 +23139,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.55
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -24715,8 +24715,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.85
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -25077,8 +25077,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -25453,8 +25453,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -25564,8 +25564,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -25997,8 +25997,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -26199,8 +26199,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.5
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -26914,8 +26914,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.5
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -27159,7 +27159,7 @@ PrefabInstance:
     - target: {fileID: 8809330011138513413, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8809330011138513413, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
         type: 3}
@@ -28363,8 +28363,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -28866,8 +28866,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -29146,8 +29146,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -29489,8 +29489,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.3
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -29726,8 +29726,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -29800,7 +29800,7 @@ PrefabInstance:
     - target: {fileID: 7701518791034534594, guid: 2f6aa9dea5e9e3a429192e28e7d4d3c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7701518791034534594, guid: 2f6aa9dea5e9e3a429192e28e7d4d3c6,
         type: 3}
@@ -32374,6 +32374,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1533540747}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1754544192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1775920202712188498, guid: 9ab85ef6f71d9614cbad8a0e20d8cada,
+    type: 3}
+  m_PrefabInstance: {fileID: 1425862771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1754544195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754544192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2288f212ca3d584f93b3db3cd0b6d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
 --- !u!4 &1764884845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4588211762085758194, guid: c3b6e41518e283b488f2523df9d794ca,
@@ -32944,8 +32963,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.95
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -33235,7 +33254,7 @@ PrefabInstance:
     - target: {fileID: 7701518791034534594, guid: 2f6aa9dea5e9e3a429192e28e7d4d3c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7701518791034534594, guid: 2f6aa9dea5e9e3a429192e28e7d4d3c6,
         type: 3}
@@ -35137,8 +35156,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: -0.09
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1
@@ -36119,8 +36138,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
   parallaxEffect: 0.99
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 0
@@ -36869,8 +36888,8 @@ MonoBehaviour:
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
   parallaxEffect: 0.1
+  parralaxY: 0
   clone: 0
   noTopRepeat: 0
   localized: 1

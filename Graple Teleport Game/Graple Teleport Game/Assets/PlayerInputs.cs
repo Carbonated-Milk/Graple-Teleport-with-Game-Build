@@ -27,24 +27,28 @@ public class PlayerInputs : MonoBehaviour
             case 0:
                 isKey = true;
                 actions.Aim.performed += ctx => mousePos = ctx.ReadValue<Vector2>();
+                actions.Jump.canceled += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
                 actions.Jump.performed += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
                 actions.Movement.performed += ctx => player.moverDir = ctx.ReadValue<Vector2>();
                 actions.Action.performed += ctx => player.OnAction(ctx);
                 actions.Action.canceled += ctx => player.OnAction(ctx);
                 break;
             case 1:
+                actions.Jump.canceled += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
                 actions1.Jump.performed += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
                 actions1.Movement.performed += ctx => player.moverDir = ctx.ReadValue<Vector2>();
                 actions1.Action.performed += ctx => player.OnAction(ctx);
                 actions1.Action.canceled += ctx => player.OnAction(ctx);
                 break;
             case 2:
+                actions.Jump.canceled += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
                 actions2.Jump.performed += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
                 actions2.Movement.performed += ctx => player.moverDir = ctx.ReadValue<Vector2>();
                 actions2.Action.performed += ctx => player.OnAction(ctx);
                 actions2.Action.canceled += ctx => player.OnAction(ctx);
                 break;
             case 3:
+                actions.Jump.canceled += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
                 actions3.Jump.performed += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
                 actions3.Movement.performed += ctx => player.moverDir = ctx.ReadValue<Vector2>();
                 actions3.Action.performed += ctx => player.OnAction(ctx);
