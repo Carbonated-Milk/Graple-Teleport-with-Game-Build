@@ -20,9 +20,6 @@ public class GrapplingHook : MonoBehaviour, IAction
 
     public static bool canGraple = true;
 
-    private bool swingType = false;
-
-
     void Start()
     {
         lineRen.endColor = lineRen.endColor = Color.white;
@@ -40,7 +37,7 @@ public class GrapplingHook : MonoBehaviour, IAction
 
     public void Begin()
     {
-        if(canGraple)
+        if (canGraple)
         {
             StopAllCoroutines();
             StartCoroutine(ShootHook());
@@ -50,14 +47,14 @@ public class GrapplingHook : MonoBehaviour, IAction
     public void Finish()
     {
         StopAllCoroutines();
-        if(shootLength > 0)
+        if (shootLength > 0)
         {
             StartCoroutine(RetractHook());
         }
     }
     void Update()
     {
-        if(player.mousePos == Vector2.zero)
+        if (player.mousePos == Vector2.zero)
         {
             mousePos = player.moverDir + (Vector2)transform.position;
         }
@@ -66,9 +63,10 @@ public class GrapplingHook : MonoBehaviour, IAction
             mousePos = player.mousePos;
         }
 
-        if (Input.GetKeyDown("q"))
+        if (player.actionSwitch == suction)
         {
-            if(swingType)
+
+            if (player.actionSwitch)
             {
                 if (grap.active)
                 {
@@ -82,10 +80,10 @@ public class GrapplingHook : MonoBehaviour, IAction
                 lineRen.endColor = lineRen.endColor = Color.blue;
                 suction = true;
             }
-            swingType = !swingType;
         }
 
-        if(grap == null) { grap = new GrapLocation(); grap.SetUpGrap(); }
+
+        if (grap == null) { grap = new GrapLocation(); grap.SetUpGrap(); }
         if (grap.grip == null)
         {
             grap.grip = new GameObject().transform;
@@ -96,8 +94,8 @@ public class GrapplingHook : MonoBehaviour, IAction
         {
             GrappleVelocity((Vector2)grap.grip.position - (Vector2)transform.position);
         }
-        
-        if(suction && grap.active)
+
+        if (suction && grap.active)
         {
             SuctionVel((Vector2)grap.grip.position - (Vector2)transform.position);
         }
@@ -139,7 +137,7 @@ public class GrapplingHook : MonoBehaviour, IAction
         // Projection to make rope super tight and hold on to thing.
         //This code only works because grapleDirection is normalized.
 
-        if (((Vector2)transform.position - (Vector2)grap.grip.position).sqrMagnitude > grapleRadius * grapleRadius)
+        if (((Vector2)transform.position - (Vector2)grap.grip.position).sqrMagnitude > grapleRadius * grapleRadius + .01f)
         {
             rb.velocity -= grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
             Vector2 newVel = grapleDirection * Vector2.Dot(grap.ChangeCheck(), grapleDirection) + rb.velocity - grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
@@ -150,7 +148,7 @@ public class GrapplingHook : MonoBehaviour, IAction
 
             if (grap.gripRB != null)
             {
-                grap.gripRB.AddForceAtPosition(-(grapleDirection * Vector2.Dot(grap.ChangeCheck(), grapleDirection) + rb.velocity)/Time.deltaTime, grap.grip.position);
+                grap.gripRB.AddForceAtPosition(-(grapleDirection * Vector2.Dot(grap.ChangeCheck(), grapleDirection) + rb.velocity) / Time.deltaTime, grap.grip.position);
 
                 grap.gripRB.AddForceAtPosition(-grapleDirection * 10, grap.grip.position);
             }

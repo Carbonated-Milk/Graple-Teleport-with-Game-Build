@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float cayoteTime;
     public float health;
     private float currentHealth;
-    Vector3 respawnPoint;
+    static Vector3 respawnPoint;
     public UnityEvent death;
     private Rigidbody2D rb;
     private Transform healthBar;
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public bool jumped;
     private bool action;
     public Vector2 mousePos;
+    public bool actionSwitch = false;
 
     [HideInInspector] private Vector2 rightDir;
     [HideInInspector] private Vector2 downDir;
@@ -138,11 +139,6 @@ public class Player : MonoBehaviour
 
         rb.AddForce(rightDir * 200 * Time.deltaTime * moverDir.x);
 
-
-        if (Input.GetKey("r"))
-        {
-            Respawn();
-        }
 
         if (jumped)
         {

@@ -130,7 +130,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 4054328717571368818}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 2528029790965737328}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -696,6 +696,7 @@ MonoBehaviour:
   moverDir: {x: 0, y: 0}
   jumped: 0
   mousePos: {x: 0, y: 0}
+  actionSwitch: 0
   canJump: 0
   contained: 0
   containedObj: {fileID: 0}
@@ -1418,7 +1419,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 4054328717571368818}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0

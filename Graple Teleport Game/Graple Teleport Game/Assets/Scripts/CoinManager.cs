@@ -33,4 +33,9 @@ public class CoinManager : MonoBehaviour
         coinCount += 1;
         text.text = coinCount.ToString();
     }
+
+    public void ReloadText()
+    {
+        text.text = coinCount.ToString();
+    }
 }
