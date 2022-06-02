@@ -124,7 +124,7 @@ public class GrapplingHook : MonoBehaviour, IAction
 
         if (grap.gripRB != null)
         {
-            grap.gripRB.AddForceAtPosition(100 * Physics.gravity * Time.deltaTime * -Vector2.Dot(Vector2.down, grapleDirection), grap.grip.position);
+            //grap.gripRB.AddForceAtPosition(100 * Physics.gravity * Time.deltaTime * -Vector2.Dot(Vector2.down, grapleDirection), grap.grip.position);
 
             grap.gripRB.AddForceAtPosition(-(Vector2)(grap.grip.position - transform.position) / 16 * 100, grap.grip.position);
         }
@@ -139,16 +139,20 @@ public class GrapplingHook : MonoBehaviour, IAction
 
         if (((Vector2)transform.position - (Vector2)grap.grip.position).sqrMagnitude > grapleRadius * grapleRadius + .01f)
         {
-            rb.velocity -= grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
-            Vector2 newVel = grapleDirection * Vector2.Dot(grap.ChangeCheck(), grapleDirection) + rb.velocity - grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
-            rb.velocity = newVel;
+            rb.velocity -=  grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
+
+            Vector2 newVel = grapleDirection * Vector2.Dot(grap.ChangeCheck(), grapleDirection);
+            rb.velocity += newVel;
 
             transform.position = (Vector2)grap.grip.position + ((Vector2)transform.position - (Vector2)grap.grip.position).normalized * grapleRadius;
 
 
             if (grap.gripRB != null)
             {
-                grap.gripRB.AddForceAtPosition(-(grapleDirection * Vector2.Dot(grap.ChangeCheck(), grapleDirection) + rb.velocity) / Time.deltaTime, grap.grip.position);
+                //if(-(grapleDirection * Vector2.Dot(grap.ChangeCheck(), grapleDirection) + rb.velocity) / Time.deltaTime == null) { return; }
+                /*Debug.Log(-newVel + rb.velocity);
+                Debug.Log(grap.grip.position);
+                grap.gripRB.AddForceAtPosition(-newVel * rb.velocity.magnitude * 100, grap.grip.position);*/
 
                 grap.gripRB.AddForceAtPosition(-grapleDirection * 10, grap.grip.position);
             }

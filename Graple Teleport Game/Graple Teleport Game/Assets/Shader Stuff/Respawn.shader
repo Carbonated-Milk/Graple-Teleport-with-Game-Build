@@ -16,7 +16,7 @@ Shader "Unlit/Respawn"
 		Pass
 		{
 			ZWrite Off
-			Blend One One
+			Blend One OneMinusSrcAlpha
 
 			CGPROGRAM
 			#pragma vertex vert
@@ -69,7 +69,7 @@ Shader "Unlit/Respawn"
 			mult2 *= saturate(1 - length(place));
 			col *= saturate(1 - length(place) * length(place));
 
-			col -= lerp(_ColorB, _ColorA, mult2);
+			col *= lerp(_ColorB, _ColorA, mult2);
 			col *= saturate(1 - length(place));
 			return col;
 		}

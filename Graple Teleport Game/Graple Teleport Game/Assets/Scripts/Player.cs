@@ -72,11 +72,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void MousePosition(InputAction.CallbackContext context)
+    /*public void MousePosition(InputAction.CallbackContext context)
     {
         mousePos = camera.ScreenToWorldPoint(context.ReadValue<Vector2>());
         Debug.Log(mousePos + "workeing");
-    }
+    }*/
 
     private void Awake()
     {

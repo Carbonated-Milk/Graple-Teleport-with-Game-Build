@@ -640,6 +640,22 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b11ba55-09ff-4e5c-a9a6-1ce548667c99"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Respawn"",
+                    ""type"": ""Button"",
+                    ""id"": ""cab28fe1-5d9a-4248-9cef-6deaf229240e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -759,8 +775,52 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard;Controller"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ad44395-76eb-4ecc-8eba-d07fbff3a70e"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Respawn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""737f6368-95f7-4664-8a6a-2e1c591d264e"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""679a8fd8-de0a-4db6-8a25-a1d9c61355ed"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1d67c49-7da8-4ceb-b691-bf9bba19d25c"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Respawn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -825,6 +885,8 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_PlayerOG_Jump = m_PlayerOG.FindAction("Jump", throwIfNotFound: true);
         m_PlayerOG_Action = m_PlayerOG.FindAction("Action", throwIfNotFound: true);
         m_PlayerOG_Aim = m_PlayerOG.FindAction("Aim", throwIfNotFound: true);
+        m_PlayerOG_Switch = m_PlayerOG.FindAction("Switch", throwIfNotFound: true);
+        m_PlayerOG_Respawn = m_PlayerOG.FindAction("Respawn", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1130,6 +1192,8 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerOG_Jump;
     private readonly InputAction m_PlayerOG_Action;
     private readonly InputAction m_PlayerOG_Aim;
+    private readonly InputAction m_PlayerOG_Switch;
+    private readonly InputAction m_PlayerOG_Respawn;
     public struct PlayerOGActions
     {
         private @InputActions m_Wrapper;
@@ -1138,6 +1202,8 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerOG_Jump;
         public InputAction @Action => m_Wrapper.m_PlayerOG_Action;
         public InputAction @Aim => m_Wrapper.m_PlayerOG_Aim;
+        public InputAction @Switch => m_Wrapper.m_PlayerOG_Switch;
+        public InputAction @Respawn => m_Wrapper.m_PlayerOG_Respawn;
         public InputActionMap Get() { return m_Wrapper.m_PlayerOG; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1159,6 +1225,12 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Aim.started -= m_Wrapper.m_PlayerOGActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_PlayerOGActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_PlayerOGActionsCallbackInterface.OnAim;
+                @Switch.started -= m_Wrapper.m_PlayerOGActionsCallbackInterface.OnSwitch;
+                @Switch.performed -= m_Wrapper.m_PlayerOGActionsCallbackInterface.OnSwitch;
+                @Switch.canceled -= m_Wrapper.m_PlayerOGActionsCallbackInterface.OnSwitch;
+                @Respawn.started -= m_Wrapper.m_PlayerOGActionsCallbackInterface.OnRespawn;
+                @Respawn.performed -= m_Wrapper.m_PlayerOGActionsCallbackInterface.OnRespawn;
+                @Respawn.canceled -= m_Wrapper.m_PlayerOGActionsCallbackInterface.OnRespawn;
             }
             m_Wrapper.m_PlayerOGActionsCallbackInterface = instance;
             if (instance != null)
@@ -1175,6 +1247,12 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
+                @Switch.started += instance.OnSwitch;
+                @Switch.performed += instance.OnSwitch;
+                @Switch.canceled += instance.OnSwitch;
+                @Respawn.started += instance.OnRespawn;
+                @Respawn.performed += instance.OnRespawn;
+                @Respawn.canceled += instance.OnRespawn;
             }
         }
     }
@@ -1234,5 +1312,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAction(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnSwitch(InputAction.CallbackContext context);
+        void OnRespawn(InputAction.CallbackContext context);
     }
 }

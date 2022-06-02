@@ -27,6 +27,6 @@ Material:
     - timeScale: 300
     m_Colors:
     - _Color: {r: 0.9342251, g: 0, b: 1, a: 1}
-    - _ColorA: {r: 1, g: 0.10588236, b: 0, a: 1}
-    - _ColorB: {r: 0.9843137, g: 1, b: 0, a: 1}
+    - _ColorA: {r: 0.7611642, g: 0, b: 1, a: 1}
+    - _ColorB: {r: 0, g: 1, b: 0.758023, a: 1}
   m_BuildTextureStacks: []
