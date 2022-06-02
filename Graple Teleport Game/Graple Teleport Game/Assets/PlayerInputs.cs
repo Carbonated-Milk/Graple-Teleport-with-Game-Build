@@ -22,59 +22,25 @@ public class PlayerInputs : MonoBehaviour
         player = GetComponent<Player>();
         inputs = new InputActions();
         actions = inputs.PlayerOG;
-        actions.Aim.performed += Aim;
-        actions.Jump.canceled += Jump;
-        actions.Jump.performed += Jump;
-        actions.Movement.performed += Move;
-        actions.Action.performed += Action;
-        actions.Action.canceled += Action;
-        actions.Switch.performed += Switch;
-        actions.Respawn.performed += Respawn;
+
+        AddActions();
+        
         /*actions1 = inputs.Player1;
         actions2 = inputs.Player2;
         actions3 = inputs.Player3;
         switch (GameManager.playerCount)
         {
             case 0:
-                isKey = true;
-                actions.Aim.performed += DoStuff;
-
-                actions.Aim.performed += Aim;
-                actions.Jump.performed += DoStuff;
-                actions.Jump.canceled += Jump;
-                actions.Jump.performed += Jump;
-                actions.Movement.performed += Move;
-                actions.Action.performed += Action;
-                actions.Action.canceled += Action;
-                actions.Switch.performed += Switch;
-                actions.Respawn.performed += Respawn;
+                
                 break;
             case 1:
-                actions1.Jump.performed += DoStuff;
-
-                actions1.Jump.performed += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
-                actions.Jump.canceled += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
-                actions1.Movement.performed += ctx => player.moverDir = ctx.ReadValue<Vector2>();
-                actions1.Action.performed += ctx => player.OnAction(ctx);
-                actions1.Action.canceled += ctx => player.OnAction(ctx);
-                actions1.Switch.performed += ctx => player.actionSwitch = !player.actionSwitch;
-                actions1.Respawn.performed += ctx => player.Respawn();
+                
                 break;
             case 2:
-                actions.Jump.canceled += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
-                actions.Jump.canceled += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
-                actions2.Jump.performed += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
-                actions2.Movement.performed += ctx => player.moverDir = ctx.ReadValue<Vector2>();
-                actions2.Action.performed += ctx => player.OnAction(ctx);
-                actions2.Action.canceled += ctx => player.OnAction(ctx);
+                
                 break;
             case 3:
-                actions.Jump.canceled += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
-                actions.Jump.canceled += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
-                actions3.Jump.performed += ctx => player.jumped = ToBool(ctx.ReadValue<float>());
-                actions3.Movement.performed += ctx => player.moverDir = ctx.ReadValue<Vector2>();
-                actions3.Action.performed += ctx => player.OnAction(ctx);
-                actions3.Action.canceled += ctx => player.OnAction(ctx);
+                
                 break;
         }
         
@@ -124,6 +90,18 @@ public class PlayerInputs : MonoBehaviour
         {
             player.Respawn();
         }
+    }
+
+    public void AddActions()
+    {
+        actions.Aim.performed += Aim;
+        actions.Jump.canceled += Jump;
+        actions.Jump.performed += Jump;
+        actions.Movement.performed += Move;
+        actions.Action.performed += Action;
+        actions.Action.canceled += Action;
+        actions.Switch.performed += Switch;
+        actions.Respawn.performed += Respawn;
     }
 
     private bool NameCheck(string name)
