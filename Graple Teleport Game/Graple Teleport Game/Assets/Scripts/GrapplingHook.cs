@@ -30,7 +30,7 @@ public class GrapplingHook : MonoBehaviour, IAction
 
         Physics2D.queriesStartInColliders = false;
         rb = GetComponent<Rigidbody2D>();
-        player = FindObjectOfType<Player>();
+        player = GetComponent<Player>();
         player.actionObj = this;
         StartCoroutine(RetractHook());
     }
