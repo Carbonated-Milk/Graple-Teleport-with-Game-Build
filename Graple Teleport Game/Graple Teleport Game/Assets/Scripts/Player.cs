@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
     public GameObject playerUI;
     public GameObject playerDie;
 
+    private bool keyboard = false;
+
 
     public IAction actionObj;
 
@@ -88,6 +90,7 @@ public class Player : MonoBehaviour
 
     public void MousePosition(InputAction.CallbackContext context)
     {
+        keyboard = true;
         mouseCoord = context.ReadValue<Vector2>();
     }
 
@@ -121,7 +124,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = camera.ScreenToWorldPoint(mouseCoord);
+        if(keyboard)
+        {
+            mousePos = camera.ScreenToWorldPoint(mouseCoord);
+        }
 
         if (currentHealth / health > 0)
         {
