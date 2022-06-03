@@ -822,6 +822,7 @@ MonoBehaviour:
   moverDir: {x: 0, y: 0}
   jumped: 0
   mousePos: {x: 0, y: 0}
+  mouseCoord: {x: 0, y: 0}
   actionSwitch: 0
   canJump: 0
   contained: 0

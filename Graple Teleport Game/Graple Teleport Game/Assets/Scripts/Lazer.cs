@@ -69,7 +69,7 @@ public class Lazer : MonoBehaviour
 
         if (hit.transform.CompareTag("Player"))
         {
-            GameManager.player.Hurt(5 * Time.deltaTime);
+            hit.collider.gameObject.GetComponent<Player>().Hurt(5 * Time.deltaTime);
         }
 
         lineRen.SetPosition(0, initPoint);
