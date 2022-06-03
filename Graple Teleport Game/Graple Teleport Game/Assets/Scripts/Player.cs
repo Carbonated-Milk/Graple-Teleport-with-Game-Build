@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public bool jumped;
     private bool action;
     public Vector2 mousePos;
+    public Vector2 mouseCoord;
     public bool actionSwitch = false;
 
     [HideInInspector] private Vector2 rightDir;
@@ -40,7 +41,6 @@ public class Player : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-
         moverDir = context.ReadValue<Vector2>();
     }
 
@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
     }
     public void OnAction(InputAction.CallbackContext context)
     {
-        
         if (actionObj != null)
         {
             switch (context.phase)
@@ -72,11 +71,25 @@ public class Player : MonoBehaviour
         }
     }
 
-    /*public void MousePosition(InputAction.CallbackContext context)
+    public void OnSwitch(InputAction.CallbackContext context)
     {
-        mousePos = camera.ScreenToWorldPoint(context.ReadValue<Vector2>());
-        Debug.Log(mousePos + "workeing");
-    }*/
+        if(context.performed)
+        {
+            actionSwitch = !actionSwitch;
+        }
+    }
+    public void OnRespawn(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            Respawn();
+        }
+    }
+
+    public void MousePosition(InputAction.CallbackContext context)
+    {
+        mouseCoord = context.ReadValue<Vector2>();
+    }
 
     private void Awake()
     {
@@ -108,19 +121,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //mousePos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        /*if(action != ToBool(Mouse.current.leftButton.ReadValue()))
-        {
-            action = !action;
-            if(action)
-            {
-                actionObj.Begin();
-            }
-            else
-            {
-                actionObj.Finish();
-            }
-        }*/
+        mousePos = camera.ScreenToWorldPoint(mouseCoord);
 
         if (currentHealth / health > 0)
         {

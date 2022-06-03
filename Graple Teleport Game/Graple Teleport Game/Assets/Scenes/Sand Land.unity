@@ -560,7 +560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1106311780
 Transform:
   m_ObjectHideFlags: 0
@@ -876,6 +876,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1426760605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4054328716435429233, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1880029994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222b4be0ec599514297a9f21c14d04d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1727387032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1215,276 @@ PrefabInstance:
     - target: {fileID: 2528029790965737328, guid: 46df9275f7ecf7446aaaa1ad0155036a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: PlayerOG
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionId
+      value: 87598b74-5125-40d9-8e41-0079128d7524
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: 71802a86-b4cb-4b6b-b760-9a3d29944de1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: da190513-d4a5-43bc-9b3d-43534f3a2bb2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: da56424b-f2f2-4ca9-b14f-c258f858c078
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 5b11ba55-09ff-4e5c-a9a6-1ce548667c99
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: cab28fe1-5d9a-4248-9cef-6deaf229240e
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: 5c9309d2-83b0-4610-bac3-2f5b95172d5d
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: c7ffe03c-1c75-46cf-9cc7-0ef8e91170ee
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionId
+      value: 56242db6-514c-4e99-8efc-28112393ec25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionId
+      value: 0c080e9e-8c2d-46fb-93fc-ec881267ddda
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_ActionId
+      value: b3231c24-0ceb-46d1-beb6-1b008c23deb9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionId
+      value: a68ed2cb-3137-44c6-aa3a-fa3d31b3ba30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionId
+      value: 8bacc7ac-827a-42d1-ba7d-07aa276dd4d1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionId
+      value: f0bf38ee-3513-41e1-8ca7-81a4183a5551
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: 2a1988ab-ce1e-4f38-bc99-5091e120680c
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: 08b7ea17-67fe-43b0-ad18-bd0a1e011087
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
+      value: 54a9c75a-ec74-4f25-afdb-5ae45fe1dcd9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionId
+      value: 945a6a34-8e43-40c3-81f3-07536dbc7607
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionName
+      value: PlayerOG/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: PlayerOG/Jump[/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: PlayerOG/Action[/Mouse/leftButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
+      value: PlayerOG/Aim[/Mouse/position]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: PlayerOG/Switch[/Keyboard/q]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: PlayerOG/Respawn[/Keyboard/r]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: PlayerOG1/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: PlayerOG1/Jump[/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionName
+      value: PlayerOG1/Action[/Mouse/leftButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionName
+      value: PlayerOG1/Aim[/Mouse/position]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_ActionName
+      value: PlayerOG1/Switch[/Keyboard/q]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionName
+      value: PlayerOG1/Respawn[/Keyboard/r]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionName
+      value: PlayerOG2/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
+      value: PlayerOG2/Jump[/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: PlayerOG2/Action[/Mouse/leftButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: PlayerOG2/Aim[/Mouse/position]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
+      value: PlayerOG2/Switch[/Keyboard/q]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionName
+      value: PlayerOG2/Respawn[/Keyboard/r]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1426760605}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1426760605}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Player, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Player, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372984087296380867, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889514359092692439, guid: 46df9275f7ecf7446aaaa1ad0155036a,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
