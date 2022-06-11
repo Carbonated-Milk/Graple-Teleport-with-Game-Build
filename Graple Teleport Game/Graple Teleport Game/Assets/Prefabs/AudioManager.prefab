@@ -103,6 +103,13 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       source: {fileID: 0}
+    - name: Desert
+      clip: {fileID: 8300000, guid: 2f2592a8d57bac44ebe10a127a3922be, type: 3}
+      volume: 0.33
+      adjustedVolume: 0
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
   - name: Sound Effects
     sounds:
     - name: CannonShoot

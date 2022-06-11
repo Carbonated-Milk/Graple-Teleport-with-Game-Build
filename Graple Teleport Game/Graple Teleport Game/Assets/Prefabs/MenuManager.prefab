@@ -4407,7 +4407,7 @@ MonoBehaviour:
     isLevel: 1
   - levelName: Sand Land
     levelIndex: 3
-    startingThemeName: Cave Theme
+    startingThemeName: Desert
     isLevel: 1
   topDoor: {fileID: 8844616253040512115}
 --- !u!1 &8809330011176037929
