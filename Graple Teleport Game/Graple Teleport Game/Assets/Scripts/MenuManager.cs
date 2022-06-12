@@ -39,7 +39,10 @@ public class MenuManager : MonoBehaviour
         {
             level.FindIndex();
         }
+    }
 
+    void Start()
+    {
         Levels l = Array.Find(levels, levels => levels.levelIndex == SceneManager.GetActiveScene().buildIndex);
         GameManager.audioManager.Play(l.startingThemeName);
     }
