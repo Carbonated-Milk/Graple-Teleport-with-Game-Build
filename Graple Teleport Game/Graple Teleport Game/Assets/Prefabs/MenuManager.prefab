@@ -4385,6 +4385,10 @@ MonoBehaviour:
     levelIndex: 0
     startingThemeName: Title
     isLevel: 0
+  - levelName: Sand Land
+    levelIndex: 3
+    startingThemeName: Desert
+    isLevel: 1
   - levelName: Clouds
     levelIndex: 1
     startingThemeName: Cloud
@@ -4393,21 +4397,21 @@ MonoBehaviour:
     levelIndex: 2
     startingThemeName: Awesomeness
     isLevel: 1
-  - levelName: Outer Core
+  - levelName: Factory
     levelIndex: 3
-    startingThemeName: Funky
+    startingThemeName: Factory
     isLevel: 1
   - levelName: Space
     levelIndex: 3
     startingThemeName: Space
     isLevel: 1
-  - levelName: Factory
+  - levelName: Outer Core
     levelIndex: 3
-    startingThemeName: Factory
+    startingThemeName: Funky
     isLevel: 1
-  - levelName: Sand Land
+  - levelName: Final Level
     levelIndex: 3
-    startingThemeName: Desert
+    startingThemeName: Morbin
     isLevel: 1
   topDoor: {fileID: 8844616253040512115}
 --- !u!1 &8809330011176037929
