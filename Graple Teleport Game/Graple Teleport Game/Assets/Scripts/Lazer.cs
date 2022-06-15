@@ -41,7 +41,8 @@ public class Lazer : MonoBehaviour
             ParticleSystem.ShapeModule pos = particles.shape;
             pos.position = hit.point;
 
-            if (!reflection) { pos.position -= transform.parent.transform.position; }
+            //if (!reflection) { pos.position -= transform.parent.transform.position; }
+            if (!reflection) { pos.position = Vector3.up * hit.distance; }
 
             if (hit.transform.CompareTag("Mirror"))
             {

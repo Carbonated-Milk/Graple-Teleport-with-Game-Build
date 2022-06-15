@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace PathCreation.Examples
 {
@@ -13,13 +14,33 @@ namespace PathCreation.Examples
         public float offset;
         public bool rotate;
 
+        public int coppies;
+        private bool original = true;
+
         void Start() {
             if (pathCreator != null)
             {
                 // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
                 pathCreator.pathUpdated += OnPathChanged;
             }
+
+            if (coppies > 1 && original)
+            {
+                float pathLength = pathCreator.path.length;
+                for (int i = 1; i <= coppies; i++)
+                {
+                    GameObject newPlat = Instantiate(gameObject);
+                    newPlat.GetComponent<PathFollower>().SetDist(i * pathLength / coppies);
+                }
+            }
+
             distanceTravelled += offset;
+        }
+
+        private void SetDist(float extraDist)
+        {
+            distanceTravelled += extraDist;
+            original = false;
         }
 
         void Update()
