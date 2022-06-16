@@ -69,4 +69,9 @@ public class RandomFunctions : MonoBehaviour
             yield return null;
         }
     }
+
+    public static float SmoothStep(float x)
+    {
+        return x * x *(3 - 2 * x);
+    }
 }

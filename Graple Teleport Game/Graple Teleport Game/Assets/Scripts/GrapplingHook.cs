@@ -82,7 +82,21 @@ public class GrapplingHook : MonoBehaviour, IAction
             }
         }
 
-
+        #region Line Rendering
+        if (grap.active)
+        {
+            lineRen.SetPosition(0, transform.position);
+            lineRen.SetPosition(1, (Vector2)grap.grip.position);
+        }
+        else
+        {
+            lineRen.SetPosition(0, transform.position);
+            lineRen.SetPosition(1, (transform.position + (Vector3)(shootLength * (mousePos - (Vector2)transform.position).normalized)));
+        }
+        #endregion
+    }
+    void FixedUpdate()
+    {
         if (grap == null) { grap = new GrapLocation(); grap.SetUpGrap(); }
         if (grap.grip == null)
         {
@@ -102,25 +116,12 @@ public class GrapplingHook : MonoBehaviour, IAction
 
         grap.position = grap.grip.position;
         grap.time = Time.time;
-
-        #region Line Rendering
-        if (grap.active)
-        {
-            lineRen.SetPosition(0, transform.position);
-            lineRen.SetPosition(1, (Vector2)grap.grip.position);
-        }
-        else
-        {
-            lineRen.SetPosition(0, transform.position);
-            lineRen.SetPosition(1, (transform.position + (Vector3)(shootLength * (mousePos - (Vector2)transform.position).normalized)));
-        }
-        #endregion
     }
 
     private void SuctionVel(Vector2 grapleVector)
     {
         Vector2 grapleDirection = grapleVector.normalized;
-        rb.velocity += (Vector2)(grap.grip.position - transform.position) / 16 * Time.deltaTime * 100;
+        rb.velocity += (Vector2)(grap.grip.position - transform.position) / 16 * Time.fixedDeltaTime * 100;
 
         if (grap.gripRB != null)
         {
@@ -139,7 +140,7 @@ public class GrapplingHook : MonoBehaviour, IAction
 
         if (((Vector2)transform.position - (Vector2)grap.grip.position).sqrMagnitude > grapleRadius * grapleRadius + .01f)
         {
-            rb.velocity -=  grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
+            rb.velocity -= grapleDirection * Vector2.Dot(rb.velocity, grapleDirection);
 
             Vector2 newVel = grapleDirection * Vector2.Dot(grap.ChangeCheck(), grapleDirection);
             rb.velocity += newVel;

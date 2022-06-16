@@ -247,12 +247,15 @@ public class Player : MonoBehaviour
         //Time.timeScale = 0.8f;
     }
 
-    public void Contained(GameObject container)
+    public void Contained(GameObject container, bool visible = false)
     {
         containedObj = container;
         contained = true;
-        GetComponent<Renderer>().enabled = false;
-        transform.position = container.transform.position;
+        if(!visible)
+        {
+            GetComponent<Renderer>().enabled = false;
+        }
+        transform.position = (Vector2)container.transform.position;
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         transform.parent = container.transform;

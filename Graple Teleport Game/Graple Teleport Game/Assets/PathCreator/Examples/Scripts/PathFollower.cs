@@ -10,7 +10,7 @@ namespace PathCreation.Examples
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
         public float speed = 5;
-        float distanceTravelled;
+        [HideInInspector]public float distanceTravelled;
         public float offset;
         public bool rotate;
 
@@ -43,11 +43,11 @@ namespace PathCreation.Examples
             original = false;
         }
 
-        void Update()
+        void FixedUpdate()
         {
             if (pathCreator != null)
             {
-                distanceTravelled += speed * Time.deltaTime;
+                distanceTravelled += speed * Time.fixedDeltaTime;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
                 if(rotate)
                 {
