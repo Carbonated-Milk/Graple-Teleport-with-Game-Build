@@ -301,7 +301,12 @@ public class Player : MonoBehaviour
 
         float neg = 1;
         if (downVector.x < 0) { neg *= -1; }
-        cam.RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
+        CameraMovement[] cameras = FindObjectsOfType<CameraMovement>();
+        foreach(CameraMovement cam in cameras)
+        {
+            cam.RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
+        }
+        //cam.RotateCamera(neg * Mathf.Acos(Vector2.Dot(downVector, Vector2.down)));
         return false;
     }
 

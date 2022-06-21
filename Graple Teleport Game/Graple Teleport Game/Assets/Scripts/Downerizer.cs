@@ -24,6 +24,7 @@ public class Downerizer : MonoBehaviour
             {
                 same = collision.GetComponent<Player>().ChangeDown(new Vector2(transform.right.y, -transform.right.x));
             }
+
             if(!same)
             {
                 GameManager.audioManager.Play("GravitySwap");

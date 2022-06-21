@@ -20,7 +20,7 @@ public class Coin : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!collected)
+        if (!collected && other.CompareTag("Player"))
         {
             StartCoroutine(RandomFunctions.FadeTo(transform.parent.GetChild(0).transform, 0f, 1f));
             GameManager.audioManager.Play("Coin");
