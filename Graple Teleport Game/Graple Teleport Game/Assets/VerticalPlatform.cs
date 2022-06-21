@@ -5,16 +5,18 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public class SandPlatform : MonoBehaviour
+public class VerticalPlatform : MonoBehaviour
 {
     public float speed;
     public float height;
     public Vector2 interval;
     Vector3 ogPos;
+    private Sink sink;
     void Start()
     {
         ogPos = transform.position;
         StartCoroutine(RiseFall(true));
+        if(transform.GetChild(0).GetComponent<Sink>() != null) { sink = transform.GetChild(0).GetComponent<Sink>(); }
     }
 
     public IEnumerator RiseFall(bool up)
@@ -23,7 +25,7 @@ public class SandPlatform : MonoBehaviour
         switch(up)
         {
             case true:
-                transform.GetChild(0).GetComponent<Sink>().enabled = true;
+                ChangeSink(true);
                 while (transform.position != ogPos + transform.up * height)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, ogPos + transform.up * height, speed * Time.deltaTime);
@@ -36,22 +38,30 @@ public class SandPlatform : MonoBehaviour
                     transform.position = Vector3.MoveTowards(transform.position, ogPos, speed * Time.deltaTime);
                     yield return null;
                 }
-                transform.GetChild(0).GetComponent<Sink>().enabled = false;
+                ChangeSink(false);
                 break;
         }
         
         yield return new WaitForSeconds(rand);
         StartCoroutine(RiseFall(!up));
     }
+
+    public void ChangeSink(bool tf)
+    {
+        if(sink != null)
+        {
+            sink.enabled = tf;
+        }
+    }
 }
 
 #if UNITY_EDITOR
-[CustomEditor(typeof(SandPlatform))]
+[CustomEditor(typeof(VerticalPlatform))]
 public class SandPlatformEditor : Editor
 {
     public void OnSceneGUI()
     {
-        var linkedObj = target as SandPlatform;
+        var linkedObj = target as VerticalPlatform;
 
         
 

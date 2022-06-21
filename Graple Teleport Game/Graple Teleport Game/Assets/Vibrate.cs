@@ -21,13 +21,13 @@ public class Vibrate : MonoBehaviour
             switch(v.w)
             {
                 case 1:
-                    netChange += v.y * Mathf.Sin(Time.time * v.x + v.z) * Vector3.right;
+                    netChange += v.y * Mathf.Sin(Time.time * v.x + v.z) * transform.right;
                     break;
                 case 2:
-                    netChange += v.y * Mathf.Sin(Time.time * v.x + v.z) * Vector3.up;
+                    netChange += v.y * Mathf.Sin(Time.time * v.x + v.z) * transform.up;
                     break;
                 case 3:
-                    netChange += v.y * Mathf.Sin(Time.time * v.x + v.z) * Vector3.forward;
+                    netChange += v.y * Mathf.Sin(Time.time * v.x + v.z) * transform.forward;
                     break;
             }
             
