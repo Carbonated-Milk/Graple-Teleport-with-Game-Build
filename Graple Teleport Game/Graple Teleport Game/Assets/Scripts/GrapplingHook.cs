@@ -49,6 +49,7 @@ public class GrapplingHook : MonoBehaviour, IAction
         StopAllCoroutines();
         if (shootLength > 0)
         {
+            player.enabled = true;
             StartCoroutine(RetractHook());
         }
     }

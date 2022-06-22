@@ -15,7 +15,7 @@ public class CameraMovement : MonoBehaviour
 
     private Rigidbody2D playerRb;
     private Camera cam;
-    public static Transform targetBounds;
+    public Transform targetBounds;
 
     void Start()
     {
@@ -44,7 +44,7 @@ public class CameraMovement : MonoBehaviour
 
     public void MovetoBounds()
     {
-        transform.position = Vector3.Lerp((Vector2)transform.position, (Vector2)targetBounds.position, moveSpeed / 100);
+        transform.position = Vector3.Lerp((Vector2)transform.position, (Vector2)targetBounds.position, moveSpeed / 100) + transform.position.z * Vector3.forward;
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetBounds.localScale.x/2 * Screen.height / Screen.width, moveSpeed / 100);
     }
 

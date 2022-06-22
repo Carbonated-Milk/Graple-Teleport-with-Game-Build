@@ -5,21 +5,30 @@ using UnityEngine;
 public class Pounder : MonoBehaviour
 {
     public float timeInverval;
+    public float offset;
     private Vector3 originalPos;
     private Vector3 smashPos;
     private bool up = true;
     public float speed;
     private ParticleSystem particals;
+    public ArrayList cueInputs = new ArrayList();
     void Start()
     {
         Physics2D.queriesStartInColliders = false;
 
         originalPos = transform.position;
         smashPos = Physics2D.Raycast(transform.position, -transform.up).point;
-        StartCoroutine(Running());
+        Invoke("StartRun", offset);
         particals = GetComponent<ParticleSystem>();
+        CueInput[] newCues = transform.GetComponentsInChildren<CueInput>();
+        cueInputs.AddRange(newCues);
+        //foreach(CueInput x in newCues) { x.}
     }
 
+    public void StartRun()
+    {
+        StartCoroutine(Running());
+    }
     public IEnumerator Running()
     {
         float deltaTime = 0;
@@ -38,6 +47,7 @@ public class Pounder : MonoBehaviour
 
     public IEnumerator Pound()
     {
+        ChangeCues(true);
         transform.GetChild(0).tag = "Death";
         while(transform.position != smashPos)
         {
@@ -49,6 +59,7 @@ public class Pounder : MonoBehaviour
     }
     public IEnumerator Release()
     {
+        ChangeCues(false);
         transform.GetChild(0).tag = "Untagged";
         while (transform.position != originalPos)
         {
@@ -58,4 +69,14 @@ public class Pounder : MonoBehaviour
         up = true;
     }
 
+    void ChangeCues(bool state)
+    {
+        if (cueInputs.Count > 0)
+        {
+            foreach (CueInput c in cueInputs)
+            {
+                c.ChangeCue(state);
+            }
+        }
+    }
 }

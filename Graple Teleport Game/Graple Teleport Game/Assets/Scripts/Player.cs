@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     [HideInInspector] private Vector2 rightDir;
     [HideInInspector] private Vector2 downDir;
-    private CameraMovement cam;
+    [HideInInspector] public CameraMovement cam;
 
     private Camera camera;
 

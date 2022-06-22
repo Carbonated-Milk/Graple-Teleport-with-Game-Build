@@ -10,14 +10,16 @@ namespace PathCreation.Examples
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
         public float speed = 5;
-        [HideInInspector]public float distanceTravelled;
+        [HideInInspector] public float distanceTravelled;
         public float offset;
         public bool rotate;
 
         public int coppies;
         private bool original = true;
+        public bool wait = true;
 
-        void Start() {
+        void Start()
+        {
             if (pathCreator != null)
             {
                 // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
@@ -47,18 +49,23 @@ namespace PathCreation.Examples
         {
             if (pathCreator != null)
             {
-                distanceTravelled += speed * Time.fixedDeltaTime;
+                if (!wait)
+                {
+                    distanceTravelled += speed * Time.fixedDeltaTime;
+                }
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                if(rotate)
+                if (rotate)
                 {
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
                 }
+
             }
         }
 
         // If the path changes during the game, update the distance travelled so that the follower's position on the new path
         // is as close as possible to its position on the old path
-        void OnPathChanged() {
+        void OnPathChanged()
+        {
             distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
         }
     }

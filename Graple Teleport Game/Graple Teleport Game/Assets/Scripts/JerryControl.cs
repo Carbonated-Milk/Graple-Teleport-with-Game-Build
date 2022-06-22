@@ -79,7 +79,7 @@ public class JerryControl : MonoBehaviour
         switch (phase)
         {
             case 0:
-                CameraMovement.targetBounds = cameraBounds;
+                foreach (CameraMovement c in FindObjectsOfType<CameraMovement>()) { c.targetBounds = cameraBounds; }
                 StartCoroutine(Shoot());
                 NewBoingers(2);
                 StartCoroutine(Lazers(1, 5));
@@ -114,7 +114,7 @@ public class JerryControl : MonoBehaviour
     public void Defeated()
     {
         GameManager.menuManager.OpenPanel(GameManager.menuManager.transform.Find("Level Complete").gameObject);
-        CameraMovement.targetBounds = null;
+        foreach (CameraMovement c in FindObjectsOfType<CameraMovement>()) { c.targetBounds = null; }
         Destroy(gameObject);
     }
 
@@ -136,7 +136,7 @@ public class JerryControl : MonoBehaviour
             lineRens[i].transform.position = transform.position;
             lineRens[i].transform.Rotate(i * 360 / num * Vector3.forward);
         }
-        while(true)
+        while (true)
         {
             foreach (var lineRen in lineRens)
             {

@@ -138,6 +138,7 @@ namespace PathCreation.Examples {
 
             meshRenderer = meshHolder.GetComponent<MeshRenderer> ();
             meshFilter = meshHolder.GetComponent<MeshFilter> ();
+            meshHolder.transform.parent = transform.parent;
             if (mesh == null) {
                 mesh = new Mesh ();
             }
