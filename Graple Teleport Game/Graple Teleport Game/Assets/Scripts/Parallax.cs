@@ -10,8 +10,8 @@ public class Parallax : MonoBehaviour
     public bool scaling;
     public float sizeAdjust;
     private float length, height, startposX, startposY;
-    private Transform cam;
-    private Camera camera;
+    [HideInInspector] public Transform cam;
+    [HideInInspector] public Camera camera;
     public float parallaxEffect, parralaxY;
     [HideInInspector] public bool clone = false;
     public bool noTopRepeat;
@@ -21,9 +21,12 @@ public class Parallax : MonoBehaviour
     [HideInInspector] public Vector2 initialScale;
     void Start()
     {
-
-        cam = FindObjectOfType<Camera>().transform;
-        camera = cam.transform.GetComponent<Camera>();
+        if(cam == null)
+        {
+            cam = FindObjectOfType<Camera>().transform;
+            camera = cam.transform.GetComponent<Camera>();
+        }
+        
 
 
         startposX = transform.position.x;

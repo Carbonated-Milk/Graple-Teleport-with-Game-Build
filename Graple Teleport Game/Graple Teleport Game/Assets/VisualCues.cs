@@ -11,13 +11,13 @@ public class VisualCues : MonoBehaviour, CueInput
 
     private void Start()
     {
-        ChangeCue(false);
         sp = GetComponent<SpriteRenderer>();
     }
     public void ChangeCue(bool newState)
     {
         state = newState;
         sp.color = state ? col1 : col2;
+        transform.parent = null;
     }
 }
 public interface CueInput
