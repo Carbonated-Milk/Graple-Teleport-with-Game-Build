@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class Pounder : MonoBehaviour
 {
+    public bool useEdit = false;
     public float timeInverval;
     public float offset;
-    private Vector3 originalPos;
-    private Vector3 smashPos;
+    [HideInInspector] public Vector3 originalPos;
+    [HideInInspector] public Vector3 smashPos;
     private bool up = true;
     public float speed;
     private ParticleSystem particals;
@@ -17,7 +21,10 @@ public class Pounder : MonoBehaviour
         Physics2D.queriesStartInColliders = false;
 
         originalPos = transform.position;
-        smashPos = Physics2D.Raycast(transform.position, -transform.up).point;
+        if(!useEdit)
+        {
+            smashPos = Physics2D.Raycast(transform.position, -transform.up).point;
+        }
         Invoke("StartRun", offset);
         particals = GetComponent<ParticleSystem>();
         CueInput[] newCues = transform.GetComponentsInChildren<CueInput>();
@@ -80,3 +87,29 @@ public class Pounder : MonoBehaviour
         }
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(Pounder))]
+public class PounderEditor : Editor
+{
+    public void OnSceneGUI()
+    {
+        var linkedObj = target as Pounder;
+
+        if (linkedObj.useEdit)
+        {
+            Handles.color = Color.black;
+
+            EditorGUI.BeginChangeCheck();
+            float newH = Vector3.Distance(Handles.DoPositionHandle(linkedObj.smashPos, linkedObj.transform.rotation), linkedObj.transform.position);
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(target, "Update Hieght");
+                linkedObj.smashPos = linkedObj.transform.position + -linkedObj.transform.up * newH;
+            }
+        }
+    }
+}
+
+#endif

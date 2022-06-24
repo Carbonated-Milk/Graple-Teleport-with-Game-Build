@@ -116,7 +116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -30
+  m_SortingOrder: -800
   m_Sprite: {fileID: 21300000, guid: 961d0f7da70924a41be1110e6b801813, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f39fde11707fd489d624a14cc2c398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   offset: {x: 0, y: 0}
 --- !u!1 &6666060322349268951
 GameObject:
@@ -5001,7 +5003,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -50
+  m_SortingOrder: -900
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -5039,4 +5041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f39fde11707fd489d624a14cc2c398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   offset: {x: 0, y: 0}
