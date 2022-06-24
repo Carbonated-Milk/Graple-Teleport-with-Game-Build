@@ -13,17 +13,25 @@ public class MasterParrallax : MonoBehaviour
         FindObjectOfType<PlayerInputManager>().playerJoinedEvent.AddListener(OnPlayerJoined);
         transform.position = Vector3.zero;
     }
+    private void Start()
+    {
+        PlayerInput[] startPlayers = FindObjectsOfType<PlayerInput>();
+        foreach(PlayerInput p in startPlayers)
+        {
+            OnPlayerJoined(p);
+        }
+    }
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         Camera cam = playerInput.transform.parent.gameObject.GetComponentInChildren<Camera>();
-        Parallax[] parallax = GetComponentsInChildren<Parallax>();
+        MasterBackground[] backgrounds = GetComponentsInChildren<MasterBackground>();
 
-        foreach(Parallax p in parallax)
+        foreach(MasterBackground background in backgrounds)
         {
-            Debug.Log(p);
-            GameObject newBack = Instantiate(p.gameObject);
+            Debug.Log(background);
+            GameObject newBack = Instantiate(background.gameObject);
             newBack.GetComponent<SpriteRenderer>().enabled = true;
-            Parallax newP = newBack.GetComponent<Parallax>();
+            MasterBackground newP = newBack.GetComponent<MasterBackground>();
             newP.cam = cam.transform;
             newP.camera = cam;
             RemoveLayer(cam, layer);
@@ -39,8 +47,20 @@ public class MasterParrallax : MonoBehaviour
         Camera[] cams = FindObjectsOfType<Camera>();
         foreach(Camera c in cams)
         {
-            c.cullingMask = c.cullingMask & ~(1 << layer);
+            c.cullingMask = 1 << 0;
+            for (int i = 0; i < 10; i++)
+            {
+                c.cullingMask |= 1 << i;
+            }
         }
-        camera.cullingMask = camera.cullingMask | (1 << layer);
+        camera.cullingMask |= 1 << layer;
     }
+}
+
+
+public abstract class MasterBackground : MonoBehaviour
+{
+    [HideInInspector] public Transform cam;
+
+    [HideInInspector] public Camera camera;
 }

@@ -123,9 +123,10 @@ public class Levels
     public string startingThemeName;
     public bool isLevel;
 
+    //IF IT DOESN"T WORK: remember to add the scene to build settings
     public void FindIndex()
     {
-        //Debug.Log(levelName);
+        Debug.Log(levelName);
         //levelIndex = SceneManager.GetSceneByName(levelName).buildIndex;
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {

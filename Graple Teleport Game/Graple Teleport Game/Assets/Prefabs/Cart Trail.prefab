@@ -683,9 +683,11 @@ MonoBehaviour:
   pathCreator: {fileID: 8668554892733399720}
   endOfPathInstruction: 0
   speed: 5
+  distanceTravelled: 0
   offset: 0
   rotate: 0
   coppies: 1
+  wait: 0
 --- !u!1 &9205094791600708210
 GameObject:
   m_ObjectHideFlags: 0

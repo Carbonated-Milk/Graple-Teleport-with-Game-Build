@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StationaryBackground : MonoBehaviour
+public class StationaryBackground : MasterBackground
 {
     public Vector2 offset;
-    private Transform cam;
-    private Camera camera;
     private float ogOrthographic;
     private Vector3 ogScale;
     void Start()
     {
-        cam = FindObjectOfType<Camera>().transform;
-        camera = cam.transform.GetComponent<Camera>();
+        if(cam == null)
+        {
+            cam = FindObjectOfType<Camera>().transform;
+            camera = cam.transform.GetComponent<Camera>();
+        }
 
         ogScale = transform.localScale;
         ogOrthographic = camera.orthographicSize;
@@ -26,3 +27,5 @@ public class StationaryBackground : MonoBehaviour
         transform.localScale = ogScale * sizeScale;
     }
 }
+
+

@@ -9,21 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 7a0b83be191dfed4baeb28e3a0e43ebf
   - enabled: 1
+    path: Assets/Scenes/Sand Land.unity
+    guid: 5e4b70ee2858fbf4999c127069b9dd15
+  - enabled: 1
     path: Assets/Scenes/Clouds.unity
     guid: e55b22ec0bd0f4546883e03bc667885e
   - enabled: 1
     path: Assets/Scenes/Dusk Clouds.unity
     guid: f1cbb8de08657ba45b2218f976e47a08
   - enabled: 1
-    path: Assets/Scenes/Outer Core.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Factory.unity
+    guid: 86445efccf1d8f14eb8e9d07769189ec
   - enabled: 1
     path: Assets/Scenes/Space.unity
     guid: 1da2514f7cbf44f458211cc1f1e04c37
   - enabled: 1
-    path: Assets/Scenes/Sand Land.unity
-    guid: 5e4b70ee2858fbf4999c127069b9dd15
+    path: Assets/Scenes/Outer Core.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Factory.unity
-    guid: 86445efccf1d8f14eb8e9d07769189ec
+    path: Assets/Scenes/Final Level.unity
+    guid: 94fd855eb8d3e1943b5926b679aaa362
   m_configObjects: {}

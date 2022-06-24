@@ -3,15 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parallax : MonoBehaviour
+public class Parallax : MasterBackground
 {
     public Vector2 sizeArray;
 
     public bool scaling;
     public float sizeAdjust;
     private float length, height, startposX, startposY;
-    [HideInInspector] public Transform cam;
-    [HideInInspector] public Camera camera;
     public float parallaxEffect, parralaxY;
     [HideInInspector] public bool clone = false;
     public bool noTopRepeat;

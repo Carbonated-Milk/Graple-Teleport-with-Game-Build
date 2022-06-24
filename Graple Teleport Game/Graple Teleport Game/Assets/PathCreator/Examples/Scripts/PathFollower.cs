@@ -16,7 +16,7 @@ namespace PathCreation.Examples
 
         public int coppies;
         private bool original = true;
-        public bool wait = true;
+        public bool wait = false;
 
         void Start()
         {
