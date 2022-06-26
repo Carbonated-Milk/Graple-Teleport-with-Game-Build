@@ -15,6 +15,7 @@ public class Parallax : MasterBackground
     public bool noTopRepeat;
     public bool localized;
     public bool screenRepeat;
+    private Transform scalePicture;
 
     [HideInInspector] public Vector2 initialScale;
     void Start()
@@ -51,6 +52,10 @@ public class Parallax : MasterBackground
             Array();
 
         }
+        else
+        {
+            scalePicture = transform.GetChild(0);
+        }
     }
 
     // Update is called once per frame
@@ -75,9 +80,9 @@ public class Parallax : MasterBackground
             }
         }
 
-        if (scaling)
+        if (scaling && scalePicture != null)
         {
-            SpeedScale(transform.GetChild(0));
+            SpeedScale(scalePicture);
         }
 
     }

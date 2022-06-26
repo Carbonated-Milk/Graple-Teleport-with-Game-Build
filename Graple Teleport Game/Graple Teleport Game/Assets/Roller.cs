@@ -49,7 +49,7 @@ public class Roller : MonoBehaviour
         }
         Debug.DrawLine(transform.position, hitRL.point, Color.green);
 
-        transform.Rotate(Vector3.forward *  -dir * speed * radius / (4 * Mathf.PI));
+        transform.Rotate(Vector3.forward * -dir * speed * 50 * Mathf.PI / radius * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

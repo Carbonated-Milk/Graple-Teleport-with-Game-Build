@@ -28,7 +28,7 @@ public class MasterParrallax : MonoBehaviour
 
         foreach(MasterBackground background in backgrounds)
         {
-            Debug.Log(background);
+            //Debug.Log(background);
             GameObject newBack = Instantiate(background.gameObject);
             newBack.GetComponent<SpriteRenderer>().enabled = true;
             MasterBackground newP = newBack.GetComponent<MasterBackground>();
