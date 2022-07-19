@@ -26,6 +26,8 @@ public class MasterParrallax : MonoBehaviour
         Camera cam = playerInput.transform.parent.gameObject.GetComponentInChildren<Camera>();
         MasterBackground[] backgrounds = GetComponentsInChildren<MasterBackground>();
 
+        Debug.Log("newPlayer");
+
         foreach(MasterBackground background in backgrounds)
         {
             //Debug.Log(background);

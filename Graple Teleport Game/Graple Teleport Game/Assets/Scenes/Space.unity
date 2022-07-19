@@ -9618,6 +9618,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 6666060321902119934, guid: a218fe080e9ecd44993aabb63b7cb218,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666060321902119935, guid: a218fe080e9ecd44993aabb63b7cb218,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666060322349268946, guid: a218fe080e9ecd44993aabb63b7cb218,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6666060322349268947, guid: a218fe080e9ecd44993aabb63b7cb218,
         type: 3}
       propertyPath: m_Color.b
@@ -9631,6 +9646,11 @@ PrefabInstance:
     - target: {fileID: 6666060322349268947, guid: a218fe080e9ecd44993aabb63b7cb218,
         type: 3}
       propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666060322349268947, guid: a218fe080e9ecd44993aabb63b7cb218,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
