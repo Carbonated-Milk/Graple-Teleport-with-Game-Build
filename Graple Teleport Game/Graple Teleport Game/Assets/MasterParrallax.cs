@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class MasterParrallax : MonoBehaviour
 {
+    public ArrayList players = new ArrayList();
     int layer = 31;
 
     private void Awake()
@@ -23,6 +24,10 @@ public class MasterParrallax : MonoBehaviour
     }
     public void OnPlayerJoined(PlayerInput playerInput)
     {
+
+        if (players.Contains(playerInput)) { return; }
+        else { players.Add(playerInput); }
+
         Camera cam = playerInput.transform.parent.gameObject.GetComponentInChildren<Camera>();
         MasterBackground[] backgrounds = GetComponentsInChildren<MasterBackground>();
 
