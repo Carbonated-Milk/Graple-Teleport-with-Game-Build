@@ -824,6 +824,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0}
   mouseCoord: {x: 0, y: 0}
   actionSwitch: 0
+  cam: {fileID: 0}
   canJump: 0
   contained: 0
   containedObj: {fileID: 0}
@@ -1038,7 +1039,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: -1000
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -1076,6 +1077,7 @@ MonoBehaviour:
   speedSizeBoost: 1
   minSize: 5
   maxSize: 10
+  targetBounds: {fileID: 0}
 --- !u!114 &5434886849084918431
 MonoBehaviour:
   m_ObjectHideFlags: 0

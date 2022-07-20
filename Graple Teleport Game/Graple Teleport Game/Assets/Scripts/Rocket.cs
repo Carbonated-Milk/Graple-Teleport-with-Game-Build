@@ -43,8 +43,8 @@ public class Rocket : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            cargo = FindObjectOfType<Player>().gameObject;
-            player = collision.gameObject.GetComponent<Player>(); 
+            player = collision.gameObject.GetComponent<Player>();
+            cargo = player.gameObject;
             StartCoroutine(Launch(collision.gameObject));
         }
         if (collision.gameObject.CompareTag("Death"))

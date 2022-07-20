@@ -96,6 +96,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        FindObjectOfType<MasterParrallax>().CamCheck();
         /*if (GameManager.player == null)
         {
             GameManager.player = this;

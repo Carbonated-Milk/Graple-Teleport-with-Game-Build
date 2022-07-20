@@ -1359,6 +1359,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1134994634}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &332791526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2075733266394172947, guid: 9727295987cfe884796a99532210c5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2075733265289983088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &332791527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332791526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b7e739d9618754e9c10a100f7c32de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &350553765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3717,7 +3735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &875090539
 Transform:
   m_ObjectHideFlags: 0
@@ -4923,7 +4941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1101665985
 Transform:
   m_ObjectHideFlags: 0
@@ -6618,9 +6636,9 @@ Transform:
   - {fileID: 1355786086}
   - {fileID: 117543633}
   - {fileID: 1713161505}
-  - {fileID: 1489136614}
   - {fileID: 1241532419}
   - {fileID: 1450998936}
+  - {fileID: 1489136614}
   - {fileID: 307608634}
   - {fileID: 808610336}
   - {fileID: 1373900391}
@@ -7055,7 +7073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1351084150
 Transform:
   m_ObjectHideFlags: 0
@@ -11114,7 +11132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2122220589
 Transform:
   m_ObjectHideFlags: 0
@@ -11571,7 +11589,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2075733266394172949, guid: 9727295987cfe884796a99532210c5fc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9727295987cfe884796a99532210c5fc, type: 3}
 --- !u!1001 &5693974717311079933
 PrefabInstance:

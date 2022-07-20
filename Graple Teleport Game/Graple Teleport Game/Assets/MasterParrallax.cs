@@ -8,6 +8,8 @@ public class MasterParrallax : MonoBehaviour
 {
     public ArrayList players = new ArrayList();
     int layer = 31;
+    public ArrayList layeredCams = new ArrayList();
+
 
     private void Awake()
     {
@@ -47,6 +49,16 @@ public class MasterParrallax : MonoBehaviour
         }
         layer -= 1;
 
+        CamCheck();
+    }
+
+    public void CamCheck()
+    {
+        foreach(PlayerInput p in FindObjectsOfType<PlayerInput>())
+        {
+            if (players.Contains(p)) { continue; }
+            OnPlayerJoined(p);
+        }
     }
 
     private void RemoveLayer(Camera camera, int layer)
@@ -54,13 +66,15 @@ public class MasterParrallax : MonoBehaviour
         Camera[] cams = FindObjectsOfType<Camera>();
         foreach(Camera c in cams)
         {
+            if(layeredCams.Contains(c)) { continue; }
             c.cullingMask = 1 << 0;
             for (int i = 0; i < 10; i++)
             {
-                c.cullingMask |= 1 << i;
+                c.cullingMask |= 1 << i; //adds layers 1 to 10
             }
+            layeredCams.Add(c);
         }
-        camera.cullingMask |= 1 << layer;
+        camera.cullingMask |= 1 << layer; //adds new layer back to original camera
     }
 }
 
