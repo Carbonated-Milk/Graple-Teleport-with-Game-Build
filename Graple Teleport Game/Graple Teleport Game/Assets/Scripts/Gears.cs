@@ -9,12 +9,22 @@ public class Gears : MonoBehaviour
     [HideInInspector]
     public float rotationSpeed;
     public GameObject[] connectedGears;
+
+    private void Start()
+    {
+        foreach (GameObject gear in connectedGears)
+        {
+            gear.GetComponent<Gears>().rotationSpeed = -rotationSpeed * transform.localScale.x / gear.transform.localScale.x;
+        }
+    }
     void Update()
     {
         transform.rotation = Quaternion.Euler(Vector3.forward * rotationSpeed * Time.deltaTime + transform.rotation.eulerAngles);
         foreach (GameObject gear in connectedGears)
         {
-            gear.transform.rotation = Quaternion.Euler(Vector3.forward * -rotationSpeed * transform.localScale.x / gear.transform.localScale.x * Time.deltaTime + gear.transform.rotation.eulerAngles);
+            gear.GetComponent<Gears>().rotationSpeed = -rotationSpeed * transform.localScale.x / gear.transform.localScale.x;
+
+            //gear.transform.rotation = Quaternion.Euler(Vector3.forward * -rotationSpeed * transform.localScale.x / gear.transform.localScale.x * Time.deltaTime + gear.transform.rotation.eulerAngles);
         }
     }
 }
@@ -29,7 +39,7 @@ public class GearEditor : Editor
         Gears script = (Gears)target;
         //script.firstGear = EditorGUILayout.Toggle("First Gear", script.firstGear);
         if (script.firstGear)
-        { 
+        {
 
             script.rotationSpeed = EditorGUILayout.FloatField("Rotation Speed", script.rotationSpeed);
             //script.rotationSpeed = EditorGUILayout.FloatField("Rotation Speed", script.rotationSpeed, typeof(float), true) as float;

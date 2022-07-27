@@ -57,7 +57,7 @@ Shader "Hidden/Pixilated"
                 // just invert the colors
                 //col.rgb = 1 - col.rgb;
                 col = lerp(col, random(i.uv) - .5, _noise);
-                col = lerp(col, i.color, frac(i.uv.x * _pixelSize) + frac(i.uv.x * _pixelSize));
+                //col = lerp(col, i.color, frac(i.uv.x * _pixelSize) + frac(i.uv.x * _pixelSize));
                 return col; //* i.color;
             }
             ENDCG

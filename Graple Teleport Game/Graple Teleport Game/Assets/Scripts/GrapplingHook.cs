@@ -57,7 +57,8 @@ public class GrapplingHook : MonoBehaviour, IAction
     {
         if (player.mousePos == Vector2.zero)
         {
-            mousePos = player.moverDir + (Vector2)transform.position;
+            Vector2 normPos = player.moverDir + (Vector2)transform.position;
+            mousePos = RandomFunctions.RotateVector(normPos, Mathf.Atan2(Physics2D.gravity.normalized.y, Physics2D.gravity.normalized.y) - 270 * Mathf.Deg2Rad);
         }
         else
         {

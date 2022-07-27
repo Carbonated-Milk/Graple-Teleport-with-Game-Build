@@ -7,7 +7,8 @@ Shader "Unlit/Respawn"
 		_ColorB("Color B", Color) = (1,1,1,1)
 		timeScale("TimeScale", float) = 1
 	}
-		SubShader
+
+	SubShader
 	{
 		Tags { "RenderType" = "Opaque"
 				"Queue" = "Geometry" }

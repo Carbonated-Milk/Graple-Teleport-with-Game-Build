@@ -35,6 +35,11 @@ public class RandomFunctions : MonoBehaviour
         return null;
     }
 
+    internal static Vector2 RotateVector(Vector2 vector, float rads)
+    {
+        return new Vector2(Mathf.Cos(rads) * vector.x - Mathf.Sin(rads)* vector.y, Mathf.Sin(rads) * vector.x + Mathf.Cos(rads) * vector.y);
+    }
+
     internal static Vector2 RandomVector()
     {
         return new Vector2(Mathf.Sin(Random.Range(0f, 2 * Mathf.PI)), Mathf.Sin(Random.Range(0f, 2 * Mathf.PI)));
