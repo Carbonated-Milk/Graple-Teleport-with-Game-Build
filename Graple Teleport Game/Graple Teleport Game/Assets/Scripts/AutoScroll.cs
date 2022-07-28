@@ -6,7 +6,7 @@ using PathCreation.Examples;
 public class AutoScroll : MonoBehaviour
 {
     public PathFollower pF;
-    public int ins = 0;
+    private int ins = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
