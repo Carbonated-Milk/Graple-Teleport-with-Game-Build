@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, Hurtable
 {
     public float cayoteTime;
     public float health;
@@ -318,7 +318,6 @@ public class Player : MonoBehaviour
         GameManager.menuManager.SetTimeScale(1);
         GameManager.menuManager.LoadScene("Main Menu");
     }
-
 }
 
 
@@ -326,4 +325,8 @@ public interface IAction
 {
     public void Begin();
     public void Finish();
+}
+public interface Hurtable
+{
+    public void Hurt(float damage);
 }
