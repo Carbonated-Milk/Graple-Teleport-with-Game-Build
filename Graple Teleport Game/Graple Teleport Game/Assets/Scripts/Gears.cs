@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine.UI;
 public class Gears : MonoBehaviour
 {
@@ -29,6 +31,8 @@ public class Gears : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(Gears))]
 public class GearEditor : Editor
 {
@@ -47,3 +51,5 @@ public class GearEditor : Editor
         }
     }
 }
+
+#endif

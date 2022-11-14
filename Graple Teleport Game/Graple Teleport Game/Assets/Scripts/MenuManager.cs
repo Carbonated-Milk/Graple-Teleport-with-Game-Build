@@ -72,7 +72,11 @@ public class MenuManager : MonoBehaviour
     {
         topDoor.SetTrigger("Close");
 
-        yield return new WaitForSeconds(waitTime);
+        //close takes too long
+        yield return new WaitForSeconds(waitTime / 2);
+        GameManager.audioManager.Play("CloseDoor");
+
+        yield return new WaitForSeconds(waitTime/2);
 
         GameManager.playerCount = 0;
         SceneManager.LoadScene(l.levelIndex);
@@ -100,6 +104,7 @@ public class MenuManager : MonoBehaviour
         topDoor.SetTrigger("Open"); 
         GameManager.audioManager.StopAllSongs();
         GameManager.audioManager.Play(l.startingThemeName);
+        GameManager.audioManager.Play("OpenDoor");
     }
     public void SetTimeScale(float newTime)
     {

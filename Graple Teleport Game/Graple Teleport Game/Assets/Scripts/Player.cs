@@ -311,8 +311,6 @@ public class Player : MonoBehaviour, Hurtable
         return false;
     }
 
-    
-
     public void ReturntoMenu()
     {
         GameManager.menuManager.SetTimeScale(1);

@@ -787,11 +787,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -894,11 +894,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -2527,6 +2527,7 @@ Transform:
   - {fileID: 305678992}
   - {fileID: 928772243}
   - {fileID: 58216119}
+  - {fileID: 779378098}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2659,11 +2660,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.7
   parralaxY: 0
   clone: 0
@@ -3781,11 +3782,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.85
   parralaxY: 0
   clone: 0
@@ -5732,11 +5733,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.95
   parralaxY: 0
   clone: 0
@@ -6243,11 +6244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -6779,11 +6780,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -7371,11 +7372,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -10514,11 +10515,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -11278,11 +11279,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -13124,11 +13125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -14208,11 +14209,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -14564,11 +14565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -15520,6 +15521,96 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 690507549}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &779378097
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 116933765}
+    m_Modifications:
+    - target: {fileID: 4874566655344764240, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_Name
+      value: CloundBoing (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764241, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: plinkoNum
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764242, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 72.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 52.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682369133521413145, guid: 946a7db75f968004eb45559ad765e243,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 946a7db75f968004eb45559ad765e243, type: 3}
+--- !u!4 &779378098 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4874566655344764244, guid: 946a7db75f968004eb45559ad765e243,
+    type: 3}
+  m_PrefabInstance: {fileID: 779378097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &780693658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15655,11 +15746,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -16766,11 +16857,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -16879,11 +16970,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -17246,11 +17337,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -17422,11 +17513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -17946,11 +18037,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -18906,11 +18997,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -19406,11 +19497,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -19857,11 +19948,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -20938,11 +21029,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.85
   parralaxY: 0
   clone: 0
@@ -23123,11 +23214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.55
   parralaxY: 0
   clone: 0
@@ -24701,11 +24792,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.85
   parralaxY: 0
   clone: 0
@@ -25065,11 +25156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -25443,11 +25534,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -25556,11 +25647,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -25991,11 +26082,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -26195,11 +26286,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.5
   parralaxY: 0
   clone: 0
@@ -26912,11 +27003,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.5
   parralaxY: 0
   clone: 0
@@ -28363,11 +28454,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -28868,11 +28959,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -29150,11 +29241,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -29495,11 +29586,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.3
   parralaxY: 0
   clone: 0
@@ -29734,11 +29825,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
@@ -32972,11 +33063,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.95
   parralaxY: 0
   clone: 0
@@ -35185,11 +35276,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: -0.09
   parralaxY: 0
   clone: 0
@@ -36169,11 +36260,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 1
   sizeAdjust: 1
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.99
   parralaxY: 0
   clone: 0
@@ -36921,11 +37012,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596c4a91f9cd2848a2967ccc55fd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  camera: {fileID: 0}
   sizeArray: {x: 1, y: 1}
   scaling: 0
   sizeAdjust: 0
-  cam: {fileID: 0}
-  camera: {fileID: 0}
   parallaxEffect: 0.1
   parralaxY: 0
   clone: 0
